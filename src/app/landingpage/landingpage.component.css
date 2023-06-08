@@ -1,3 +1,4 @@
+/* NAVIGATION LINKS */
 .navigation-menu{
     background-color: white;
     border: 1px solid black;
@@ -33,7 +34,7 @@
     background-color: red;
 }
 
-.auth{
+.navlinks{
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -58,22 +59,7 @@
     outline: none;
 }
 
-.signup{
-    background-color: rgb(15,148,253);
-    color: white;
-    border: 1px solid white;
-    height: 30px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-}
-
-.signup:hover{
-    background-color: orange;
-}
-
-.login{
+.logout{
     background-color: rgb(225,236,244);
     color:  rgb(15,148,253);
     border: 1px solid white;
@@ -84,7 +70,7 @@
     border-radius: 10px;
 }
 
-.login:hover{
+.logout:hover{
     background-color: orange;
 }
 
@@ -135,6 +121,7 @@
     color: rgb(217,108,39);
 }
 
+/* FOOTER STYLES */
 .footer{
     background-color:  rgb(35,38,41);
     margin-top: .2rem;

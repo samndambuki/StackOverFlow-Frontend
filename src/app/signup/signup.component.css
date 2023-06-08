@@ -1,0 +1,156 @@
+/* NAVIGATION MENU STYLES */
+
+.navigation-menu{
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    margin-top: 3px;
+    padding: 1rem;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.stackoverflow {
+    display: flex;
+    align-items: center;
+}
+
+.stacklogo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 80%;
+}
+
+.stacklogo p{
+    font-size: 2rem;
+}
+
+.stacklogo span{
+    font-weight: bold;
+}
+
+.stackoverflow img{
+    width: 15%;
+    background-color: red;
+}
+
+.search-bar{
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.search-bar input{
+    border: none;
+    width: 700px;
+    padding: .1rem;
+    font-size: 1.1rem;
+}
+
+.search-bar input:focus{
+    outline: none;
+}
+
+.home{
+    background-color: rgb(225,236,244);
+    color:  rgb(15,148,253);
+    border: 1px solid white;
+    height: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.home:hover{
+    background-color: orange;
+}
+
+/* SIGN UP CONTAINER STYLES */
+
+.signupcontainer{
+    border: 2px solid grey;
+    border-radius: 5px;
+    width: 30%;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 33rem;
+    padding: 1rem;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.name{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.email{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.password{
+    display: flex;
+    flex-direction: column;
+    gap: .3rem;
+}
+
+.name input{
+    width: 200px;
+    padding: .1rem;
+    font-size: 1rem;
+}
+
+.email input{
+    width: 200px;
+    padding: .1rem;
+    font-size: 1rem;
+}
+
+.password input{
+    width: 200px;
+    padding: .1rem;
+    font-size: 1rem;
+}
+
+.passwordContent{
+    color: grey;
+}
+
+.signUpButton{
+    background-color: rgb(0,115,204);
+    color: white;
+    padding: 1rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+/* SIGN UP FOOTER STYLES */
+
+.signUpFooter{
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginButton{
+    background-color: rgb(0,115,204);
+    color: white;
+    padding: .4rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+}
+
+
+
