@@ -8,6 +8,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { AskquestionComponent } from './askquestion/askquestion.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HomeComponent } from './home/home.component';
     FontAwesomeModule,
     SignupComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AskquestionComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
