@@ -9,6 +9,7 @@ import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AskquestionComponent } from './askquestion/askquestion.component';
+import { SinglequestionComponent } from './singlequestion/singlequestion.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AskquestionComponent } from './askquestion/askquestion.component';
     SignupComponent,
     LoginComponent,
     HomeComponent,
-    AskquestionComponent
+    AskquestionComponent,
+    SinglequestionComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

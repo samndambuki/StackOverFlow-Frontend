@@ -1,0 +1,94 @@
+<div class="container">
+  <!-- NAVIGATION MENU -->
+  <div class="navigation-menu">
+    <!-- STACK OVERFLOW IMAGE -->
+    <div class="stackoverflow">
+      <div class="stacklogo">
+        <img src="../../assets/stackoverflowlogo.png" />
+        <p>Stack<span>Overflow</span></p>
+      </div>
+
+      <div class="search-bar">
+        <!-- SEARCH BAR ICON -->
+        <fa-icon [icon]="searchicon"></fa-icon>
+        <input type="text" placeholder="Search..." />
+      </div>
+    </div>
+
+    <!-- NAVIGATION LINKS -->
+
+    <div class="navlinks">
+      <!-- LOGOUT -->
+      <div class="logout">
+        <p>Logout</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="mainContent">
+
+
+  <!-- LEFT MENU BAR -->
+  <div class="leftMenuBar">
+    <a routerLink="">Home</a>
+    <a routerLink="">Public</a>
+
+    <div class="innerBar">
+      <a routerLink="">Questions</a>
+      <a routerLink="">Users</a>
+      <a routerLink="">Tags</a>
+      <a routerLink="">My Questions</a>
+    </div>
+  </div>
+
+
+  <!-- SINGLE QUESTION CONTENT -->
+
+  <div class="singleQuestionContent">
+    <div class="singleQuestionTitle">
+      <p>
+        How to append text in selected option only in select box.
+      </p>
+    </div>
+
+    <div class="singleQuestion">
+      <div class="voteIcons">
+        <fa-icon [icon] ="upIcon"></fa-icon>
+        <p>0</p>
+        <fa-icon [icon] ="downIcon"></fa-icon>
+      </div>
+     
+        <p>Can anybody show me how to append text?</p>
+    
+     
+    </div>
+
+    <div class="noOfAnswers">
+      <p>1 Answer</p>
+    </div>
+
+    <div class="answer">
+      <div class="voteIcons">
+        <fa-icon [icon] ="upIcon"></fa-icon>
+        <p>0</p>
+        <fa-icon [icon] ="downIcon"></fa-icon>
+      </div>
+      <p>If you want to append text, this is what you do.</p>
+    </div>
+
+    <div class="yourAnswer">
+      <p>Your answer</p>
+    </div>
+
+    <div class="answerInput">
+      <input type="text" placeholder="Enter your answer">
+    </div>
+ 
+    <button class="postAnswer">Post your answer</button>
+
+  </div>
+
+  </div>
+
+
+</div>

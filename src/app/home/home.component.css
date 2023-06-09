@@ -105,6 +105,10 @@
     gap: .5rem;
 }
 
+.content{
+    display: flex;
+}
+
 .allQuestions{
     display: flex;
     flex-direction: column;
