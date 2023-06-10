@@ -10,6 +10,10 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AskquestionComponent } from './askquestion/askquestion.component';
 import { SinglequestionComponent } from './singlequestion/singlequestion.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+import { MyQuestionsComponent } from './my-questions/my-questions.component';
+import { UpdateQuestionComponent } from './update-question/update-question.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { SinglequestionComponent } from './singlequestion/singlequestion.compone
     LoginComponent,
     HomeComponent,
     AskquestionComponent,
-    SinglequestionComponent
+    SinglequestionComponent,
+    UserProfileComponent,
+    MyQuestionsComponent,
+    UpdateQuestionComponent,
+    AdminComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

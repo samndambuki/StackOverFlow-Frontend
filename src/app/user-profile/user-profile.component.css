@@ -1,0 +1,140 @@
+/* NAVIGATION LINKS */
+
+.navigation-menu{
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    margin-top: 3px;
+    padding: 1rem;
+    justify-content: space-between;
+    border-radius: 10px;
+}
+
+.stackoverflow {
+    display: flex;
+    align-items: center;
+}
+
+.stacklogo {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 80%;
+}
+
+.stacklogo p{
+    font-size: 2rem;
+}
+
+.stacklogo span{
+    font-weight: bold;
+}
+
+.stackoverflow img{
+    width: 15%;
+    background-color: red;
+}
+
+.navlinks{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.search-bar{
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.search-bar input{
+    border: none;
+    width: 700px;
+    padding: .1rem;
+    font-size: 1.1rem;
+}
+
+.search-bar input:focus{
+    outline: none;
+}
+
+.logout{
+    background-color: rgb(225,236,244);
+    color:  rgb(15,148,253);
+    border: 1px solid white;
+    height: 30px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.logout:hover{
+    background-color: orange;
+}
+
+/* LEFT MENU BAR */
+
+.leftMenuBar{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin-top: .5rem;
+    width: 20%;
+    padding: 2rem;
+    height: 300px;  
+    margin-left: 1rem; 
+   
+}
+
+.innerBar{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem;
+    gap: .5rem;
+}
+
+
+/* CONTENT  */
+
+.content{
+    display: flex;
+}
+
+.profileSection{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin-left: 5rem;
+    gap: .5rem;
+    margin-top: 1rem;
+    width: 30%;
+    
+}
+
+.editProfile{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 1rem;
+    gap: .5rem;
+}
+
+.saveProfileButton{
+    color: rgb(225,236,244);
+    background-color:  rgb(15,148,253);
+    padding: .3rem;
+    border: 1px solid transparent;
+}
+
+.cancelButton{
+    color: rgb(225,236,244);
+    background-color:  rgb(15,148,253);
+    padding: .3rem;
+    border: 1px solid transparent;
+}
