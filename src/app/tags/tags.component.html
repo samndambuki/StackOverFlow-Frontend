@@ -1,0 +1,85 @@
+<div class="container">
+  <!-- NAVIGATION MENU -->
+  <div class="navigation-menu">
+    <!-- STACK OVERFLOW IMAGE -->
+    <div class="stackoverflow">
+      <div class="stacklogo">
+        <img src="../../assets/stackoverflowlogo.png" />
+        <p>Stack<span>Overflow</span></p>
+      </div>
+
+      <div class="search-bar">
+        <!-- SEARCH BAR ICON -->
+        <fa-icon [icon]="searchicon"></fa-icon>
+        <input type="text" placeholder="Search..." />
+      </div>
+    </div>
+
+    <!-- NAVIGATION LINKS -->
+
+    <div class="navlinks">
+      <!-- LOGOUT -->
+      <div class="logout">
+        <p>Logout</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT AT THE CENTER -->
+  <div class="content">
+    <!-- LEFT MENU BAR -->
+    <div class="leftMenuBar">
+      <a routerLink="">Home</a>
+      <a routerLink="">Public</a>
+
+      <div class="innerBar">
+        <a routerLink="">Questions</a>
+        <a routerLink="">Users</a>
+        <a routerLink="">Tags</a>
+        <a routerLink="">My Questions</a>
+      </div>
+    </div>
+
+    <div class="tags">
+      <p>
+        A tag is a keyword or label that categorizes your question with other,
+        similar questions. Using the right tags makes it easier for others to
+        find and answer your question.
+      </p>
+
+      <div class="filterBar">
+        <!-- SEARCH BAR ICON -->
+        <fa-icon [icon]="searchicon"></fa-icon>
+        <input type="text" placeholder="Filter by tag name..." />
+      </div>
+
+      <!-- DIFFERENT TAGS -->
+
+      <div class="differentTags">
+        <div class="tag1">
+          <p>JavaScript</p>
+        </div>
+
+        <div class="tag2">
+          <p>Java</p>
+        </div>
+
+        <div class="tag3">
+          <p>Python</p>
+        </div>
+
+        <div class="tag4">
+          <p>Html</p>
+        </div>
+
+        <div class="tag5">
+          <p>CSS</p>
+        </div>
+
+        <div class="tag6">
+          <p>Unanswered</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

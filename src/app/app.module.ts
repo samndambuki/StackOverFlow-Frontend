@@ -14,6 +14,11 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
 import { MyQuestionsComponent } from './my-questions/my-questions.component';
 import { UpdateQuestionComponent } from './update-question/update-question.component';
 import { AdminComponent } from './admin/admin.component';
+import { AdminSeesAllUsersComponent } from './admin-sees-all-users/admin-sees-all-users.component';
+import { AdminViewAllQuestionsComponent } from './admin-view-all-questions/admin-view-all-questions.component';
+import { TagsComponent } from './tags/tags.component';
+import { SpecificTagsComponent } from './specific-tags/specific-tags.component';
+import { AllUsersComponent } from './all-users/all-users.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { AdminComponent } from './admin/admin.component';
     UserProfileComponent,
     MyQuestionsComponent,
     UpdateQuestionComponent,
-    AdminComponent
+    AdminComponent,
+    AdminSeesAllUsersComponent,
+    AdminViewAllQuestionsComponent,
+    TagsComponent,
+    SpecificTagsComponent,
+    AllUsersComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

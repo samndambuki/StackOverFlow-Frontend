@@ -1,0 +1,72 @@
+<div class="container">
+  <!-- NAVIGATION MENU -->
+  <div class="navigation-menu">
+    <!-- STACK OVERFLOW IMAGE -->
+    <div class="stackoverflow">
+      <div class="stacklogo">
+        <img src="../../assets/stackoverflowlogo.png" />
+        <p>Stack<span>Overflow</span></p>
+      </div>
+
+      <div class="search-bar">
+        <!-- SEARCH BAR ICON -->
+        <fa-icon [icon]="searchicon"></fa-icon>
+        <input type="text" placeholder="Search..." />
+      </div>
+    </div>
+
+    <!-- NAVIGATION LINKS -->
+
+    <div class="navlinks">
+      <!-- LOGOUT -->
+      <div class="logout">
+        <p>Logout</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- LEFT MENU BAR -->
+    <div class="leftMenuBar">
+      <a routerLink="">Home</a>
+      <a routerLink="">Public</a>
+
+      <div class="innerBar">
+        <a routerLink="">Questions</a>
+        <a routerLink="">Users</a>
+        <a routerLink="">Tags</a>
+        <a routerLink="">My Questions</a>
+      </div>
+    </div>
+
+    <!-- A TABLE FOR ALL USERS -->
+
+    <div class="tableUsers">
+      <table>
+        <tr>
+          <th>User</th>
+          <th>Email</th>
+          <th>CRUD OPERATIONS</th>
+        </tr>
+
+        <tr>
+          <td>Samuel Ndambuki</td>
+          <td>sam.ndambuki08@gmil.com</td>
+          <td><button class="deleteButton">Delete</button></td>
+        </tr>
+
+        <tr>
+          <td>Samuel Ndambuki</td>
+          <td>sam.ndambuki08@gmil.com</td>
+          <td><button class="deleteButton">Delete</button></td>
+        </tr>
+
+        <tr>
+          <td>Samuel Ndambuki</td>
+          <td>sam.ndambuki08@gmil.com</td>
+          <td><button class="deleteButton">Delete</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
