@@ -139,3 +139,13 @@
     border: 1px solid transparent;
     border-radius: 5px;
 }
+
+/* ERROR MESSAGES */
+.error-message {
+    color: red;
+    margin-top: 4px;
+  }
+  
+  .error-text {
+    font-size: 14px;
+  }

@@ -46,6 +46,7 @@ export class SignupComponent {
 
       return { invalidPassword: true }; // Password is invalid
     }
+    
     this.signUpForm = this.formBuilder.group({
       name: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -66,7 +67,7 @@ export class SignupComponent {
     this.router.navigate(['/login']);
   }
 
-  onSubmit() {
+  onSignUpClicked() {
     if (this.signUpForm.invalid) {
       // Mark form controls as touched to display validation errors
       this.markFormGroupTouched(this.signUpForm);

@@ -35,41 +35,71 @@
 
     <div class="content">
 
+        <form #questionForm="ngForm" >
         <!-- TITLE -->
         <div class="title">
             <label>Title</label>
             <label>Be specific and imagine you are asking a question to another person</label>
-            <input type="text" placeholder="Enter the title of your question">
-            <button>Next</button>
+            <input type="text" placeholder="Enter the title of your question" [(ngModel)]="questionData['title']" name="title" #titleInput required minlength="5">
+
+            <div *ngIf="questionForm.controls['title'].invalid && (questionForm.controls['title'].dirty || questionForm.controls['title'].touched)"
+            class="error-message">
+            <p *ngIf="questionForm.controls['title'].errors?.['required']">Title is required</p>
+            <p *ngIf="questionForm.controls['title'].errors?.['minlength']">Title must be at least 5 characters long</p>
+          </div>
+
+            <button (click)="nextStep(detailsInput)">Next</button>
         </div>
        
         <!-- DETAILS -->
         <div class="details">
             <label>What are the details of your problem?</label>
             <label>Introduce the problem and expand on what you provided in the title</label>
-            <input type="text" placeholder="Enter the details of your problem">
-            <button>Next</button>
+            <input type="text" placeholder="Enter the details of your problem" [(ngModel)]="questionData['details']" name="details" #detailsInput required minlength="10">
+
+            <div *ngIf="questionForm.controls['details'].invalid && (questionForm.controls['details'].dirty || questionForm.controls['details'].touched)"
+          class="error-message">
+          <p *ngIf="questionForm.controls['details'].errors?.['required']">Details are required</p>
+          <p *ngIf="questionForm.controls['details'].errors?.['minlength']">Details must be at least 10 characters long</p>
+        </div>
+            <button (click)="nextStep(tryInput)" >Next</button>
         </div>
 
         <!-- WHAT DID YOU TRY -->
         <div class="try">
         <label>What did you try and what were you expecting</label>
         <label>Describe what you tried, what you expected to happen and what actually resulted</label>
-        <input type="text" placeholder="What did you try?">
-        <button>Next</button>
+        <input type="text" placeholder="What did you try?" [(ngModel)]="questionData.try" name="try" #tryInput  minlength="10">
+
+        <div *ngIf="questionForm.controls['try'].invalid && (questionForm.controls['try'].dirty || questionForm.controls['try'].touched)"
+          class="error-message">
+          <p *ngIf="questionForm.controls['try'].errors?.['required']">Please describe what you tried</p>
+          <p *ngIf="questionForm.controls['try'].errors?.['minlength']">Description must be at least 10 characters long</p>
+        </div>
+
+        <button  (click)="nextStep(tagsInput)">Next</button>
         </div>
         
         <!-- TAGS -->
         <div class="tags">
             <label>Tags</label>
             <label>Add up to five tags to describe what your problem is about</label>
-            <input type="text" placeholder="Enter tags in this form e.g #javascript">
+            <input type="text" placeholder="Enter tags in this form e.g #javascript" [(ngModel)]="questionData['tags']"
+            name="tags" #tagsInput required="">
+
+            <div *ngIf="questionForm.controls['tags'].invalid && (questionForm.controls['tags'].dirty || questionForm.controls['tags'].touched)"
+          class="error-message">
+          <p *ngIf="questionForm.controls['tags'].errors?.['required']">Tags are required</p>
+        </div>
+
         </div>
        
         <div class="submitDiscardButtons">
-            <button class="submitButton">Submit</button>
-            <button class="discardButton">Discard</button>
+            <button class="submitButton" (click)="onSubmit(questionForm)">Submit</button>
+            <button class="discardButton" (click)="discardQuestion(questionForm)">Discard</button>
         </div>
+
+        </form>
     </div>
 
 </div>
