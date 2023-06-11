@@ -22,4 +22,5 @@ export class LoginComponent {
   onSignUpClicked(){
     this.router.navigate(['/signup'])
   }
+
 }

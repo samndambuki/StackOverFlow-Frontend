@@ -26,20 +26,33 @@
     
     <!-- SIGN UP CONTAINER -->
     <div class="signupcontainer">
+        <form [formGroup]="signUpForm">
         <!-- NAME INPUT -->
         <div class="name">
             <label>Name</label>
-            <input type="text" placeholder="Enter your name">
+            <input type="text" placeholder="Enter your name" formControlName="name">
+            <div *ngIf="signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched" class="error-message">
+                <div *ngIf="signUpForm.get('name')?.hasError('required')" class="error-text">Name is required</div>
+            </div>
         </div>
         <!-- EMAIL INPUT -->
         <div class="email">
             <label>Email</label>
-            <input type="text" placeholder="Enter your email">
+            <input type="text" placeholder="Enter your email" formControlName="email">
+            <div *ngIf="signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched" class="error-message">
+                <div *ngIf="signUpForm.get('email')?.hasError('required')" class="error-text">Email is required</div>
+                <div *ngIf="signUpForm.get('email')?.hasError('email')" class="error-text">Invalid email format</div>
+            </div>
         </div>
         <!-- PASSWORD INPUT -->
         <div class="password">
             <label>Password</label>
-            <input type="text" placeholder="Enter your password">
+            <input type="password" placeholder="Enter your password" formControlName="password">
+            <div *ngIf="signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched" class="error-message">
+                <div *ngIf="signUpForm.get('password')?.hasError('required')" class="error-text">Password is required</div>
+                <div *ngIf="signUpForm.get('password')?.hasError('minlength')" class="error-text">Password must be at least 8 characters</div>
+                <div *ngIf="signUpForm.get('password')?.hasError('invalidPassword')">Password must contain at least one letter and one number</div>
+            </div>
         </div>
         <!-- PASSWORD CONTENT -->
         <div class="passwordContent">
@@ -50,7 +63,7 @@
         </div>
         <!-- SIGN UP BUTTON -->
         <div class="signUp">
-            <button class="signUpButton">Sign Up</button>
+            <button class="signUpButton" (click)="onSubmit()">Sign Up</button>
         </div>
         <!-- SIGN UP CONTENT -->
         <div class="signUpContent">
@@ -58,6 +71,7 @@
                 By clicking “Sign Up”, you agree to our terms of service and acknowledge that you have read and understood our privacy policy and code of conduct.
             </p>
         </div>
+        </form>
     </div>
 
     <!-- SIGN UP FOOTER -->
