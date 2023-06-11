@@ -59,7 +59,7 @@
     outline: none;
 }
 
-.logout{
+.signUp,.logIn{
     background-color: rgb(225,236,244);
     color:  rgb(15,148,253);
     border: 1px solid white;
@@ -70,7 +70,11 @@
     border-radius: 10px;
 }
 
-.logout:hover{
+.signUp:hover{
+    background-color: orange;
+}
+
+.logIn:hover{
     background-color: orange;
 }
 

@@ -17,9 +17,9 @@
         <!-- NAVIGATION LINKS -->
         <div class="navlinks">
 
-        <!-- LOGOUT -->
-        <div class="home">
-            <p>Home</p>
+        <!-- HOME -->
+        <div class="home" (click)="onHomeClicked()">
+            <button>Home</button>
         </div>
         </div>
     </div>
@@ -65,6 +65,6 @@
         <p>
             Already have an account? 
         </p>
-        <button class="loginButton">Login</button>
+        <button class="loginButton" (click)="onLoginClicked()">Login</button>
     </div>
 </div>

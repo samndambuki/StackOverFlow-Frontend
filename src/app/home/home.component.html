@@ -18,10 +18,11 @@
     <!-- NAVIGATION LINKS -->
 
     <div class="navlinks">
-      <!-- LOGOUT -->
-      <div class="logout">
-        <p>Logout</p>
+
+      <div class="logOut">
+        <button (click)="onLogoutClicked()">Log Out</button>
       </div>
+      
     </div>
   </div>
 
@@ -30,14 +31,13 @@
   <div class="content">
     <!-- LEFT MENU BAR -->
     <div class="leftMenuBar">
-      <a routerLink="">Home</a>
-      <a routerLink="">Public</a>
+      <button>Home</button>
+      <p>Public</p>
 
       <div class="innerBar">
-        <a routerLink="">Questions</a>
-        <a routerLink="">Users</a>
-        <a routerLink="">Tags</a>
-        <a routerLink="">My Questions</a>
+        <button (click)="onUsersClicked()">Users</button>
+        <button (click)="onTagsClicked()">Tags</button>
+        <button (click)="onMyQuestionsClicked()">My Questions</button>
       </div>
     </div>
 
@@ -49,7 +49,7 @@
         <p>Top Questions</p>
 
         <div class="askQuestion">
-          <button class="askQuestionButton">Ask Question</button>
+          <button class="askQuestionButton" (click)="onAskQuestionClicked()">Ask Question</button>
 
           <div class="pagination">
             <button class="paginationButton1">1</button>
@@ -69,7 +69,7 @@
         </div>
 
         <div class="linkToQuestion">
-          <button>Extending custom types with functions in typescript</button>
+          <button (click)="onSingleQuestionClicked()">Extending custom types with functions in typescript</button>
 
           <div class="tags">
             <p>JavaScript</p>
@@ -92,7 +92,7 @@
         </div>
 
         <div class="linkToQuestion">
-          <button>Extending custom types with functions in typescript</button>
+          <button (click)="onSingleQuestionClicked()">Extending custom types with functions in typescript</button>
 
           <div class="tags">
             <p>JavaScript</p>
@@ -115,7 +115,7 @@
         </div>
 
         <div class="linkToQuestion">
-          <button>Extending custom types with functions in typescript</button>
+          <button (click)="onSingleQuestionClicked()">Extending custom types with functions in typescript</button>
 
           <div class="tags">
             <p>JavaScript</p>
