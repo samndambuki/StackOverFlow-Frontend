@@ -131,13 +131,33 @@
     gap: 0.5rem;
   }
   
-  .pagination button {
+  .paginationButton1 {
     color: white;
     background-color: rgb(15, 148, 253);
     gap: 1rem;
-    border: 1px solid black;
+    border: 1px solid transparent;
     border-radius: 2px;
     padding: 0.2rem;
+  }
+
+  .paginationButton2 {
+    color: white;
+    background-color: rgb(15, 148, 253);
+    gap: 1rem;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    padding: 0.2rem;
+    margin-left: 1rem;
+  }
+
+  .paginationButton3 {
+    color: white;
+    background-color: rgb(15, 148, 253);
+    gap: 1rem;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    padding: 0.2rem;
+    margin-left: 1rem;
   }
   
   .askQuestionButton {

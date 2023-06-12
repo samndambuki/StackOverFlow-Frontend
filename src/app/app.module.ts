@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionService } from 'src/services/question.service';
+import { UsersService } from 'src/services/users.service';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { QuestionService } from 'src/services/question.service';
     FontAwesomeModule,
     HttpClientModule
   ],
-  providers: [QuestionService],
+  providers: [QuestionService,UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

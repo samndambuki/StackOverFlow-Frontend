@@ -30,14 +30,9 @@
   <div class="content">
     <!-- LEFT MENU BAR -->
     <div class="leftMenuBar">
-      <a routerLink="">Home</a>
-      <a routerLink="">Public</a>
-
       <div class="innerBar">
-        <a routerLink="">Questions</a>
-        <a routerLink="">Users</a>
-        <a routerLink="">Tags</a>
-        <a routerLink="">My Questions</a>
+        <button (click)="onUserButtonClicked()">Users</button>
+        <button (click)="onHomeButtonCicked()">Home</button>
       </div>
     </div>
 
@@ -51,43 +46,45 @@
         <div class="askQuestion">
     
           <div class="pagination">
-            <button>Day</button>
-            <button>Week</button>
-            <button>Month</button>
+            <!-- generate pagination buttons based on the number of pages -->
+            <button *ngFor="let page of getTotalPages()" (click)="goToPage(page)" [class.active]="page === currentPage"  class="paginationButton1">{{page}}</button>
+            <!-- <button class="paginationButton2">2</button> -->
+            <!-- <button class="paginationButton3">3</button> -->
           </div>
         </div>
       </div>
 
       <!-- FIRST QUESTION -->
 
-      <div class="question1">
+      <div *ngFor="let question of questions" class="question1">
         <div class="question1Content">
-          <p>0 Votes</p>
-          <p>0 Answers</p>
-          <p>3 Views</p>
+          <p>{{question.votes}} Votes</p>
+          <p>{{question.answers}} Answers</p>
+          <p>{{question.views}} Views</p>
         </div>
 
         <div class="linkToQuestion">
-          <button class="linkToQuestionButton">Extending custom types with functions in typescript</button>
+          <!-- display questions title -->
+          <button  class="linkToQuestionButton">QUESTION TITLE: {{question.title}}</button>
 
+          <!-- display each questions tags and username -->
           <div class="tags">
-            <p>JavaScript</p>
-            <p>reactJs</p>
+            <p>TAGS: {{question.tags}}</p>
           </div>
 
           <div class="userName">
-            <p>Samuel Ndambuki</p>
+            <p>USER: {{question.user}} </p>
           </div>
 
           <div class="crudButtons">
-            <button class="deleteButton">Delete</button> 
+            <button class="deleteButton" (click)="deleteQuestion(question.id)">Delete</button> 
           </div>
 
         </div>
       </div>
 
       <!-- SECOND QUESTION -->
-
+<!-- 
       <div class="question2">
         <div class="question2Content">
           <p>0 Votes</p>
@@ -113,11 +110,11 @@
           </div>
 
         </div>
-      </div>
+      </div> -->
 
       <!-- THIRD QUESTION -->
 
-      <div class="question3">
+      <!-- <div class="question3">
         <div class="question3Content">
           <p>0 Votes</p>
           <p>0 Answers</p>
@@ -142,7 +139,7 @@
           </div>
 
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

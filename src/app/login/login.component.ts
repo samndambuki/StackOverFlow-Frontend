@@ -60,6 +60,8 @@ export class LoginComponent {
     console.log('Email:', email);
     console.log('Password:', password);
 
+    this.router.navigate(['home'])
+
     // Reset the form after successful login
     this.loginForm.reset();
   }

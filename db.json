@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "id": 2,
+      "name": "Esther Magiri",
+      "email": "esther.magiri@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Joy Mwende",
+      "email": "joymwende@gmail.com"
+    },
+    {
+        "id": 1,
+        "name": "Samuel Ndambuki",
+        "email": "sam.ndambuki@gmail.com"
+      }
+  ]
+}

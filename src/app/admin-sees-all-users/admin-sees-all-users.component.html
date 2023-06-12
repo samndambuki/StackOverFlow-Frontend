@@ -28,14 +28,11 @@
   <div class="content">
     <!-- LEFT MENU BAR -->
     <div class="leftMenuBar">
-      <a routerLink="">Home</a>
-      <a routerLink="">Public</a>
+     
 
       <div class="innerBar">
-        <a routerLink="">Questions</a>
-        <a routerLink="">Users</a>
-        <a routerLink="">Tags</a>
-        <a routerLink="">My Questions</a>
+        <button (click)="onQuestionsButtonClicked()">Questions</button>
+        <button (click)="onHomeButtonClicked()">Home</button>
       </div>
     </div>
 
@@ -49,23 +46,23 @@
           <th>CRUD OPERATIONS</th>
         </tr>
 
-        <tr>
-          <td>Samuel Ndambuki</td>
-          <td>sam.ndambuki08@gmil.com</td>
-          <td><button class="deleteButton">Delete</button></td>
+        <tr *ngFor="let user of users">
+          <td>{{user.name}}</td>
+          <td>{{user.email}}</td>
+          <td><button (click)="deleteUser(user.id)" class="deleteButton">Delete</button></td>
         </tr>
 
-        <tr>
+        <!-- <tr>
           <td>Samuel Ndambuki</td>
           <td>sam.ndambuki08@gmil.com</td>
           <td><button class="deleteButton">Delete</button></td>
-        </tr>
+        </tr> -->
 
-        <tr>
+        <!-- <tr>
           <td>Samuel Ndambuki</td>
           <td>sam.ndambuki08@gmil.com</td>
           <td><button class="deleteButton">Delete</button></td>
-        </tr>
+        </tr> -->
       </table>
     </div>
   </div>

@@ -33,4 +33,14 @@ export class MyQuestionsComponent {
     this.router.navigate(['/updatequestion'])
   }
 
+  //method to handle home button click event
+  onHomeButtonClicked(){
+    this.router.navigate(['home'])
+  }
+
+  //method to handle tags button click event
+  onTagsButtonClicked(){
+    this.router.navigate(['tags'])
+  }
+
 }

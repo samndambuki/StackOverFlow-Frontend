@@ -29,14 +29,10 @@
   <div class="content">
     <!-- LEFT MENU BAR -->
     <div class="leftMenuBar">
-      <a routerLink="">Home</a>
-      <a routerLink="">Public</a>
-
+     
       <div class="innerBar">
-        <a routerLink="">Questions</a>
-        <a routerLink="">Users</a>
-        <a routerLink="">Tags</a>
-        <a routerLink="">My Questions</a>
+        <button (click)="onHomeButtonClicked()">Home</button>
+        <button (click)="onMyQuestionsButtonClicked()">My Questions</button>
       </div>
     </div>
 
@@ -56,27 +52,27 @@
       <!-- DIFFERENT TAGS -->
 
       <div class="differentTags">
-        <div class="tag1">
+        <div (click)="onSpecificTagClicked()" class="tag1">
           <p>JavaScript</p>
         </div>
 
-        <div class="tag2">
+        <div (click)="onSpecificTagClicked()" class="tag2">
           <p>Java</p>
         </div>
 
-        <div class="tag3">
+        <div (click)="onSpecificTagClicked()" class="tag3">
           <p>Python</p>
         </div>
 
-        <div class="tag4">
+        <div (click)="onSpecificTagClicked()" class="tag4">
           <p>Html</p>
         </div>
 
-        <div class="tag5">
+        <div (click)="onSpecificTagClicked()" class="tag5">
           <p>CSS</p>
         </div>
 
-        <div class="tag6">
+        <div (click)="onSpecificTagClicked()" class="tag6">
           <p>Unanswered</p>
         </div>
       </div>

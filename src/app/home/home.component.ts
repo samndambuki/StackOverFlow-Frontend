@@ -18,11 +18,6 @@ export class HomeComponent {
   //inject router to handle navigation 
   constructor(private router:Router){}
 
-  //method to handle all users button click event
-  onUsersClicked(){
-    this.router.navigate(['/allusers']);
-  }
-
   //method to handle tags button click event
   onTagsClicked(){
     this.router.navigate(['/tags'])
@@ -46,6 +41,11 @@ export class HomeComponent {
   //method to handle logout click event
   onLogoutClicked(){
     this.router.navigate(['/landing'])
+  }
+
+  //nvigate to admin page
+  onAdminButtonClicked(){
+    this.router.navigate(['admin'])
   }
 
 }
