@@ -3,7 +3,7 @@
     <div class="navigation-menu">
      <!-- STACK OVERFLOW IMAGE -->
      <div class="stackoverflow">
-         <div class="stacklogo">
+         <div (click)="onLandingPageButtonClciked()" class="stacklogo">
              <img src='../../assets/stackoverflowlogo.png'>
              <p>Stack<span>Overflow</span></p>
          </div>
@@ -17,9 +17,9 @@
      <!-- NAVIGATION LINKS -->
      <div class="navlinks">
 
-     <!-- LOGOUT -->
-     <div class="home">
-         <p>Home</p>
+     <!-- LANDING PAGE -->
+     <div (click)="onLandingPageClicked()" class="home">
+         <p>Landing Page</p>
      </div>
      </div>
  </div>

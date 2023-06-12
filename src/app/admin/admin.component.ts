@@ -28,4 +28,9 @@ export class AdminComponent {
     this.router.navigate(['adminseesallusers'])
   }
 
+  //method to handle home button click event
+  onHomeButtonClciked(){
+    this.router.navigate(['home'])
+  }
+
 }

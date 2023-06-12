@@ -66,4 +66,15 @@ export class LoginComponent {
     this.loginForm.reset();
   }
 
+  //method to handle landing page logic
+
+  onLandingPageClicked(){
+    this.router.navigate(['landing'])
+  }
+
+  //method to handle landing page click event
+  onLandingPageButtonClciked(){
+    this.router.navigate(['landing'])
+  }
+
 }

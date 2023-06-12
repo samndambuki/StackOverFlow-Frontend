@@ -58,8 +58,8 @@ export class SignupComponent {
   }
 
   //method to handle home when the button is clicked
-  onHomeClicked() {
-    this.router.navigate(['/home']);
+  onLandingButtonClicked() {
+    this.router.navigate(['/landing']);
   }
 
   //method to handle login button click event

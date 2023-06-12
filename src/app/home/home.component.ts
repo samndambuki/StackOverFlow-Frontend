@@ -48,4 +48,9 @@ export class HomeComponent {
     this.router.navigate(['admin'])
   }
 
+  //method to handle home button click event
+  onHomeButtonClicked(){
+    this.router.navigate(['home'])
+  }
+
 }

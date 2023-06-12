@@ -5,6 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { QuestionService } from 'src/services/question.service';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-askquestion',
@@ -23,7 +24,7 @@ export class AskquestionComponent {
   searchicon = faSearch;
   questionData:any = {}
 
-  constructor(private questionService:QuestionService){}
+  constructor(private questionService:QuestionService,private router:Router){}
 
 
   isFormValid(): boolean {
@@ -57,11 +58,16 @@ export class AskquestionComponent {
     nextInput.focus();
   }
 
-  
 
   discardQuestion(questionForm: any) {
     this.questionData = {}; // Reset the question data
     questionForm.resetForm(); // Reset the form
   }
+
+  //method to handle home button click event
+  onHomeButtonClicked(){
+    this.router.navigate(['home'])
+  }
+
   
 }
