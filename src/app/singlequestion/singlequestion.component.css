@@ -156,11 +156,31 @@
     font-size: 1rem;
 }
 
-.postAnswer{
-    background-color: rgb(0,115,204);
-    color: white;
-    padding: .4rem;
-    border: 1px solid transparent;
-    border-radius: 5px;
-}
+.answerInputField {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .postAnswer {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .postAnswer:hover {
+    background-color: #0056b3;
+  }
 
+  /* ERROR MESSAGES STYLING */
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }

@@ -75,14 +75,20 @@
     </div>
 
     <div class="answerInput">
-      <input type="text" placeholder="Enter your answer">
+      <form [formGroup]="answerForm" (ngSubmit)="submitAnswer()">
+        <input type="text" placeholder="Enter your answer" formControlName="answerInputField" [class.invalid]="answerInputField?.invalid && (answerInputField?.dirty || answerInputField?.touched)" />
+        <div class="error-message" *ngIf="answerInputField?.invalid && (answerInputField?.dirty || answerInputField?.touched)">
+          <div *ngIf="answerInputField?.errors?.['required']">
+            Answer is required.
+          </div>
+          <div *ngIf="answerInputField?.errors?.['minlength']">
+            Answer should have a minimum length of 10 characters.
+          </div>
+          <!-- Add more validation messages if needed -->
+        </div>
+      </form>
+      <button type="submit" class="postAnswer" (click)="submitAnswer()">Post your answer</button>
     </div>
- 
-    <button class="postAnswer">Post your answer</button>
-
   </div>
-
   </div>
-
-
 </div>
