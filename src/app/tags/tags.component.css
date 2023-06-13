@@ -61,18 +61,22 @@
 }
 
 .logout {
-  background-color: rgb(225, 236, 244);
-  color: rgb(15, 148, 253);
-  border: 1px solid white;
-  height: 30px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
+  background-color: #0f94fd;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: .5rem;
 }
 
 .logout:hover {
-  background-color: orange;
+  background-color: #0b7ad6;
+}
+
+.innerBarButton:focus {
+  outline: none;
 }
 
 /* STYLES FOR CONTENTS AT THE CENTER OF THE PAGE */
@@ -101,8 +105,27 @@
 .innerBar {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   margin-left: 2rem;
-  gap: 0.5rem;
+  gap: 2rem;
+}
+
+.innerBarButton {
+  background-color: #0f94fd;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.innerBarButton:hover {
+  background-color: #0b7ad6;
+}
+
+.innerBarButton:focus {
+  outline: none;
 }
 
 /* TAGS STYLING */
@@ -160,4 +183,70 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+
+/* MEDIA QUERIES */
+
+/* Media query for 320px width */
+@media (max-width: 320px) {
+  .navigation-menu {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stacklogo {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    gap: 2px;
+  }
+
+  .stackoverflow {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stackoverflow img {
+    width: 30%;
+  }
+
+  .search-bar {
+    display: flex;
+    width: 70%;
+  }
+
+  .search-bar input {
+    width: 80%;
+  }
+
+  .logout {
+    width: 100%;
+  }
+
+  .content{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .leftMenuBar {
+    width: 80%;
+  }
+
+  .tags p {
+    width: 100%;
+  }
+
+  .filterBar {
+    width: 80%;
+  }
+
+  .filterBar input {
+    width: 100%;
+  }
+
+  .differentTags {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

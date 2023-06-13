@@ -54,20 +54,23 @@
     outline: none;
 }
 
-.home{
-    background-color: rgb(225,236,244);
-    color:  rgb(15,148,253);
-    border: 1px solid white;
-    height: 30px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
+.landingPageButton{
+    background-color: #0f94fd;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.home:hover{
-    background-color: orange;
-}
+  .landingPageButton:hover {
+    background-color: #0b7ad6;
+  }
+  
+  .landingPageButton:focus {
+    outline: none;
+  }
 
 /* LOG IN  CONTAINER STYLES */
 
@@ -148,4 +151,49 @@
   
   .error-text {
     font-size: 14px;
+  }
+
+/* MEDIA QUERIES */
+
+@media (max-width: 320px) {
+    .navigation-menu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .stacklogo {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      gap: 2px;
+    }
+
+    .stackoverflow{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+  
+    .stackoverflow img {
+      width: 30%;
+    }
+  
+    .search-bar {
+        display: flex;
+    }
+  
+    .search-bar input {
+      width: 100%;
+    }
+
+    .landingPageButton{
+        margin-top: .5rem;
+    }
+  
+    .logInContainer {
+      width: 85%;
+      margin-left: .4rem;
+    }
   }

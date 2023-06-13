@@ -18,15 +18,15 @@
      <div class="navlinks">
 
      <!-- LANDING PAGE -->
-     <div (click)="onLandingPageClicked()" class="home">
-         <p>Landing Page</p>
+     <div (click)="onLandingPageClicked()">
+         <button class="landingPageButton">Landing Page</button>
      </div>
      </div>
  </div>
  
  <!-- LOG IN CONTAINER -->
- <div class="logInContainer">
-    <form [formGroup]="loginForm">
+ <form class="logInContainer" [formGroup]="loginForm">
+  
     
      <!-- EMAIL INPUT -->
      <div class="email">
@@ -60,9 +60,8 @@
      <div class="logIn">
          <button class="logInButton" (click)=" onLoginClicked()">Log In</button>
      </div>
-    </form>
     
- </div>
+ </form>
 
  <!-- LOG IN FOOTER -->
  <div class="logInFooter">

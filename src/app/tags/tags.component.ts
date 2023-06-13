@@ -32,5 +32,10 @@ export class TagsComponent {
     this.router.navigate(['specifictags'])
   }
 
+  //method to handle my profile click event
+  onMyProfileButtonClicked(){
+    this.router.navigate(['userprofile'])
+  }
+
 
 }
