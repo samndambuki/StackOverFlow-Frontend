@@ -1,78 +1,169 @@
 <div class="container">
-    <div class="container">
-        <!-- NAVIGATION MENU -->
-        <div class="navigation-menu">
-           <!-- STACK OVERFLOW IMAGE -->
-           <div class="stackoverflow">
-               <div (click)="onHomeButtonClicked()" class="stacklogo">
-                   <img src='../../assets/stackoverflowlogo.png'>
-                   <p>Stack<span>Overflow</span></p>
-               </div>
-              
-           <div class="search-bar">
-               <!-- SEARCH BAR ICON -->
-               <fa-icon [icon]="searchicon"></fa-icon>
-               <input type="text" placeholder="Search...">
-           </div>
-           </div>
-   
-           <!-- NAVIGATION LINKS -->
-   
-           <div class="navlinks">
-   
-           <!-- LOGOUT -->
-           <div class="logout">
-               <p>Logout</p>
-           </div>
-   
-           </div>
-       </div>
-   
-       <div  class="publicQuestion">
-           <p>Update Question</p>
-       </div>
-   
-       <!-- ASK QUESTION CONTAINER -->
-   
-       <div class="content">
-   
-           <!-- TITLE -->
-           <div class="title">
-               <label>Title</label>
-               <label>Be specific and imagine you are asking a question to another person</label>
-               <input type="text" placeholder="Enter the title of your question">
-               <button>Next</button>
-           </div>
-          
-           <!-- DETAILS -->
-           <div class="details">
-               <label>What are the details of your problem?</label>
-               <label>Introduce the problem and expand on what you provided in the title</label>
-               <input type="text" placeholder="Enter the details of your problem">
-               <button>Next</button>
-           </div>
-   
-           <!-- WHAT DID YOU TRY -->
-           <div class="try">
-           <label>What did you try and what were you expecting</label>
-           <label>Describe what you tried, what you expected to happen and what actually resulted</label>
-           <input type="text" placeholder="What did you try?">
-           <button>Next</button>
-           </div>
-           
-           <!-- TAGS -->
-           <div class="tags">
-               <label>Tags</label>
-               <label>Add up to five tags to describe what your problem is about</label>
-               <input type="text" placeholder="Enter tags in this form e.g #javascript">
-           </div>
-          
-           <div class="submitDiscardButtons">
-               <button class="submitButton">Submit</button>
-               <button class="discardButton">Discard</button>
-           </div>
-       </div>
-   
-   </div>
+  <div class="container">
+    <!-- NAVIGATION MENU -->
+    <div class="navigation-menu">
+      <!-- STACK OVERFLOW IMAGE -->
+      <div class="stackoverflow">
+        <div (click)="onHomeButtonClicked()" class="stacklogo">
+          <img src="../../assets/stackoverflowlogo.png" />
+          <p>Stack<span>Overflow</span></p>
+        </div>
 
+        <div class="search-bar">
+          <!-- SEARCH BAR ICON -->
+          <fa-icon [icon]="searchicon"></fa-icon>
+          <input type="text" placeholder="Search..." />
+        </div>
+      </div>
+
+      <!-- NAVIGATION LINKS -->
+
+      <div class="navlinks">
+        <!-- LOGOUT -->
+        <div class="logout">
+          <p>Logout</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="publicQuestion">
+      <p>Update Question</p>
+    </div>
+
+    <!-- ASK QUESTION CONTAINER -->
+
+    <form class="content" [formGroup]="questionForm">
+      <!-- TITLE -->
+      <div class="title" *ngIf="currentStep >= 1">
+        <label>Title</label>
+        <label
+          >Be specific and imagine you are asking a question to another
+          person</label
+        >
+        <input
+          type="text"
+          placeholder="Enter the title of your question"
+          formControlName="title"
+        />
+
+        <!-- TITLE VALIDATIONS -->
+        <div
+          *ngIf="
+            questionForm.get('title')?.invalid &&
+            (questionForm.get('title')?.dirty ||
+              questionForm.get('title')?.touched)
+          "
+          class="error-message"
+        >
+          <p *ngIf="questionForm.get('title')?.errors?.['required']">
+            Title is required
+          </p>
+          <p *ngIf="questionForm.get('title')?.errors?.['minlength']">
+            Title must be at least 5 characters long
+          </p>
+        </div>
+
+        <button (click)="nextStep()">Next</button>
+      </div>
+
+      <!-- DETAILS -->
+      <div class="details" *ngIf="currentStep >= 2">
+        <label>What are the details of your problem?</label>
+        <label
+          >Introduce the problem and expand on what you provided in the
+          title</label
+        >
+        <input
+          type="text"
+          placeholder="Enter the details of your problem"
+          formControlName="details"
+        />
+
+        <!-- DETAILS VALIDATIONS -->
+        <div
+          *ngIf="
+            questionForm.get('details')?.invalid &&
+            (questionForm.get('details')?.dirty ||
+              questionForm.get('details')?.touched)
+          "
+          class="error-message"
+        >
+          <p *ngIf="questionForm.get('details')?.errors?.['required']">
+            Details are required
+          </p>
+          <p *ngIf="questionForm.get('details')?.errors?.['minlength']">
+            Details must be at least 10 characters long
+          </p>
+        </div>
+
+        <button (click)="nextStep()">Next</button>
+      </div>
+
+      <!-- WHAT DID YOU TRY -->
+      <div class="try" *ngIf="currentStep >= 3">
+        <label>What did you try and what were you expecting</label>
+        <label
+          >Describe what you tried, what you expected to happen and what
+          actually resulted</label
+        >
+        <input
+          type="text"
+          placeholder="What did you try?"
+          formControlName="try"
+        />
+
+        <!-- TRY VALIDATIONS -->
+        <div
+          *ngIf="
+            questionForm.get('try')?.invalid &&
+            (questionForm.get('try')?.dirty || questionForm.get('try')?.touched)
+          "
+          class="error-message"
+        >
+          <p *ngIf="questionForm.get('try')?.errors?.['required']">
+            Please describe what you tried
+          </p>
+          <p *ngIf="questionForm.get('try')?.errors?.['minlength']">
+            Description must be at least 10 characters long
+          </p>
+        </div>
+
+        <button (click)="nextStep()">Next</button>
+      </div>
+
+      <!-- TAGS -->
+      <div class="tags" *ngIf="currentStep >= 4">
+        <label>Tags</label>
+        <label
+          >Add up to five tags to describe what your problem is about</label
+        >
+        <input
+          type="text"
+          placeholder="Enter tags in this form e.g #javascript"
+          formControlName="tags"
+        />
+
+        <!-- TAGS VALIDATIONS -->
+        <div
+          *ngIf="
+            questionForm.get('tags')?.invalid &&
+            (questionForm.get('tags')?.dirty ||
+              questionForm.get('tags')?.touched)
+          "
+          class="error-message"
+        >
+          <p *ngIf="questionForm.get('tags')?.errors?.['required']">
+            Tags are required
+          </p>
+        </div>
+      </div>
+
+      <div class="submitDiscardButtons" *ngIf="currentStep >= 4">
+        <button  class="submitButton" (click)="onSubmit()">Submit</button>
+        <button class="discardButton" (click)="discardQuestion()">
+          Discard
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
