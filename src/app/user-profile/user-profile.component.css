@@ -138,3 +138,10 @@
     padding: .3rem;
     border: 1px solid transparent;
 }
+
+/* ERROR MESSAGE STYLING */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }

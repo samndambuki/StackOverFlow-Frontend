@@ -26,14 +26,11 @@
 
     <!-- LEFT MENU BAR -->
   <div class="leftMenuBar">
-    <a routerLink="">Home</a>
-    <a routerLink="">Public</a>
-
+  
     <div class="innerBar">
-      <a routerLink="">Questions</a>
-      <a routerLink="">Users</a>
-      <a routerLink="">Tags</a>
-      <a routerLink="">My Questions</a>
+      <button (click)="onHomeButtonClicked()">Home</button>
+      <button (click)="onTagsButtonClicked()">Tags</button>
+      <button (click)="onMyQuestionsButtonClicked()">My Questions</button>
     </div>
   </div>
 
@@ -52,22 +49,56 @@
     <p>Edit your profile</p>
     <p>Public Information</p>
 
-    <div class="editProfile">
+    <form [formGroup]="profileForm" class="editProfile">
         <p>Profile image</p>
         <img src="">
         <p>Change Picture</p>
+       
         <label>Display Name</label>
-        <input type="text" placeholder="Display Name....">
-        <label>Location</label>
-        <input type="text" placeholder="Laction...">
-        <label>Title</label>
-        <input type="text" placeholder="Title...">
-        <label>About me</label>
-        <input type="text" placeholder="About me...">
+        <input type="text" placeholder="Display Name...."  formControlName="displayName" >
+        <!-- DISPLAY NAME VALIDATIONS -->
+        <div *ngIf="profileForm.get('displayName')?.invalid && (profileForm.get('displayName')?.dirty || profileForm.get('displayName')?.touched)" class="error-message">
+          <div *ngIf="profileForm.get('displayName')?.hasError('required')">Display Name is required.</div>
+          <div *ngIf="profileForm.get('displayName')?.hasError('minlength')">Display Name should have a minimum length of 3 characters.</div>
+          <div *ngIf="profileForm.get('displayName')?.hasError('maxlength')">Display Name should have a maximum length of 20 characters.</div>
+        </div>
 
-        <button class="saveProfileButton">Save Profile</button>
-        <button class="cancelButton">Cancel</button>
-    </div>
+        
+
+        <label>Location</label>
+        <input type="text" placeholder="Location..." formControlName="location">
+
+        <!-- LOCATION VALIDATIONS -->
+        <div *ngIf="profileForm.get('location')?.invalid && (profileForm.get('location')?.dirty || profileForm.get('location')?.touched)" class="error-message">
+          <div *ngIf="profileForm.get('location')?.hasError('required')">Location is required.</div>
+          <div *ngIf="profileForm.get('location')?.hasError('minlength')">Location should have a minimum length of 5 characters.</div>
+          <div *ngIf="profileForm.get('location')?.hasError('maxlength')">Location should have a maximum length of 50 characters.</div>
+        </div>
+       
+        <label>Title</label>
+        <input type="text" placeholder="Title..." formControlName="title">
+        <!-- TITLE VALIDATIONS -->
+        <div *ngIf="profileForm.get('title')?.invalid && (profileForm.get('title')?.dirty || profileForm.get('title')?.touched)" class="error-message">
+          <div *ngIf="profileForm.get('title')?.hasError('required')">Title is required.</div>
+          <div *ngIf="profileForm.get('title')?.hasError('minlength')">Title should have a minimum length of 5 characters.</div>
+          <div *ngIf="profileForm.get('title')?.hasError('maxlength')">Title should have a maximum length of 50 characters.</div>
+        </div>
+        
+
+        <label>About me</label>
+        <input type="text" placeholder="About me..." formControlName="about">
+        
+        <!-- ABOUT ME VALIDATIONS -->
+        <div *ngIf="profileForm.get('about')?.invalid && (profileForm.get('about')?.dirty || profileForm.get('about')?.touched)" class="error-message">
+          <div *ngIf="profileForm.get('about')?.hasError('required')">About Me is required.</div>
+          <div *ngIf="profileForm.get('about')?.hasError('minlength')">About Me should have a minimum length of 10 characters.</div>
+          <div *ngIf="profileForm.get('about')?.hasError('maxlength')">About Me should have a maximum length of 200 characters.</div>
+        </div>
+       
+        <button class="saveProfileButton"  (click)="saveProfile()">Save Profile</button>
+        <button class="cancelButton" (click)="cancelEdit()">Cancel</button>
+        
+    </form>
 
   </div>
   

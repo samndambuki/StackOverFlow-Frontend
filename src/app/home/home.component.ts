@@ -53,4 +53,9 @@ export class HomeComponent {
     this.router.navigate(['home'])
   }
 
+  //method to handle profile click event
+  onProfileButtonClciked(){
+    this.router.navigate(['userprofile'])
+  }
+
 }
