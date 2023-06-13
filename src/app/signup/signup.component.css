@@ -54,20 +54,24 @@
     outline: none;
 }
 
-.home{
-    background-color: rgb(225,236,244);
-    color:  rgb(15,148,253);
-    border: 1px solid white;
-    height: 30px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
+
+.landingPageButton{
+    color: white;
+  background-color: rgb(15, 148, 253);
+  gap: 1rem;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  padding: 0.5rem;
+  margin-left: 1rem;
 }
 
-.home:hover{
-    background-color: orange;
-}
+.landingPageButton:hover {
+    background-color: #0b7ad6;
+  }
+  
+  .landingPageButton:focus {
+    outline: none;
+  }
 
 /* SIGN UP CONTAINER STYLES */
 
@@ -161,4 +165,69 @@
   .error-text {
     font-size: 14px;
   }
+
+/* MEDIA QUERIES */
+
+/* Media Query for screens with a width of 320px */
+@media only screen and (max-width: 320px) {
+    .navigation-menu{
+        background-color: white;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        margin-top: 3px;
+        padding: 1rem;
+        justify-content: space-between;
+        border-radius: 10px;
+        align-items: center;
+    }
+    .stacklogo p {
+      font-size: 1.5rem;
+    }
+  
+    .stackoverflow img {
+      width: 30%;
+      max-width: 150px;
+    }
+    
+    .stackoverflow{
+        display: flex;
+        flex-direction: column;
+    }
+  
+    .search-bar input {
+      max-width: 200px;
+    }
+
+    .landingPageButton{
+        color: white;
+      background-color: rgb(15, 148, 253);
+      gap: 1rem;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      padding: 0.5rem;
+      margin-left: 1rem;
+      margin-top: .5rem;
+    }
+    
+    .landingPageButton:hover {
+        background-color: #0b7ad6;
+      }
+      
+      .landingPageButton:focus {
+        outline: none;
+      }
+  
+    .signupcontainer {
+      width: 80%;
+      margin-left: 1rem;
+      gap: 1rem;
+    }
+   
+  }
+  
+  
+  
+  
+  
   

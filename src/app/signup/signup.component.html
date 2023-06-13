@@ -19,14 +19,14 @@
 
         <!-- HOME -->
         <div class="home" (click)="onLandingButtonClicked()">
-            <button>Landing Page</button>
+            <button class="landingPageButton">Landing Page</button>
         </div>
         </div>
     </div>
     
     <!-- SIGN UP CONTAINER -->
-    <div class="signupcontainer">
-        <form [formGroup]="signUpForm">
+    <form class="signupcontainer" [formGroup]="signUpForm">
+        <!-- <form [formGroup]="signUpForm"> -->
         <!-- NAME INPUT -->
         <div class="name">
             <label>Name</label>
@@ -74,8 +74,8 @@
                 By clicking “Sign Up”, you agree to our terms of service and acknowledge that you have read and understood our privacy policy and code of conduct.
             </p>
         </div>
-        </form>
-    </div>
+        
+    </form>
 
     <!-- SIGN UP FOOTER -->
     <div class="signUpFooter">
