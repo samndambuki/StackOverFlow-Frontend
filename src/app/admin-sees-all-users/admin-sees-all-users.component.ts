@@ -69,6 +69,4 @@ export class AdminSeesAllUsersComponent implements OnInit {
   onQuestionsButtonClicked(){
     this.router.navigate(['adminviewallquestions'])
   }
-  
-
 }

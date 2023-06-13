@@ -61,19 +61,22 @@
 }
 
 .logout{
-    background-color: rgb(225,236,244);
-    color:  rgb(15,148,253);
-    border: 1px solid white;
-    height: 30px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
+    background-color: #0f94fd;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .logout:hover{
-    background-color: orange;
+    background-color: #0b7ad6;
 }
+
+.logout:focus {
+    outline: none;
+  }
 
 /* STYLES FOR CONTENTS AT THE CENTER OF THE PAGE */
 .content{
@@ -96,12 +99,183 @@
     width: 20%;
     padding: 2rem;
     height: 300px;   
-   
 }
+
+
+button {
+    background-color: #0f94fd;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0b7ad6;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
 
 .innerBar{
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     margin-left: 2rem;
+    gap: 2rem;
+}
+
+/* MEDIA QUERIES */
+
+/* mobile device */
+@media only screen and (max-width: 320px) {
+    /* NAVIGATION LINKS */
+    .navigation-menu {
+      padding: .5rem;
+      gap: .5rem;
+    }
+  
+    .stacklogo p {
+      font-size: 1rem;
+    }
+  
+    .search-bar {
+        width: 40%;
+        height: 5px;
+    }
+
+    .search-bar input {
+      width: 50%;
+      font-size: .6rem;
+    }
+  
+    .logout {
+      padding: .5rem;
+    }
+  
+    .content {
+      flex-direction: column;
+      align-items: center;
+      margin-top: 3rem;
+    }
+  
+    .leftMenuBar {
+      
+      width: 90%;
+      padding: 1rem;
+    }
+  
+    .innerBar {
+      margin-left: 0;
+      gap: 1rem;
+    }
+
+    .welcomeMessage{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    }
+  }
+
+/* Media query for tablet devices with a width between 768px and 1024px */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  /* NAVIGATION LINKS */
+  .navigation-menu {
+    padding: 0.75rem;
     gap: .5rem;
+  }
+
+  .stacklogo p {
+    font-size: 1.8rem;
+  }
+
+  .search-bar{
+    width: 70%;
+  }
+
+  .search-bar input {
+    width: 60%;
+  }
+
+  .logout {
+    padding: 0.4rem 1rem;
+  }
+
+  .content {
+    margin-top: 4rem;
+    gap: 1rem;
+  }
+
+  .leftMenuBar {
+    width: 30%;
+    padding: 1.5rem;
+    margin-left: 1.5rem;
+  }
+
+  .innerBar {
+    gap: 1.5rem;
+  }
+}
+
+/* Media query for mobile devices with a width between 321px and 768px */
+@media only screen and (min-width: 321px) and (max-width: 768px) {
+  /* NAVIGATION LINKS */
+  .navigation-menu {
+    padding: 0.5rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+  }
+
+  .stacklogo {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    gap: 0.5rem;
+  }
+
+  .stacklogo p {
+    font-size: 1.5rem;
+  }
+
+  .search-bar {
+    width: 70%;
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  .search-bar input {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .navlinks {
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  .logout {
+    padding: 0.3rem 0.8rem;
+  }
+
+  .content {
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leftMenuBar {
+    width: 80%;
+    padding: 1rem;
+  }
+
+  .innerBar {
+    gap: 1rem;
+  }
 }

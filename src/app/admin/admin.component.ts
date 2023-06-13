@@ -33,4 +33,14 @@ export class AdminComponent {
     this.router.navigate(['home'])
   }
 
+  //method to handle tags button click event
+  onTagsButtonClicked(){
+    this.router.navigate(['tags'])
+  }
+
+  //method to handle user profile click event
+  onUserProfileClicked(){
+    this.router.navigate(['userprofile'])
+  }
+  
 }

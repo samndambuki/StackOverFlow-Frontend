@@ -59,25 +59,32 @@
     outline: none;
 }
 
-.signUp,.logIn{
-    background-color: rgb(225,236,244);
-    color:  rgb(15,148,253);
-    border: 1px solid white;
-    height: 30px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
+.signUpButton,.loginButton {
+    background-color: #0f94fd;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+.signUpButton:hover {
+    background-color: #0b7ad6;
+  }
+
+.signUpButton:focus {
+    outline: none;
+}
+  
+.loginButton:hover {
+    background-color: #0b7ad6;
 }
 
-.signUp:hover{
-    background-color: orange;
+.loginButton:focus {
+    outline: none;
 }
-
-.logIn:hover{
-    background-color: orange;
-}
-
+  
 .content{
     background-color: rgb(35,38,41);
     color: black;
@@ -154,3 +161,85 @@
     display: flex;
     gap: 1rem;
 }
+
+/* MEDIA QUERIES */
+/* Media Query for screens with a width of 320px */
+@media only screen and (max-width: 320px) {
+
+    .navigation-menu{
+        background-color: white;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        margin-top: 3px;
+        padding: 1rem;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;
+        gap: 1rem;
+    }
+
+    .stacklogo p {
+      font-size: 1.5rem;
+    }
+
+    .stackoverflow{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+  
+    .stackoverflow img {
+      width: 25%;
+      max-width: 150px;
+    }
+
+    .search-bar{
+        max-width: 150px;
+      }
+  
+    .search-bar input {
+      max-width: 70px;
+    }
+
+    .search-bar input:focus{
+        outline: none;
+    }
+    
+  
+    .signUpButton,
+    .loginButton {
+      padding: 0.7rem;
+      font-size: 0.9rem;
+    }
+  
+    .content {
+      height: auto;
+      padding: 1rem;
+    }
+  
+    .maincontent {
+      grid-template-columns: 1fr;
+    }
+  
+    .content1,
+    .content2 {
+      font-size: 1.5rem;
+      padding: 2rem;
+    }
+  
+    .content3 {
+      font-size: 1.2rem;
+    }
+  
+    .footer {
+      height: auto;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .socialmedia{
+        display: flex;
+        flex-direction: column;
+    }
+  }
