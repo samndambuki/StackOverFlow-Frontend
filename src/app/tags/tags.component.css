@@ -250,3 +250,105 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+@media (max-width: 375px) {
+  /* NAVIGATION LINKS */
+  .navigation-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .stacklogo p {
+    font-size: 1.5rem;
+  }
+
+  .stackoverflow{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .stackoverflow img {
+    width: 20%;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .logout {
+    padding: 0.3rem 0.8rem;
+    margin-top: 1rem;
+  }
+
+  /* STYLES FOR CONTENTS AT THE CENTER OF THE PAGE */
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 3rem;
+    gap: 2rem;
+  }
+
+  .leftMenuBar {
+    width: 90%;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  .innerBar {
+    gap: 1rem;
+  }
+
+  .innerBarButton {
+    padding: 0.3rem 0.8rem;
+  }
+
+  /* TAGS STYLING */
+  .tags {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 1rem;
+    margin: 0;
+  }
+
+  .tags p {
+    width: auto;
+    margin: 0;
+  }
+
+  /* FILTER BY TAG BAR */
+  .filterBar {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .filterBar input {
+    width: 100%;
+  }
+
+  /* DIFFERENT TAGS */
+  .differentTags {
+    grid-template-columns: 1fr;
+  }
+
+  .tag1,
+  .tag2,
+  .tag3,
+  .tag4,
+  .tag5,
+  .tag6 {
+    width: 100%;
+  }
+}
