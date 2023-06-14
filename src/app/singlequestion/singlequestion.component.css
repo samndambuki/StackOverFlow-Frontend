@@ -269,3 +269,76 @@
         width: 30%;
       }
 }
+
+@media (max-width: 375px) {
+  .navigation-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .stacklogo p {
+    font-size: 1.5rem;
+  }
+
+  .stackoverflow {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stackoverflow img {
+    width: 20%;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .leftMenuBar {
+    width: 90%;
+    margin-left: 0;
+    padding: 1rem;
+  }
+
+  .innerBar {
+    margin-left: 0;
+  }
+
+  .mainContent {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .singleQuestionContent,
+  .answer {
+    padding: 0.5rem;
+  }
+
+  .singleQuestionTitle,
+  .singleQuestion,
+  .answer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .voteIcons,
+  .noOfAnswers {
+    width: 100%;
+  }
+
+  .answerInput input {
+    padding: 1rem;
+  }
+
+  .error-message {
+    font-size: 12px;
+  }
+}
