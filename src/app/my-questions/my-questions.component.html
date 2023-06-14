@@ -20,7 +20,7 @@
     <div class="navlinks">
       <!-- LOGOUT -->
       <div class="logout">
-        <p>Logout</p>
+        <button (click)="onLogoutButtonClicked()" class="logOutButton">Logout</button>
       </div>
     </div>
   </div>
@@ -32,8 +32,9 @@
     <div class="leftMenuBar">
      
       <div class="innerBar">
-        <button (click)="onHomeButtonClicked()">Home</button>
-        <button (click)="onTagsButtonClicked()">Tags</button>
+        <button class="innerBarButton" (click)="onHomeButtonClicked()">Home</button>
+        <button class="innerBarButton" (click)="onTagsButtonClicked()">Tags</button>
+        <button class="innerBarButton" (click)="onMyProfileButtonClciked()">My Profile</button>
       </div>
     </div>
 
@@ -48,9 +49,9 @@
           <button class="askQuestionButton" (click)="onAskQuestionClicked()">Ask Question</button>
 
           <div class="pagination">
-            <button>Day</button>
-            <button>Week</button>
-            <button>Month</button>
+            <button class="paginationButton1">1</button>
+            <button class="paginationButton2">2</button>
+            <button class="paginationButton3">3</button>
           </div>
         </div>
       </div>

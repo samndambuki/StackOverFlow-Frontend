@@ -69,6 +69,5 @@ export class AskquestionComponent {
   onLogoutButtonClicked(){
     this.router.navigate(['landing'])
   }
-
   
 }

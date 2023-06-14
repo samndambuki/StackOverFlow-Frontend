@@ -43,4 +43,14 @@ export class MyQuestionsComponent {
     this.router.navigate(['tags'])
   }
 
+  //method to handle profile button click event
+  onMyProfileButtonClciked(){
+    this.router.navigate(['userprofile'])
+  }
+
+  //method to implement logout button click event
+  onLogoutButtonClicked(){
+    this.router.navigate(['landing'])
+  }
+
 }
