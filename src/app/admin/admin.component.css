@@ -281,3 +281,55 @@ button {
     gap: 1rem;
   }
 }
+
+/* MEDIA QUERY FOR 375px WIDTH */
+@media (max-width: 375px) {
+  .navigation-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+  }
+
+  .stacklogo p {
+    font-size: 1.5rem;
+  }
+
+  .stackoverflow {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stackoverflow img {
+    width: 20%;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .logout {
+    padding: 0.3rem 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .content {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+  }
+
+  .leftMenuBar {
+    width: 90%;
+    padding: 1rem;
+    margin: 0;
+    margin-top: 1rem;
+  }
+}
