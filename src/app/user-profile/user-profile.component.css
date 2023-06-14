@@ -60,20 +60,24 @@
     outline: none;
 }
 
-.logout{
-    background-color: rgb(225,236,244);
-    color:  rgb(15,148,253);
-    border: 1px solid white;
-    height: 30px;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    border-radius: 10px;
-}
 
-.logout:hover{
-    background-color: orange;
-}
+.logOutButton {
+    background-color: #0f94fd;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logOutButton:hover {
+    background-color: #0b7ad6;
+  }
+  
+  .logOutButton:focus {
+    outline: none;
+  }
 
 /* LEFT MENU BAR */
 
@@ -91,13 +95,31 @@
    
 }
 
-.innerBar{
+.innerBar {
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     margin-left: 2rem;
-    gap: .5rem;
-}
-
+    gap: 2rem;
+  }
+  
+  .innerBarButton {
+    background-color: #0f94fd;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .innerBarButton:hover {
+    background-color: #0b7ad6;
+  }
+  
+  .innerBarButton:focus {
+    outline: none;
+  }
 
 /* CONTENT  */
 
@@ -144,4 +166,97 @@
     color: red;
     font-size: 14px;
     margin-top: 5px;
+}
+
+/* MEDIA QUERIES */
+/* Media query for 365px width */
+@media (max-width: 365px) {
+    .navigation-menu {
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+    }
+  
+    .stacklogo {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+      gap: 2px;
+    }
+  
+    .stackoverflow {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .stackoverflow img {
+      width: 30%;
+    }
+  
+    .navlinks {
+      display: none;
+    }
+  
+    .search-bar {
+      width: 80%;
+      margin-top: 1rem;
+    }
+  
+    .search-bar input {
+      width: 100%;
+      font-size: 1rem;
+    }
+  
+    .logOutButton {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  
+    .leftMenuBar {
+      width: 90%;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 1rem;
+      height: auto;
+    }
+  
+    .innerBar {
+      margin-left: 0;
+      gap: 1rem;
+    }
+  
+    .innerBarButton {
+      width: 100%;
+    }
+  
+    .content {
+      flex-direction: column;
+      align-items: center;
+      margin-left: 0;
+      margin-right: 0;
+      padding: 1rem;
+    }
+  
+    .profileSection {
+      width: 90%;
+      margin-left: 0;
+      margin-right: 0;
+      margin-top: 1rem;
+    }
+  
+    .editProfile {
+      gap: 1rem;
+    }
+  
+    .saveProfileButton,
+    .cancelButton {
+      width: 100%;
+    }
+  
+    .error-message {
+      font-size: 12px;
+      margin-top: 4px;
+    }
   }
+  

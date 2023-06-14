@@ -64,4 +64,9 @@ export class UserProfileComponent{
   onMyQuestionsButtonClicked(){
     this.router.navigate(['myquestions'])
   }
+
+  //method to handle logout button click event
+  onLogoutButtonClciked(){
+    this.router.navigate(['landing'])
+  }
 }
