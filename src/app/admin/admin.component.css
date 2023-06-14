@@ -101,6 +101,14 @@
     height: 300px;   
 }
 
+.innerBar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 2rem;
+  gap: 2rem;
+}
+
 
 button {
     background-color: #0f94fd;
@@ -121,13 +129,7 @@ button {
   }
   
 
-.innerBar{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    margin-left: 2rem;
-    gap: 2rem;
-}
+
 
 /* MEDIA QUERIES */
 
