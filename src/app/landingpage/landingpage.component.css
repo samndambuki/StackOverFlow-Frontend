@@ -243,3 +243,74 @@
         flex-direction: column;
     }
   }
+
+  /* RESPONSIVE STYLES */
+
+@media (max-width: 375px) {
+
+    /* Adjustments for width up to 375px */
+    .navigation-menu {
+      flex-direction: column;
+    }
+  
+    .stacklogo {
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+
+    .stackoverflow{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .stackoverflow img {
+      width: 30%;
+    }
+  
+    .navlinks {
+    margin-top: .5rem;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .search-bar {
+    display: flex;
+      align-items: center;
+    }
+  
+    .search-bar input {
+      width: 80%;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: column;
+        gap: 24rem;
+    }
+
+    .content3{
+        padding: .5rem;
+        background-color:  rgb(35,38,41);
+    }
+
+    .maincontent{
+        display: flex;
+        flex-direction: column;
+    }
+    .footer{
+        margin-top: 25rem;
+        display: flex;
+        flex-direction: column;
+        height: 470px;
+        gap: .5rem;
+    }
+
+    .socialmedia{
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+  }
+  
+  

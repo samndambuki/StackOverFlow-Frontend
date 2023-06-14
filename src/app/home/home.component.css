@@ -343,3 +343,108 @@
     margin-left: 0;
   }
 }
+
+
+@media (max-width: 375px) {
+  /* NAVIGATION LINKS */
+
+  .navigation-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .stackoverflow{
+    display: flex;
+    flex-direction: column;
+  }
+
+
+  .stackoverflow img {
+    width: 30%;
+  }
+
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  
+  .logOutButton {
+    padding: 0.5rem;
+  }
+  
+  /* STYLES FOR CONTENTS AT THE CENTER OF THE PAGE */
+
+  .content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .leftMenuBar {
+    width: 90%;
+    padding: 1rem;
+  }
+  
+  .innerBar {
+    gap: 1rem;
+  }
+  
+  .innerBarButton {
+    padding: 0.5rem;
+  }
+  
+  .allQuestions {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .topQuestions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .askQuestion {
+    margin-left: 0;
+  }
+  
+  .paginationButton1,
+  .paginationButton2,
+  .paginationButton3 {
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+  }
+
+  
+  .linkToQuestion {
+    margin-left: 0;
+  }
+
+  .question1,.question2,.question3{
+    gap: 1rem;
+  }
+
+  .question1 {
+    border-radius: 5px;
+  }
+  
+  
+  .question2 {
+    border-radius: 5px;
+  }
+  
+  .linkToQuestion {
+    border: 1px solid black;
+  }
+  
+  .question3 {
+    border-radius: 5px;
+  }
+}
