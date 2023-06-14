@@ -428,13 +428,13 @@
   }
 
   .question1,.question2,.question3{
-    gap: 1rem;
+    gap: 2rem;
+    padding: 1rem;
   }
 
   .question1 {
     border-radius: 5px;
-  }
-  
+  }  
   
   .question2 {
     border-radius: 5px;
