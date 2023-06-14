@@ -66,4 +66,9 @@ export class UpdateQuestionComponent {
   onHomeButtonClicked() {
     this.router.navigate(['home']);
   }
+
+  //method to handle ogout button click event
+  onLogoutButtonClicked(){
+    this.router.navigate(['landing'])
+  }
 }
