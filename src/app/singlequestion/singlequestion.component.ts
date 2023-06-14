@@ -55,4 +55,8 @@ export class SinglequestionComponent {
     this.router.navigate(['myquestions'])
   }
   
+  //method to handle logout button clcik event
+  onLogoutButtonClicked(){
+    this.router.navigate(['landing'])
+  }
 }
