@@ -3,7 +3,7 @@
      <div class="navigation-menu">
         <!-- STACK OVERFLOW IMAGE -->
         <div class="stackoverflow">
-            <div (click)="onHomeButtonClicked()" class="stacklogo">
+            <div routerLink="/home" routerLinkActive="active" class="stacklogo">
                 <img src='../../assets/stackoverflowlogo.png'>
                 <p>Stack<span>Overflow</span></p>
             </div>
@@ -21,7 +21,7 @@
 
         <!-- LOGOUT -->
         <div class="logout">
-            <button (click)="onLogoutButtonClicked()" class="logOutButton">Logout</button>
+            <button routerLink="/landing" routerLinkActive="active" class="logOutButton">Logout</button>
         </div>
 
         </div>

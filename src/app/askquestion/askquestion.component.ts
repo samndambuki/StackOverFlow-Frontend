@@ -5,12 +5,12 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { QuestionService } from 'src/services/question.service';
 import { FormBuilder, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-askquestion',
   standalone: true,
-  imports: [CommonModule,FontAwesomeModule,FormsModule,HttpClientModule,ReactiveFormsModule],
+  imports: [CommonModule,FontAwesomeModule,FormsModule,HttpClientModule,ReactiveFormsModule,RouterModule],
   templateUrl: './askquestion.component.html',
   styleUrls: ['./askquestion.component.css'],
   providers:[QuestionService]
@@ -60,14 +60,5 @@ export class AskquestionComponent {
      this.currentStep = 1;
    }
 
-  //method to handle home button click event
-  onHomeButtonClicked(){
-    this.router.navigate(['home'])
-  }
-
-  //method to handle logout button click event
-  onLogoutButtonClicked(){
-    this.router.navigate(['landing'])
-  }
   
 }
