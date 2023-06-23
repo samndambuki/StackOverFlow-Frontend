@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-tags',
   standalone: true,
-  imports: [CommonModule,FontAwesomeModule],
+  imports: [CommonModule,FontAwesomeModule,RouterModule],
   templateUrl: './tags.component.html',
   styleUrls: ['./tags.component.css']
 })

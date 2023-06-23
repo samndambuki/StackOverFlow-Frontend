@@ -18,9 +18,14 @@
     <!-- NAVIGATION LINKS -->
 
     <div class="navlinks">
-      <!-- LOGOUT -->
-      <div class="logout">
-        <p>Logout</p>
+      <div class="logOut">
+        <button
+          class="logOutButton"
+          routerLink="/landing"
+          routerLinkActive="active"
+        >
+          Log Out
+        </button>
       </div>
     </div>
   </div>
@@ -28,14 +33,38 @@
   <!-- CONTENT AT THE CENTER -->
   <div class="content">
     <!-- LEFT MENU BAR -->
-    <div class="leftMenuBar">
-     
-      <div class="innerBar">
-        <button class="innerBarButton" (click)="onHomeButtonClicked()">Home</button>
-        <button class="innerBarButton"  (click)="onMyQuestionsButtonClicked()">My Questions</button>
-        <button class="innerBarButton"  (click)="onMyProfileButtonClicked()">My Profile</button>
-      </div>
-    </div>
+        <!-- LEFT MENU BAR -->
+        <div class="leftMenuBar">
+          <div class="innerBar">
+            <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
+              Home
+            </h2>
+            <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
+              Tags
+            </h2>
+            <h2
+              class="innerBarButton"
+              routerLink="/myquestions"
+              routerLinkActive="active"
+            >
+              My Questions
+            </h2>
+            <h2
+              class="innerBarButton"
+              routerLink="/userprofile"
+              routerLinkActive="active"
+            >
+              My Profile
+            </h2>
+            <h2
+              class="innerBarButton"
+              routerLink="/admin"
+              routerLinkActive="active"
+            >
+              Admin
+            </h2>
+          </div>
+        </div>
 
     <div class="tags">
       <p>
