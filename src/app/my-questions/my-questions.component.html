@@ -1,90 +1,116 @@
 <div class="container">
-  <!-- NAVIGATION MENU -->
-  <div class="navigation-menu">
-    <!-- STACK OVERFLOW IMAGE -->
-    <div class="stackoverflow">
-      <div (click)="onHomeButtonClicked()" class="stacklogo">
-        <img src="../../assets/stackoverflowlogo.png" />
-        <p>Stack<span>Overflow</span></p>
+    <!-- NAVIGATION MENU -->
+    <div class="navigation-menu">
+      <!-- STACK OVERFLOW IMAGE -->
+      <div class="stackoverflow">
+        <div routerLink="/home" class="stacklogo">
+          <img src="../../assets/stackoverflowlogo.png" />
+          <p>Stack<span>Overflow</span></p>
+        </div>
+  
+        <div class="search-bar">
+          <!-- SEARCH BAR ICON -->
+          <fa-icon [icon]="searchicon"></fa-icon>
+          <input type="text" placeholder="Search..." />
+        </div>
       </div>
-
-      <div class="search-bar">
-        <!-- SEARCH BAR ICON -->
-        <fa-icon [icon]="searchicon"></fa-icon>
-        <input type="text" placeholder="Search..." />
+  
+      <!-- NAVIGATION LINKS -->
+  
+      <div class="navlinks">
+        <div class="logOut">
+          <button
+            class="logOutButton"
+            routerLink="/landing"
+            routerLinkActive="active"
+          >
+            Log Out
+          </button>
+        </div>
       </div>
     </div>
-
-    <!-- NAVIGATION LINKS -->
-
-    <div class="navlinks">
-      <!-- LOGOUT -->
-      <div class="logout">
-        <button (click)="onLogoutButtonClicked()" class="logOutButton">Logout</button>
-      </div>
-    </div>
-  </div>
+  
 
   <!-- CONTENT AT THE CENTER -->
 
   <div class="content">
     <!-- LEFT MENU BAR -->
-    <div class="leftMenuBar">
-     
-      <div class="innerBar">
-        <button class="innerBarButton" (click)="onHomeButtonClicked()">Home</button>
-        <button class="innerBarButton" (click)="onTagsButtonClicked()">Tags</button>
-        <button class="innerBarButton" (click)="onMyProfileButtonClciked()">My Profile</button>
-      </div>
-    </div>
+        <!-- LEFT MENU BAR -->
+        <div class="leftMenuBar">
+          <div class="innerBar">
+            <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
+              Home
+            </h2>
+            <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
+              Tags
+            </h2>
+            <h2
+              class="innerBarButton"
+              routerLink="/myquestions"
+              routerLinkActive="active"
+            >
+              My Questions
+            </h2>
+            <h2
+              class="innerBarButton"
+              routerLink="/userprofile"
+              routerLinkActive="active"
+            >
+              My Profile
+            </h2>
+            <h2
+              class="innerBarButton"
+              routerLink="/admin"
+              routerLinkActive="active"
+            >
+              Admin
+            </h2>
+          </div>
+        </div>
 
     <!-- DISPLAY ALL QUESTIONS -->
 
     <div class="allQuestions">
-      <!-- TOP QUESTIONS -->
-      <div class="topQuestions">
+      
+       <!-- TOP QUESTIONS -->
+       <div class="topQuestions">
         <p>Top Questions</p>
-
-        <div class="askQuestion">
-          <button class="askQuestionButton" (click)="onAskQuestionClicked()">Ask Question</button>
-
-          <div class="pagination">
-            <button class="paginationButton1">1</button>
-            <button class="paginationButton2">2</button>
-            <button class="paginationButton3">3</button>
-          </div>
-        </div>
+        <button
+          class="askQuestionButton"
+          routerLink="/askquestion"
+          routerLinkActive="active"
+        >
+          Ask Question
+        </button>
       </div>
 
       <!-- FIRST QUESTION -->
-
       <div class="question1">
         <div class="question1Content">
           <p>0 Votes</p>
           <p>0 Answers</p>
           <p>3 Views</p>
-        </div>
-
-        <div class="linkToQuestion">
-          <button class="linkToQuestionButton" (click)="onSingleQuestionClikced()">
-            Extending custom types with functions in typescript
-          </button>
-
-          <div class="tags">
-            <p>JavaScript</p>
-            <p>reactJs</p>
-          </div>
-
           <div class="userName">
             <p>Samuel Ndambuki</p>
           </div>
+        </div>
 
-          <div class="crudButtons">
-            <button class="updateButton" (click)="onUpdateClicked()">Update</button>
-            <button class="deleteButton">Delete</button>
+        <div class="linkToQuestion">
+          <h2 routerLink="/singlequestion" routerLinkActive="active">
+            Extending custom types with functions in typescript
+          </h2>
+          <div class="tags">
+            <p>#JavaScript</p>
+            <p>#reactJs</p>
           </div>
         </div>
+        <div class="crudButtons">
+          <button class="updateButton" routerLink="/updatequestion" routerLinkActive="active">Update</button>
+          <button class="deleteButton">Delete</button>
+        </div>
       </div>
+
+    
 
       <!-- SECOND QUESTION -->
 
@@ -93,58 +119,63 @@
           <p>0 Votes</p>
           <p>0 Answers</p>
           <p>3 Views</p>
-        </div>
-
-        <div class="linkToQuestion">
-          <button class="linkToQuestionButton" (click)="onSingleQuestionClikced()">
-            Extending custom types with functions in typescript
-          </button>
-
-          <div class="tags">
-            <p>JavaScript</p>
-            <p>reactJs</p>
-          </div>
 
           <div class="userName">
             <p>Samuel Ndambuki</p>
           </div>
+        </div>
 
-          <div class="crudButtons">
-            <button class="updateButton" (click)="onUpdateClicked()">Update</button>
-            <button class="deleteButton">Delete</button>
+        <div class="linkToQuestion">
+          <h2 routerLink="/singlequestion" routerLinkActive="active">
+            Extending custom types with functions in typescript
+          </h2>
+
+          <div class="tags">
+            <p>#JavaScript</p>
+            <p>#reactJs</p>
           </div>
+        </div>
+        <div class="crudButtons">
+          <button class="updateButton" routerLink="/updatequestion" routerLinkActive="active">Update</button>
+          <button class="deleteButton">Delete</button>
         </div>
       </div>
 
-      <!-- THIRD QUESTION -->
+      
 
+      <!-- THIRD QUESTION -->
       <div class="question3">
         <div class="question3Content">
           <p>0 Votes</p>
           <p>0 Answers</p>
           <p>3 Views</p>
-        </div>
-
-        <div class="linkToQuestion">
-          <button class="linkToQuestionButton" (click)="onSingleQuestionClikced()">
-            Extending custom types with functions in typescript
-          </button>
-
-          <div class="tags">
-            <p>JavaScript</p>
-            <p>reactJs</p>
-          </div>
-
           <div class="userName">
             <p>Samuel Ndambuki</p>
           </div>
+        </div>
 
-          <div class="crudButtons">
-            <button class="updateButton" (click)="onUpdateClicked()">Update</button>
-            <button class="deleteButton">Delete</button>
+        <div class="linkToQuestion">
+          <h2 routerLink="/singlequestion" routerLinkActive="active">
+            Extending custom types with functions in typescript
+          </h2>
+
+          <div class="tags">
+            <p>#JavaScript</p>
+            <p>#reactJs</p>
           </div>
         </div>
+        <div class="crudButtons">
+          <button class="updateButton" routerLink="" routerLinkActive="active">Update</button>
+          <button class="deleteButton" routerLink="" routerLinkActive="active">Delete</button>
+        </div>
       </div>
+
+      <div class="pagination">
+        <button class="paginationButton1">1</button>
+        <button class="paginationButton2">2</button>
+        <button class="paginationButton3">3</button>
+      </div>
+     
     </div>
   </div>
 </div>

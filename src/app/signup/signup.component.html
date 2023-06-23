@@ -26,6 +26,7 @@
     
     <!-- SIGN UP CONTAINER -->
     <form class="signupcontainer" [formGroup]="signUpForm">
+        <h2>Sign Up</h2>
         <!-- <form [formGroup]="signUpForm"> -->
         <!-- NAME INPUT -->
         <div class="name">
@@ -57,23 +58,12 @@
                 <div *ngIf="signUpForm.get('password')?.hasError('invalidPassword')" class="error-text">Password must contain at least one letter and one number</div>
             </div>
         </div>
-        <!-- PASSWORD CONTENT -->
-        <div class="passwordContent">
-            <p>
-                Password must contain at least eight characters,
-                including at least one letter and one number
-            </p>
-        </div>
+      
         <!-- SIGN UP BUTTON -->
         <div class="signUp">
             <button class="signUpButton" (click)="onSignUpClicked()">Sign Up</button>
         </div>
-        <!-- SIGN UP CONTENT -->
-        <div class="signUpContent">
-            <p>
-                By clicking “Sign Up”, you agree to our terms of service and acknowledge that you have read and understood our privacy policy and code of conduct.
-            </p>
-        </div>
+       
         
     </form>
 

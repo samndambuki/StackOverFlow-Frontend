@@ -3,7 +3,7 @@
   <div class="navigation-menu">
     <!-- STACK OVERFLOW IMAGE -->
     <div class="stackoverflow">
-      <div (click)="onHomeButtonClicked()" class="stacklogo">
+      <div routerLink="/home" class="stacklogo">
         <img src="../../assets/stackoverflowlogo.png" />
         <p>Stack<span>Overflow</span></p>
       </div>
@@ -19,7 +19,11 @@
 
     <div class="navlinks">
       <div class="logOut">
-        <button class="logOutButton" (click)="onLogoutClicked()">
+        <button
+          class="logOutButton"
+          routerLink="/landing"
+          routerLinkActive="active"
+        >
           Log Out
         </button>
       </div>
@@ -32,16 +36,33 @@
     <!-- LEFT MENU BAR -->
     <div class="leftMenuBar">
       <div class="innerBar">
-        <button class="innerBarButton" (click)="onTagsClicked()">Tags</button>
-        <button class="innerBarButton" (click)="onMyQuestionsClicked()">
+        <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
+          Home
+        </h2>
+        <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
+          Tags
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/myquestions"
+          routerLinkActive="active"
+        >
           My Questions
-        </button>
-        <button class="innerBarButton" (click)="onProfileButtonClciked()">
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/userprofile"
+          routerLinkActive="active"
+        >
           My Profile
-        </button>
-        <button class="innerBarButton" (click)="onAdminButtonClicked()">
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/admin"
+          routerLinkActive="active"
+        >
           Admin
-        </button>
+        </h2>
       </div>
     </div>
 
@@ -51,18 +72,13 @@
       <!-- TOP QUESTIONS -->
       <div class="topQuestions">
         <p>Top Questions</p>
-
-        <div class="askQuestion">
-          <button class="askQuestionButton" (click)="onAskQuestionClicked()">
-            Ask Question
-          </button>
-
-          <div class="pagination">
-            <button class="paginationButton1">1</button>
-            <button class="paginationButton2">2</button>
-            <button class="paginationButton3">3</button>
-          </div>
-        </div>
+        <button
+          class="askQuestionButton"
+          routerLink="/askquestion"
+          routerLinkActive="active"
+        >
+          Ask Question
+        </button>
       </div>
 
       <!-- FIRST QUESTION -->
@@ -72,20 +88,18 @@
           <p>0 Votes</p>
           <p>0 Answers</p>
           <p>3 Views</p>
+          <div class="userName">
+            <p>Samuel Ndambuki</p>
+          </div>
         </div>
 
         <div class="linkToQuestion">
-          <button (click)="onSingleQuestionClicked()">
+          <h2 routerLink="/singlequestion" routerLinkActive="active">
             Extending custom types with functions in typescript
-          </button>
-
+          </h2>
           <div class="tags">
-            <p>JavaScript</p>
-            <p>reactJs</p>
-          </div>
-
-          <div class="userName">
-            <p>Samuel Ndambuki</p>
+            <p>#JavaScript</p>
+            <p>#reactJs</p>
           </div>
         </div>
       </div>
@@ -97,20 +111,20 @@
           <p>0 Votes</p>
           <p>0 Answers</p>
           <p>3 Views</p>
-        </div>
-
-        <div class="linkToQuestion">
-          <button (click)="onSingleQuestionClicked()">
-            Extending custom types with functions in typescript
-          </button>
-
-          <div class="tags">
-            <p>JavaScript</p>
-            <p>reactJs</p>
-          </div>
 
           <div class="userName">
             <p>Samuel Ndambuki</p>
+          </div>
+        </div>
+
+        <div class="linkToQuestion">
+          <h2 routerLink="/singlequestion" routerLinkActive="active">
+            Extending custom types with functions in typescript
+          </h2>
+
+          <div class="tags">
+            <p>#JavaScript</p>
+            <p>#reactJs</p>
           </div>
         </div>
       </div>
@@ -122,22 +136,26 @@
           <p>0 Votes</p>
           <p>0 Answers</p>
           <p>3 Views</p>
-        </div>
-
-        <div class="linkToQuestion">
-          <button (click)="onSingleQuestionClicked()">
-            Extending custom types with functions in typescript
-          </button>
-
-          <div class="tags">
-            <p>JavaScript</p>
-            <p>reactJs</p>
-          </div>
-
           <div class="userName">
             <p>Samuel Ndambuki</p>
           </div>
         </div>
+
+        <div class="linkToQuestion">
+          <h2 routerLink="/singlequestion" routerLinkActive="active">
+            Extending custom types with functions in typescript
+          </h2>
+
+          <div class="tags">
+            <p>#JavaScript</p>
+            <p>#reactJs</p>
+          </div>
+        </div>
+      </div>
+      <div class="pagination">
+        <button class="paginationButton1">1</button>
+        <button class="paginationButton2">2</button>
+        <button class="paginationButton3">3</button>
       </div>
     </div>
   </div>

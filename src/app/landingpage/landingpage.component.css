@@ -1,316 +1,377 @@
 /* NAVIGATION LINKS */
-.navigation-menu{
-    background-color: white;
-    border: 1px solid black;
-    display: flex;
-    margin-top: 3px;
-    padding: 1rem;
-    justify-content: space-between;
-    border-radius: 10px;
+.navigation-menu {
+  background-color: white;
+  box-shadow: #d9d9d9;
+  display: flex;
+  margin-top: 3px;
+  padding: 1rem;
+  justify-content: space-between;
+
+  /* removed style */
+  /* border-radius: 10px; */
+
+  /* added style */
+  border-bottom: 1px solid #d9d9d9;
+  padding-right: 3rem;
+  padding-left: 3rem;
 }
 
 .stackoverflow {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .stacklogo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    width: 80%;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 80%;
+  /* modified styles */
+  padding-right: 5rem;
 }
 
-.stacklogo p{
-    font-size: 2rem;
+.stacklogo p {
+  /* modified style */
+  font-size: 1.5rem;
 }
 
-.stacklogo span{
-    font-weight: bold;
+.stacklogo span {
+  font-weight: bold;
 }
 
-.stackoverflow img{
-    width: 15%;
-    background-color: red;
+.stackoverflow img {
+  /* modified styles */
+  max-width: 25px;
+  background-color: red;
 }
 
-.navlinks{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.search-bar{
-    display: flex;
-    align-items: center;
-    border: 1px solid black;
-    padding: 1rem;
-    gap: 1rem;
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  /* removed styles */
+  /* border: 1px solid black; */
+  /* additional styles */
+  border-radius: 20px;
+  padding: 0.5rem;
+  background-color: #d9d9d9;
 }
 
-.search-bar input{
-    border: none;
-    width: 700px;
-    padding: .1rem;
-    font-size: 1.1rem;
+.search-bar input {
+  border: none;
+  width: 700px;
+  padding: 0.1rem;
+  /* additional styles */
+  font-size: 13px;
+  background-color: transparent;
+  outline: none;
 }
 
-.search-bar input:focus{
-    outline: none;
+.search-bar input:focus {
+  outline: none;
 }
 
-.signUpButton,.loginButton {
-    background-color: #0f94fd;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
+.signUpButton,
+.loginButton {
+  /* additional styles */
+
+  border: 1px solid #0f94fd;
+  color: black;
+  background-color: white;
+
+  border-radius: 5px;
+  padding: 0.7rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+}
+
+/* additional styles */
+.signUpButton {
+  background-color: blue;
+  color: white;
+}
+
 .signUpButton:hover {
-    background-color: #0b7ad6;
-  }
+  background-color: #0b7ad6;
+}
 
 .signUpButton:focus {
-    outline: none;
+  outline: none;
 }
-  
+
 .loginButton:hover {
-    background-color: #0b7ad6;
+  background-color: #0b7ad6;
+  color: white;
 }
 
 .loginButton:focus {
-    outline: none;
-}
-  
-.content{
-    background-color: rgb(35,38,41);
-    color: black;
-    height: 400px;
-    margin-top: 1rem;   
-    border-radius: 10px;
+  outline: none;
 }
 
-.maincontent{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    height: 300px;
-    margin: auto;
-    max-width: 100%;
+.content {
+  /* removed styles */
+  /* background-color: rgb(35,38,41); */
+  color: black;
+  height: 400px;
+  margin-top: 1rem;
+  border-radius: 10px;
+  /* additonal styles */
+  padding: 8rem;
 }
 
-.content1{
-    border: 2px solid rgb(35,38,41);
-    background-color: rgb(253,227,205);
-    font-size: 2rem;
-    padding: 5rem;
-    border-radius: 10px;
-    
-}
-.content2{
-    border: 2px solid rgb(35,38,41);
-    border-radius: 10px;
-    background-color: rgb(205,233,254);
-    font-size: 2rem;
-    padding: 5rem;
- 
+.maincontent {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 300px;
+  margin: auto;
+  max-width: 100%;
 }
 
-.content3{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-    color: white;
-    font-size: 1.5rem;
+.content1 {
+  /* removed styles */
+  /* border: 2px solid rgb(35,38,41); */
+  background-color: rgb(253, 227, 205);
+  font-size: 2rem;
+  padding: 5rem;
+  border-radius: 10px;
+
+  /* additional style */
+  margin-right: 5rem;
+  text-align: center;
+}
+.content2 {
+  /* removed style */
+  /* border: 2px solid rgb(35,38,41); */
+  border-radius: 10px;
+  background-color: rgb(205, 233, 254);
+  font-size: 2rem;
+  padding: 5rem;
+
+  /* additonal style */
+  margin-left: 5rem;
+  text-align: center;
 }
 
+.content3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  /* modified color */
+  color: black;
+  /* modified styles */
+  font-size: 2rem;
+}
 
-.content3 span{
-    color: rgb(217,108,39);
+/* modified styles */
+.content3 p {
+  margin-top: 1.5rem;
+}
+
+.content3 span {
+  color: rgb(217, 108, 39);
 }
 
 /* FOOTER STYLES */
-.footer{
-    background-color:  rgb(35,38,41);
-    margin-top: .2rem;
-    color: white;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    height: 180px;
-    padding: 1rem;
-    color: rgb(248,249,249);
-    border-radius: 10px;
+.footer {
+  background-color: rgb(35, 38, 41);
+  margin-top: 0.2rem;
+  color: white;
+  /* removed styles */
+  /* display: grid;
+    grid-template-columns: repeat(3,1fr); */
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 180px;
+  padding: 1rem;
+  color: rgb(248, 249, 249);
+  /* removed style */
+  /* border-radius: 10px; */
+
+  /* added styles */
+  padding: 3rem;
 }
 
-.footer1{
+.footer1 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-right: 4rem;
+  margin-left: 4rem;
+}
+
+.footer2 {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-right: 4rem;
+  margin-left: 4rem;
+}
+
+/* removed styles */
+/* .socialmedia{
     display: flex;
+  
     flex-direction: column;
+    color: #0b7ad6;
     gap: 1rem;
-}
+    margin-right: 2rem;
 
-.footer2{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.socialmedia{
-    display: flex;
-    gap: 1rem;
-}
+} */
 
 /* MEDIA QUERIES */
 /* Media Query for screens with a width of 320px */
 @media only screen and (max-width: 320px) {
-
-    .navigation-menu{
-        background-color: white;
-        border: 1px solid black;
-        display: flex;
-        flex-direction: column;
-        margin-top: 3px;
-        padding: 1rem;
-        justify-content: center;
-        align-items: center;
-        border-radius: 10px;
-        gap: 1rem;
-    }
-
-    .stacklogo p {
-      font-size: 1.5rem;
-    }
-
-    .stackoverflow{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-  
-    .stackoverflow img {
-      width: 25%;
-      max-width: 150px;
-    }
-
-    .search-bar{
-        max-width: 150px;
-      }
-  
-    .search-bar input {
-      max-width: 70px;
-    }
-
-    .search-bar input:focus{
-        outline: none;
-    }
-    
-  
-    .signUpButton,
-    .loginButton {
-      padding: 0.7rem;
-      font-size: 0.9rem;
-    }
-  
-    .content {
-      height: auto;
-      padding: 1rem;
-    }
-  
-    .maincontent {
-      grid-template-columns: 1fr;
-    }
-  
-    .content1,
-    .content2 {
-      font-size: 1.5rem;
-      padding: 2rem;
-    }
-  
-    .content3 {
-      font-size: 1.2rem;
-    }
-  
-    .footer {
-      height: auto;
-      grid-template-columns: 1fr;
-      gap: 1rem;
-    }
-
-    .socialmedia{
-        display: flex;
-        flex-direction: column;
-    }
+  .navigation-menu {
+    background-color: white;
+    box-shadow: #d9d9d9;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3px;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 1rem;
   }
 
-  /* RESPONSIVE STYLES */
+  .stacklogo p {
+    font-size: 1.5rem;
+  }
+
+  .stackoverflow {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .stackoverflow img {
+    width: 25%;
+    max-width: 150px;
+  }
+
+  .search-bar {
+    max-width: 150px;
+  }
+
+  .search-bar input {
+    max-width: 70px;
+  }
+
+  .search-bar input:focus {
+    outline: none;
+  }
+
+  .signUpButton,
+  .loginButton {
+    padding: 0.7rem;
+    font-size: 0.9rem;
+  }
+
+  .content {
+    height: auto;
+    padding: 1rem;
+  }
+
+  .maincontent {
+    grid-template-columns: 1fr;
+  }
+
+  .content1,
+  .content2 {
+    font-size: 1.5rem;
+    padding: 2rem;
+  }
+
+  .content3 {
+    font-size: 1.2rem;
+  }
+
+  .footer {
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .socialmedia {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* RESPONSIVE STYLES */
 
 @media (max-width: 375px) {
-
-    /* Adjustments for width up to 375px */
-    .navigation-menu {
-      flex-direction: column;
-    }
-  
-    .stacklogo {
-      margin-bottom: 0.5rem;
-      text-align: center;
-    }
-
-    .stackoverflow{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-    .stackoverflow img {
-      width: 30%;
-    }
-  
-    .navlinks {
-    margin-top: .5rem;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .search-bar {
-    display: flex;
-      align-items: center;
-    }
-  
-    .search-bar input {
-      width: 80%;
-    }
-
-    .content{
-        display: flex;
-        flex-direction: column;
-        gap: 24rem;
-    }
-
-    .content3{
-        padding: .5rem;
-        background-color:  rgb(35,38,41);
-    }
-
-    .maincontent{
-        display: flex;
-        flex-direction: column;
-    }
-    .footer{
-        margin-top: 25rem;
-        display: flex;
-        flex-direction: column;
-        height: 470px;
-        gap: .5rem;
-    }
-
-    .socialmedia{
-        margin-top: 1rem;
-        display: flex;
-        flex-direction: column;
-    }
+  /* Adjustments for width up to 375px */
+  .navigation-menu {
+    flex-direction: column;
   }
-  
-  
+
+  .stacklogo {
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  .stackoverflow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .stackoverflow img {
+    width: 30%;
+  }
+
+  .navlinks {
+    margin-top: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+  }
+
+  .search-bar input {
+    width: 80%;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    gap: 24rem;
+  }
+
+  .content3 {
+    padding: 0.5rem;
+    background-color: rgb(35, 38, 41);
+  }
+
+  .maincontent {
+    display: flex;
+    flex-direction: column;
+  }
+  .footer {
+    margin-top: 25rem;
+    display: flex;
+    flex-direction: column;
+    height: 470px;
+    gap: 0.5rem;
+  }
+
+  .socialmedia {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+}
