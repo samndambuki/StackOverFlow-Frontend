@@ -3,7 +3,7 @@
   <div class="navigation-menu">
     <!-- STACK OVERFLOW IMAGE -->
     <div class="stackoverflow">
-      <div (click)="onHomeButtonClicked()" class="stacklogo">
+      <div routerLink="/home" class="stacklogo">
         <img src="../../assets/stackoverflowlogo.png" />
         <p>Stack<span>Overflow</span></p>
       </div>
@@ -18,9 +18,14 @@
     <!-- NAVIGATION LINKS -->
 
     <div class="navlinks">
-      <!-- LOGOUT -->
-      <div class="logout">
-        <p>Logout</p>
+      <div class="logOut">
+        <button
+          class="logOutButton"
+          routerLink="/landing"
+          routerLinkActive="active"
+        >
+          Log Out
+        </button>
       </div>
     </div>
   </div>
@@ -28,13 +33,43 @@
   <div class="content">
     <!-- LEFT MENU BAR -->
     <div class="leftMenuBar">
-     
-
       <div class="innerBar">
-        <button class="innerBarButton" (click)="onHomeButtonClicked()">Home</button>
-        <button class="innerBarButton" (click)="onQuestionsButtonClicked()">Questions</button>
-        <button class="innerBarButton" (click)="onQuestionsButtonClicked()">Tags</button>
-        <button class="innerBarButton" (click)="onQuestionsButtonClicked()">Profile</button>
+        <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
+          Home
+        </h2>
+        <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
+          Tags
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/myquestions"
+          routerLinkActive="active"
+        >
+          My Questions
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/userprofile"
+          routerLinkActive="active"
+        >
+          My Profile
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/admin"
+          routerLinkActive="active"
+        >
+          Admin
+        </h2>
+
+      <h2
+      class="innerBarButton"
+      routerLink="/adminviewallquestions"
+      routerLinkActive="active"
+    >
+      Questions
+    </h2>
+        
       </div>
     </div>
 

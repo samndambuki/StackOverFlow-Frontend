@@ -3,7 +3,7 @@
   <div class="navigation-menu">
     <!-- STACK OVERFLOW IMAGE -->
     <div class="stackoverflow">
-      <div (click)="onHomeButtonClciked()" class="stacklogo">
+      <div routerLink="/home" class="stacklogo">
         <img src="../../assets/stackoverflowlogo.png" />
         <p>Stack<span>Overflow</span></p>
       </div>
@@ -18,24 +18,59 @@
     <!-- NAVIGATION LINKS -->
 
     <div class="navlinks">
-      <!-- LOGOUT -->
-      <div class="logout">
-        <p>Logout</p>
+      <div class="logOut">
+        <button
+          class="logOutButton"
+          routerLink="/landing"
+          routerLinkActive="active"
+        >
+          Log Out
+        </button>
       </div>
     </div>
   </div>
 
+
   <div class="content">
     <!-- LEFT MENU BAR -->
-    <div class="leftMenuBar">
-      <div class="innerBar">
-        <button (click)="onHomeButtonClciked()">Home</button>
-        <button (click)="onQuestionButtonClicked()">Questions</button>
-        <button (click)="onUsersButtonClicked()">Users</button>
-        <button (click)="onTagsButtonClicked()">Tags</button>
-        <button (click)="onUserProfileClicked()">Profile</button>
-      </div>
-    </div>
+        <div class="leftMenuBar">
+          <div class="innerBar">
+            <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
+              Home
+            </h2>
+            <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
+              Tags
+            </h2>
+            <h2
+              class="innerBarButton"
+              routerLink="/myquestions"
+              routerLinkActive="active"
+            >
+              My Questions
+            </h2>
+            <h2
+              class="innerBarButton"
+              routerLink="/userprofile"
+              routerLinkActive="active"
+            >
+              My Profile
+            </h2>
+            <h2
+              class="innerBarButton"
+              routerLink="/adminseesallusers"
+              routerLinkActive="active"
+            >
+              Users
+            </h2>
+            <h2
+            class="innerBarButton"
+            routerLink="/adminviewallquestions"
+            routerLinkActive="active"
+          >
+            Questions
+          </h2>
+          </div>
+        </div>
 
     <div class="welcomeMessage">
       <h1>WELCOME ADMIN SAMUEL NDAMBUKI</h1>

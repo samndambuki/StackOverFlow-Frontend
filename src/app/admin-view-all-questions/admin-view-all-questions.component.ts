@@ -5,12 +5,12 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { QuestionService } from 'src/services/question.service';
 import { HttpClient } from '@angular/common/http';
 import { Question } from 'src/interfaces/question.interface';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin-view-all-questions',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule],
+  imports: [CommonModule, FontAwesomeModule,RouterModule],
   templateUrl: './admin-view-all-questions.component.html',
   styleUrls: ['./admin-view-all-questions.component.css'],
 })

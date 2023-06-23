@@ -1,129 +1,159 @@
 /* NAVIGATION LINKS */
-
 .navigation-menu {
-    background-color: white;
-    border: 1px solid black;
-    display: flex;
-    margin-top: 3px;
-    padding: 1rem;
-    justify-content: space-between;
-    border-radius: 10px;
-  }
-  
-  .stackoverflow {
-    display: flex;
-    align-items: center;
-  }
-  
-  .stacklogo {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    width: 80%;
-  }
-  
-  .stacklogo p {
-    font-size: 2rem;
-  }
-  
-  .stacklogo span {
-    font-weight: bold;
-  }
-  
-  .stackoverflow img {
-    width: 15%;
-    background-color: red;
-  }
-  
-  .navlinks {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-  }
-  
-  .search-bar {
-    display: flex;
-    align-items: center;
-    border: 1px solid black;
-    padding: 1rem;
-    gap: 1rem;
-  }
-  
-  .search-bar input {
-    border: none;
-    width: 700px;
-    padding: 0.1rem;
-    font-size: 1.1rem;
-  }
-  
-  .search-bar input:focus {
-    outline: none;
-  }
+  background-color: white;
+  box-shadow: #d9d9d9;
+  display: flex;
+  margin-top: 3px;
+  padding: 1rem;
+  justify-content: space-between;
 
-  .logOutButton{
-    background-color: #0f94fd;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  /* removed style */
+  /* border-radius: 10px; */
+
+  /* added style */
+  border-bottom: 1px solid #d9d9d9;
+  padding-right: 3rem;
+  padding-left: 3rem;
 }
 
-.logOutButton:hover{
-    background-color: #0b7ad6;
+.stackoverflow {
+  display: flex;
+  align-items: center;
+}
+
+.stacklogo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 80%;
+  /* modified styles */
+  padding-right: 5rem;
+}
+
+.stacklogo p {
+  /* modified style */
+  font-size: 1.5rem;
+}
+
+.stacklogo span {
+  font-weight: bold;
+}
+
+.stackoverflow img {
+  /* modified styles */
+  max-width: 25px;
+  background-color: red;
+}
+
+.navlinks {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  /* removed styles */
+  /* border: 1px solid black; */
+  /* additional styles */
+  border-radius: 20px;
+  padding: 0.5rem;
+  background-color: #d9d9d9;
+}
+
+.search-bar input {
+  border: none;
+  width: 700px;
+  padding: 0.1rem;
+  /* additional styles */
+  font-size: 13px;
+  background-color: transparent;
+  outline: none;
+}
+
+.search-bar input:focus {
+  outline: none;
+}
+
+.logOutButton {
+  /* additional styles */
+
+  border: 1px solid #0f94fd;
+  color: black;
+  background-color: white;
+
+  border-radius: 5px;
+  padding: 0.7rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 20px;
+}
+
+.logOutButton:hover {
+  background-color: #0b7ad6;
 }
 
 .logOutButton:focus {
-    outline: none;
-  }
+  outline: none;
+}
   
   /* STYLES FOR CONTENTS AT THE CENTER OF THE PAGE */
-  
   .content {
     display: flex;
     font-size: 1.1rem;
     padding: 0.2rem;
     justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .active {
+    background-color: #0b7ad6;
+    color: white;
   }
   
   .leftMenuBar {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    border: 1px solid black;
+    /* border: 1px solid black; */
     border-radius: 5px;
     margin-top: 0.5rem;
-    width: 20%;
-    padding: 2rem;
-    height: 300px;
+    width: 15%;
+    background-color: #d9d9d9;
+    /* padding: 2rem; */
+    height: 80vh;
   }
-
-  .innerBar{
+  
+  .innerBar {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     margin-left: 2rem;
-    gap: 2rem;
-}
-
-.innerBarButton {
-  background-color: #0f94fd;
-  color: #ffffff;
-  border: none;
-  border-radius: 5px;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.innerBarButton:hover {
-  background-color: #0b7ad6;
-}
-
-.innerBarButton:focus {
-  outline: none;
-}
+    /* gap: 2rem; */
+    margin-top: 2rem;
+  }
+  
+  .innerBarButton {
+    /* background-color: #0f94fd; */
+    color: black;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    margin-bottom: 15px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .innerBarButton:hover {
+    background-color: #0b7ad6;
+  }
+  
+  .innerBarButton:focus {
+    outline: none;
+  }
   
   .content {
     display: flex;
@@ -140,17 +170,20 @@
   
   .topQuestions {
     display: flex;
-    border: 1px solid black;
+    justify-content: space-between;
+    align-items: center;
+    /* border: 1px solid black; */
     padding: 2rem;
     gap: 1rem;
     border-radius: 5px;
   }
   
-  .askQuestion {
-    display: flex;
-    flex-direction: column;
-    margin-left: 10rem;
-    gap: 0.5rem;
+  .topQuestions p {
+    font-weight: 700;
+  }
+  
+  .pagination {
+    margin-top: 2.7rem;
   }
   
   .paginationButton1 {
@@ -159,33 +192,51 @@
     gap: 1rem;
     border: 1px solid transparent;
     border-radius: 2px;
-    padding: 0.2rem;
+    padding: 0.5rem;
+    margin-left: 1rem;
   }
-
+  
   .paginationButton2 {
-    color: white;
-    background-color: rgb(15, 148, 253);
+    color: black;
+    background-color: white;
     gap: 1rem;
-    border: 1px solid transparent;
+    border: 1px solid black;
     border-radius: 2px;
-    padding: 0.2rem;
+    padding: 0.5rem;
     margin-left: 1rem;
   }
-
+  
   .paginationButton3 {
-    color: white;
-    background-color: rgb(15, 148, 253);
+    color: black;
+    background-color: white;
     gap: 1rem;
-    border: 1px solid transparent;
+    border: 1px solid black;
     border-radius: 2px;
-    padding: 0.2rem;
+    padding: 0.5rem;
     margin-left: 1rem;
+  }
+  
+  .paginationButton2:hover {
+    background-color: #0b7ad6;
+  }
+  
+  .paginationButton2:focus {
+    outline: none;
+  }
+  
+  .paginationButton3:hover {
+    background-color: #0b7ad6;
+  }
+  
+  .paginationButton3:focus {
+    outline: none;
   }
   
   .askQuestionButton {
     color: white;
     background-color: rgb(15, 148, 253);
-    padding: 0.3rem;
+    padding: 0.7rem;
+    cursor: pointer;
     border: 1px solid transparent;
     border-radius: 5px;
   }
@@ -193,13 +244,18 @@
   .question1 {
     padding: 2rem;
     display: flex;
-    border: 1px solid black;
     border-radius: 5px;
+    background-color: #f1f1f7;
+    margin-bottom: 10px;
   }
   
   .question1Content {
     display: flex;
     flex-direction: column;
+  }
+  .question1Content p {
+    padding-bottom: 10px;
+    font-size: small;
   }
   
   .tags {
@@ -210,43 +266,24 @@
   .linkToQuestion {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 50%;
-    border: 1px soild black;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 45rem;
     margin-left: 7rem;
+    gap: 1rem;
   }
   
-  .linkToQuestionButton {
-    background-color: rgb(15, 148, 253);
-    color: white;
+  .linkToQuestion h2 {
+    color: rgb(15, 148, 253);
     padding: 0.3rem;
-    border: 1px solid transparent;
-    border-radius: 5px;
+    cursor: pointer;
   }
-  
-  .updateButton{
-      background-color: rgb(15, 148, 253);
-      color: white;
-      padding: 0.3rem;
-      border: 1px solid transparent;
-      border-radius: 5px;
-  }
-  
-  .deleteButton{
-      padding: 0.3rem;
-      border: 1px solid transparent;
-      border-radius: 5px;
-      margin-left: .2rem;
-      background-color: red;
-      color: white;
-  }
-  
   .question2 {
     padding: 2rem;
     display: flex;
-    border: 1px solid black;
-    border-radius: 10px;
+    border-radius: 5px;
+    background-color: #f1f1f7;
+    margin-bottom: 10px;
   }
   
   .question2Content {
@@ -254,9 +291,18 @@
     flex-direction: column;
   }
   
+  .question2Content p {
+    padding-bottom: 10px;
+    font-size: small;
+  }
+  
   .tags {
     display: flex;
-    gap: 1rem;
+    /* gap: 1rem; */
+  }
+  .tags p {
+    color: black;
+    font-size: small;
   }
   
   .linkToQuestion {
@@ -273,9 +319,26 @@
   .question3 {
     padding: 2rem;
     display: flex;
-    border: 1px solid black;
     border-radius: 5px;
+    background-color: #f1f1f7;
+    margin-bottom: 10px;
   }
+  
+  .question3Content p {
+    padding-bottom: 10px;
+    font-size: small;
+  }
+
+  .deleteButton{
+    color: white;
+    padding: .5rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: red;
+    margin-left: 1rem;
+}
+
+  
   
   /* MEDIA QUERIES */
   /* Media Query for screens with a width of 320px */

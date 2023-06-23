@@ -1,23 +1,32 @@
 <div class="container">
       <!-- NAVIGATION MENU -->
+        <!-- NAVIGATION MENU -->
   <div class="navigation-menu">
     <!-- STACK OVERFLOW IMAGE -->
     <div class="stackoverflow">
-      <div (click)="onHomeButtonClicked()" class="stacklogo">
+      <div routerLink="/home" class="stacklogo">
         <img src="../../assets/stackoverflowlogo.png" />
         <p>Stack<span>Overflow</span></p>
       </div>
+
       <div class="search-bar">
         <!-- SEARCH BAR ICON -->
         <fa-icon [icon]="searchicon"></fa-icon>
         <input type="text" placeholder="Search..." />
       </div>
     </div>
+
     <!-- NAVIGATION LINKS -->
+
     <div class="navlinks">
-      <!-- LOGOUT -->
-      <div class="logout">
-        <button (click)="onLogoutButtonClciked()" class="logOutButton">Logout</button>
+      <div class="logOut">
+        <button
+          class="logOutButton"
+          routerLink="/landing"
+          routerLinkActive="active"
+        >
+          Log Out
+        </button>
       </div>
     </div>
   </div>
@@ -25,35 +34,50 @@
   <div class="content">
 
     <!-- LEFT MENU BAR -->
-  <div class="leftMenuBar">
-  
-    <div class="innerBar">
-      <button class="innerBarButton" (click)="onHomeButtonClicked()">Home</button>
-      <button class="innerBarButton" (click)="onTagsButtonClicked()">Tags</button>
-      <button class="innerBarButton" (click)="onMyQuestionsButtonClicked()">My Questions</button>
+    <div class="leftMenuBar">
+      <div class="innerBar">
+        <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
+          Home
+        </h2>
+        <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
+          Tags
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/myquestions"
+          routerLinkActive="active"
+        >
+          My Questions
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/userprofile"
+          routerLinkActive="active"
+        >
+          My Profile
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/admin"
+          routerLinkActive="active"
+        >
+          Admin
+        </h2>
+      </div>
     </div>
-  </div>
-
   <!-- PROFILE SECTION -->
   <div class="profileSection">
     <div class="profileinfo">
         <div class="moreinfo">
-          <img src="">
             <p>samndambuki</p>
-            <p>Software Engineer</p>
-            <p>Member for 1 year, 3months</p>
-            <p>Last seen,this week</p>
             <p>Nyeri,Kenya</p>
+            <p>Software Engineer</p>
+            <p>Member for 1 year, 3months</p> 
         </div>
     </div>  
-    <p>Edit your profile</p>
-    <p>Public Information</p>
 
     <form [formGroup]="profileForm" class="editProfile">
-        <p>Profile image</p>
-        <img src="">
-        <p>Change Picture</p>
-       
+             
         <label>Display Name</label>
         <input type="text" placeholder="Display Name...."  formControlName="displayName" >
         <!-- DISPLAY NAME VALIDATIONS -->

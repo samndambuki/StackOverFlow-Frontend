@@ -1,29 +1,34 @@
 <div class="container">
   <!-- NAVIGATION MENU -->
-  <div class="navigation-menu">
-    <!-- STACK OVERFLOW IMAGE -->
-    <div class="stackoverflow">
-      <div (click)="onHomeButtonCicked()" class="stacklogo">
-        <img src="../../assets/stackoverflowlogo.png" />
-        <p>Stack<span>Overflow</span></p>
+    <div class="navigation-menu">
+      <!-- STACK OVERFLOW IMAGE -->
+      <div class="stackoverflow">
+        <div routerLink="/home" class="stacklogo">
+          <img src="../../assets/stackoverflowlogo.png" />
+          <p>Stack<span>Overflow</span></p>
+        </div>
+  
+        <div class="search-bar">
+          <!-- SEARCH BAR ICON -->
+          <fa-icon [icon]="searchicon"></fa-icon>
+          <input type="text" placeholder="Search..." />
+        </div>
       </div>
-
-      <div class="search-bar">
-        <!-- SEARCH BAR ICON -->
-        <fa-icon [icon]="searchicon"></fa-icon>
-        <input type="text" placeholder="Search..." />
+  
+      <!-- NAVIGATION LINKS -->
+  
+      <div class="navlinks">
+        <div class="logOut">
+          <button
+            class="logOutButton"
+            routerLink="/landing"
+            routerLinkActive="active"
+          >
+            Log Out
+          </button>
+        </div>
       </div>
     </div>
-
-    <!-- NAVIGATION LINKS -->
-
-    <div class="navlinks">
-      <!-- LOGOUT -->
-      <div class="logout">
-        <button class="logOutButton">Logout</button>
-      </div>
-    </div>
-  </div>
 
   <!-- CONTENT AT THE CENTER -->
 
@@ -31,11 +36,42 @@
     <!-- LEFT MENU BAR -->
     <div class="leftMenuBar">
       <div class="innerBar">
-        <button class="innerBarButton" (click)="onUserButtonClicked()">Users</button>
-        <button class="innerBarButton" (click)="onHomeButtonCicked()">Home</button>
+        <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
+          Home
+        </h2>
+        <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
+          Tags
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/myquestions"
+          routerLinkActive="active"
+        >
+          My Questions
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/userprofile"
+          routerLinkActive="active"
+        >
+          My Profile
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/adminseesallusers"
+          routerLinkActive="active"
+        >
+          Users
+        </h2>
+        <h2
+        class="innerBarButton"
+        routerLink="/adminviewallquestions"
+        routerLinkActive="active"
+      >
+        Questions
+      </h2>
       </div>
     </div>
-
     <!-- DISPLAY ALL QUESTIONS -->
 
     <div class="allQuestions">
@@ -48,8 +84,8 @@
           <div class="pagination">
             <!-- generate pagination buttons based on the number of pages -->
             <button *ngFor="let page of getTotalPages()" (click)="goToPage(page)" [class.active]="page === currentPage"  class="paginationButton1">{{page}}</button>
-            <!-- <button class="paginationButton2">2</button> -->
-            <!-- <button class="paginationButton3">3</button> -->
+            <button class="paginationButton2">2</button>
+            <button class="paginationButton3">3</button>
           </div>
         </div>
       </div>
@@ -65,15 +101,15 @@
 
         <div class="linkToQuestion">
           <!-- display questions title -->
-          <button  class="linkToQuestionButton">QUESTION TITLE: {{question.title}}</button>
+          <p class="linkToQuestionButton">QUESTION TITLE: {{question.title}}</p>
 
           <!-- display each questions tags and username -->
           <div class="tags">
-            <p>TAGS: {{question.tags}}</p>
+            <p>TAGS: {{question.tags}} #JavaScript</p>
           </div>
 
           <div class="userName">
-            <p>USER: {{question.user}} </p>
+            <p>USER: {{question.user}} Samuel Ndambuki</p>
           </div>
 
           <div class="crudButtons">
@@ -82,6 +118,7 @@
 
         </div>
       </div>
+
 
       <!-- SECOND QUESTION -->
 <!-- 

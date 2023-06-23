@@ -1,33 +1,32 @@
 <div class="container">
     <!-- NAVIGATION MENU -->
     <div class="navigation-menu">
-     <!-- STACK OVERFLOW IMAGE -->
-     <div class="stackoverflow">
-         <div (click)="onLandingPageButtonClciked()" class="stacklogo">
-             <img src='../../assets/stackoverflowlogo.png'>
-             <p>Stack<span>Overflow</span></p>
-         </div>
-        
-     <div class="search-bar">
-         <!-- SEARCH BAR ICON -->
-         <fa-icon [icon]="searchicon"></fa-icon>
-         <input type="text" placeholder="Search...">
-     </div>
-     </div>
-     <!-- NAVIGATION LINKS -->
-     <div class="navlinks">
+        <!-- STACK OVERFLOW IMAGE -->
+        <div class="stackoverflow">
+          <div routerLink="/landing" class="stacklogo">
+            <img src="../../assets/stackoverflowlogo.png" />
+            <p>Stack<span>Overflow</span></p>
+          </div>
+    
+          <div class="search-bar">
+            <!-- SEARCH BAR ICON -->
+            <fa-icon [icon]="searchicon"></fa-icon>
+            <input type="text" placeholder="Search..." />
+          </div>
+        </div>
+    
+        <!-- NAVIGATION LINKS -->
+    
+        <div class="navlinks">
+          
+        </div>
+      </div>
+    
 
-     <!-- LANDING PAGE -->
-     <div (click)="onLandingPageClicked()">
-         <button class="landingPageButton">Landing Page</button>
-     </div>
-     </div>
- </div>
  
  <!-- LOG IN CONTAINER -->
  <form class="logInContainer" [formGroup]="loginForm">
-  
-    
+    <h2>Log In</h2>
      <!-- EMAIL INPUT -->
      <div class="email">
          <label>Email</label>
@@ -48,13 +47,6 @@
             <div *ngIf="loginForm.get('password')?.hasError('minlength')" class="error-text">Password must be at least 8 characters</div>
             <div *ngIf="loginForm.get('password')?.hasError('invalidPassword')" class="error-text">Password must contain at least one letter and one number</div>
           </div>
-     </div>
-     <!-- PASSWORD CONTENT -->
-     <div class="passwordContent">
-         <p>
-             Password must contain at least eight characters,
-             including at least one letter and one number
-         </p>
      </div>
      <!-- LOG IN BUTTON -->
      <div class="logIn">

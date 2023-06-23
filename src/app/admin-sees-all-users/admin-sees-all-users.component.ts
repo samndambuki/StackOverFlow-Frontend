@@ -4,12 +4,12 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { User } from 'src/interfaces/user.interface';
 import { UsersService } from 'src/services/users.service';
-import { Route, Router } from '@angular/router';
+import { Route, Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-admin-sees-all-users',
   standalone: true,
-  imports: [CommonModule,FontAwesomeModule],
+  imports: [CommonModule,FontAwesomeModule,RouterModule],
   templateUrl: './admin-sees-all-users.component.html',
   styleUrls: ['./admin-sees-all-users.component.css']
 })
