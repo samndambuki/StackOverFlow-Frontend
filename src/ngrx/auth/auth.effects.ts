@@ -3,7 +3,7 @@ import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, map, switchMap } from 'rxjs/operators';
 
-import { login, loginFailure, loginSuccess, signUp, signUpFailure, signUpSuccess } from './auth.actions';
+import { login, loginFailure, loginSuccess, logout, logoutFailure, logoutSuccess, signUp, signUpFailure, signUpSuccess } from './auth.actions';
 import { AuthenticateService } from 'src/services/authenticate/authenticate.service';
 import { HttpResponse } from '@angular/common/http';
 import { LoginResponse } from 'src/interfaces/authenticate/LoginResponse';
@@ -53,4 +53,18 @@ export class AuthEffects {
     )
   )
 );
+
+logout$ = createEffect(() =>
+  this.actions$.pipe(
+    ofType(logout),
+    map(() => {
+      // Remove token from local storage
+      localStorage.removeItem('token');
+      // Redirect to login or another appropriate page
+      this.router.navigate(['login']);
+      return logoutSuccess();
+    })
+  )
+);
+
 }
