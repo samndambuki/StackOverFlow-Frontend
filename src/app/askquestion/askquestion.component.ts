@@ -6,6 +6,10 @@ import { QuestionService } from 'src/services/questions/question.service';
 import { FormBuilder, FormGroup, FormsModule, NgForm, ReactiveFormsModule, Validators } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
+import { AppState } from 'src/ngrx/app-state';
+import { Store } from '@ngrx/store';
+import { Question } from 'src/interfaces/question/question.interface';
+import { askQuestion } from 'src/ngrx/askquestion/question.actions';
 
 @Component({
   selector: 'app-askquestion',
@@ -22,7 +26,7 @@ export class AskquestionComponent {
    questionForm!: FormGroup;
    currentStep: number = 1;
  
-   constructor(private router: Router, private formBuilder: FormBuilder) {
+   constructor(private router: Router, private formBuilder: FormBuilder, private store: Store<AppState>, private questionService: QuestionService) {
      this.questionForm = this.formBuilder.group({
        title: ['', [Validators.required, Validators.minLength(5)]],
        details: ['', [Validators.required, Validators.minLength(10)]],
@@ -47,10 +51,24 @@ export class AskquestionComponent {
    //method to handle submit button click event
    onSubmit() {
      if (this.questionForm.valid) {
-       console.log('Form submitted successfully!');
-       console.log(this.questionForm.value);
-       this.questionForm.reset();
-       this.currentStep = 1;
+      //  console.log('Form submitted successfully!');
+      //  console.log(this.questionForm.value);
+      //  this.questionForm.reset();
+      //  this.currentStep = 1;
+      const question: Question = {
+        title: this.questionForm.controls['title'].value,
+        details: this.questionForm.controls['details'].value,
+        tried: this.questionForm.controls['try'].value,
+        tags: this.questionForm.controls['tags'].value,
+      };
+      const token = this.questionService.getToken(); 
+
+    this.store.dispatch(askQuestion({ question, token }));
+
+    // Reset form and navigate to another page
+    this.questionForm.reset();
+    this.currentStep = 1;
+    // this.router.navigate(['other-page']); 
      }
    }
  

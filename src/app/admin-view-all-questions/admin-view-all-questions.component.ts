@@ -4,8 +4,8 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { QuestionService } from 'src/services/questions/question.service';
 import { HttpClient } from '@angular/common/http';
-import { Question } from 'src/interfaces/question.interface';
 import { Router, RouterModule } from '@angular/router';
+import { Question } from 'src/interfaces/question/question.interface';
 
 @Component({
   selector: 'app-admin-view-all-questions',
@@ -55,19 +55,19 @@ export class AdminViewAllQuestionsComponent {
     );
   }
 
-  deleteQuestion(questionId: string) {
-    this.questionService.deleteQuestion(questionId).subscribe(
-      (response) => {
-        //updates question array by filtering out the deleted question if request is successful
-        this.questions = this.questions.filter(
-          (question) => question.id !== questionId
-        );
-      },
-      (error) => {
-        console.log('Error deleting question', error);
-      }
-    );
-  }
+  // deleteQuestion(questionId: string) {
+  //   this.questionService.deleteQuestion(questionId).subscribe(
+  //     (response) => {
+  //       //updates question array by filtering out the deleted question if request is successful
+  //       this.questions = this.questions.filter(
+  //         (question) => question.id !== questionId
+  //       );
+  //     },
+  //     (error) => {
+  //       console.log('Error deleting question', error);
+  //     }
+  //   );
+  // }
 
   //calculates total number of questions based on number of questions and items per page
   getTotalPages(): number[] {

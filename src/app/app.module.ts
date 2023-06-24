@@ -15,6 +15,8 @@ import { authReducer } from 'src/ngrx/auth/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from 'src/ngrx/auth/auth.effects';
 import { Router } from '@angular/router';
+import { QuestionEffects } from 'src/ngrx/askquestion/question.effects';
+import { questionReducer } from 'src/ngrx/askquestion/question.reducer';
 
 
 
@@ -29,7 +31,9 @@ import { Router } from '@angular/router';
     HttpClientModule,
     ReactiveFormsModule,
     StoreModule.forRoot({ auth: authReducer }),
-    EffectsModule.forRoot([AuthEffects])
+    EffectsModule.forRoot([AuthEffects]),
+    StoreModule.forRoot({ question: questionReducer }),
+    EffectsModule.forRoot([QuestionEffects])
   ],
   providers: [QuestionService,UsersService,AuthenticateService,AuthGuardService],
   bootstrap: [AppComponent]
