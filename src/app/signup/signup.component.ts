@@ -12,6 +12,9 @@ import {
   ValidationErrors,
   Validators,
 } from '@angular/forms';
+import { signUp } from 'src/ngrx/auth/auth.actions';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/ngrx/app-state';
 
 @Component({
   selector: 'app-signup',
@@ -29,7 +32,7 @@ export class SignupComponent {
 
   //injected router into this constructor to handle navigation
   //injected form builder for creating and managin forms in angular
-  constructor(private router: Router, private formBuilder: FormBuilder) {
+  constructor(private router: Router, private formBuilder: FormBuilder,private store:Store<AppState>) {
     // Custom validator function
     function passwordValidator(
       control: AbstractControl
@@ -48,7 +51,7 @@ export class SignupComponent {
     }
     
     this.signUpForm = this.formBuilder.group({
-      name: ['', Validators.required],
+      userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
       password: [
         '',
@@ -74,9 +77,16 @@ export class SignupComponent {
       return;
     }
 
-    // Form is valid, perform the submission logic here
-    const formData = this.signUpForm.value;
-    console.log(formData); // Replace with your desired logic
+    const{userName,email,password}  =this.signUpForm.value;
+    this.store.dispatch(signUp({userName,email,password}))
+
+    this.router.navigate(['login']);
+
+    // this.router.navigate['login']
+
+    // // Form is valid, perform the submission logic here
+    // const formData = this.signUpForm.value;
+    // console.log(formData); // Replace with your desired logic
 
     // Reset the form after successful submission
     this.signUpForm.reset();

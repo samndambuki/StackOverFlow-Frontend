@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { QuestionService } from 'src/services/question.service';
+import { QuestionService } from 'src/services/questions/question.service';
 import { HttpClient } from '@angular/common/http';
 import { Question } from 'src/interfaces/question.interface';
 import { Router, RouterModule } from '@angular/router';

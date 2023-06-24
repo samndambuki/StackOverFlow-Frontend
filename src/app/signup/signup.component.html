@@ -24,16 +24,16 @@
       </div>
     
     <!-- SIGN UP CONTAINER -->
-    <form class="signupcontainer" [formGroup]="signUpForm">
+    <form class="signupcontainer" [formGroup]="signUpForm" (ngSubmit)="onSignUpClicked()">
         <h2>Sign Up</h2>
         <!-- <form [formGroup]="signUpForm"> -->
         <!-- NAME INPUT -->
         <div class="name">
-            <label>Name</label>
-            <input type="text" placeholder="Enter your name" formControlName="name">
+            <label>User Name</label>
+            <input type="text" placeholder="Enter your user name" formControlName="userName">
             <!-- NAME VALIDATIONS -->
-            <div *ngIf="signUpForm.get('name')?.invalid && signUpForm.get('name')?.touched" class="error-message">
-                <div *ngIf="signUpForm.get('name')?.hasError('required')" class="error-text">Name is required</div>
+            <div *ngIf="signUpForm.get('userName')?.invalid && signUpForm.get('userName')?.touched" class="error-message">
+                <div *ngIf="signUpForm.get('userName')?.hasError('required')" class="error-text">User Name is required</div>
             </div>
         </div>
         <!-- EMAIL INPUT -->
@@ -60,7 +60,7 @@
       
         <!-- SIGN UP BUTTON -->
         <div class="signUp">
-            <button class="signUpButton" (click)="onSignUpClicked()">Sign Up</button>
+            <button class="signUpButton" type="submit">Sign Up</button>
         </div>
        
         

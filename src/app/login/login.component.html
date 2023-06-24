@@ -25,8 +25,9 @@
 
  
  <!-- LOG IN CONTAINER -->
- <form class="logInContainer" [formGroup]="loginForm">
+ <form class="logInContainer" [formGroup]="loginForm" (ngSubmit)="onLoginClicked()">
     <h2>Log In</h2>
+    <p *ngIf="(authState$ | async)?.error">{{(authState$ | async)?.error}}</p>
      <!-- EMAIL INPUT -->
      <div class="email">
          <label>Email</label>
@@ -50,7 +51,7 @@
      </div>
      <!-- LOG IN BUTTON -->
      <div class="logIn">
-         <button class="logInButton" (click)=" onLoginClicked()">Log In</button>
+         <button class="logInButton" type="submit">Log In</button>
      </div>
     
  </form>
@@ -60,6 +61,7 @@
      <p>
          Don't have an account? 
      </p>
+     <a routerLink="/askquestion">ask question</a>
      <button class="signUpButton" (click)="onSignUpClicked()">Sign Up</button>
  </div>
 </div>

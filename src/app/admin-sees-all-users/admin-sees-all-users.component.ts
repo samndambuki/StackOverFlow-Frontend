@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { User } from 'src/interfaces/user.interface';
-import { UsersService } from 'src/services/users.service';
+
+import { UsersService } from 'src/services/users/users.service';
 import { Route, Router, RouterModule } from '@angular/router';
+import { User } from 'src/interfaces/user.interface';
 
 @Component({
   selector: 'app-admin-sees-all-users',
