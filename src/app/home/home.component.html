@@ -86,31 +86,37 @@
       </div>
 
       <!-- FIRST QUESTION -->
+      <ng-container *ngIf="(questions$ | async) as questions">
 
-      <div class="question1">
+      <div *ngFor="let question of questions"  class="question1">
         <div class="question1Content">
           <p>0 Votes</p>
           <p>0 Answers</p>
           <p>3 Views</p>
           <div class="userName">
-            <p>Samuel Ndambuki</p>
+            <!-- <p>{{question.userName}}</p> -->
           </div>
         </div>
 
         <div class="linkToQuestion">
           <h2 routerLink="/singlequestion" routerLinkActive="active">
-            Extending custom types with functions in typescript
+           {{question.title}}
           </h2>
           <div class="tags">
-            <p>#JavaScript</p>
-            <p>#reactJs</p>
+            <p *ngFor="let tag of question.tags" >#{{tag}}</p>
+            <p *ngFor="let tag of question.tags" >#{{tag}}</p>
+           
           </div>
         </div>
       </div>
+    </ng-container>
+
+  
+    
 
       <!-- SECOND QUESTION -->
 
-      <div class="question2">
+      <!-- <div class="question2">
         <div class="question2Content">
           <p>0 Votes</p>
           <p>0 Answers</p>
@@ -131,10 +137,10 @@
             <p>#reactJs</p>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <!-- THIRD QUESTION -->
-
+<!-- 
       <div class="question3">
         <div class="question3Content">
           <p>0 Votes</p>
@@ -155,7 +161,7 @@
             <p>#reactJs</p>
           </div>
         </div>
-      </div>
+      </div> -->
     
     </div>
   </div>

@@ -8,6 +8,9 @@ import { Store } from '@ngrx/store';
 import { AuthState } from 'src/interfaces/authenticate/AuthState';
 import { Observable } from 'rxjs';
 import { logout } from 'src/ngrx/auth/auth.actions';
+import { Question } from 'src/interfaces/question/question.interface';
+import { QuestionService } from 'src/services/questions/question.service';
+import { getQuestions } from 'src/ngrx/getQuestions/question.actions';
 
 @Component({
   selector: 'app-home',
@@ -20,14 +23,20 @@ export class HomeComponent implements OnInit {
   //delclared search icon imported form font awesome
   searchicon  = faSearch
   authUser$!:Observable<AuthState>
+  questions$!: Observable<Question[]>;
+  error$!: Observable<string | null>;
 
   //inject router to handle navigation 
-  constructor(private router:Router,private store:Store<AppState>){
+  constructor(private router:Router,private store:Store<AppState>, private questionService: QuestionService){
 
   }
 
   ngOnInit(): void {
     this.authUser$ = this.store.select("auth") 
+    this.questions$ = this.store.select((state) => state.question.questions);
+    this.error$ = this.store.select((state) => state.question.error);
+    this.store.dispatch(getQuestions());
+  
   }
 
   logout(): void {

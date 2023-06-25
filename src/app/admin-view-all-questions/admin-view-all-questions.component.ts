@@ -45,14 +45,14 @@ export class AdminViewAllQuestionsComponent {
 
     //makes http request to backend
     //subscries to response using subscribe method
-    this.questionService.getQuestions().subscribe(
-      (response: any[]) => {
-        this.questions = response.slice(startIndex, endIndex)
-      },
-      (error) => {
-        console.log('Eror fetching questions', error);
-      }
-    );
+    // this.questionService.getQuestions().subscribe(
+    //   (response: any[]) => {
+    //     this.questions = response.slice(startIndex, endIndex)
+    //   },
+    //   (error) => {
+    //     console.log('Eror fetching questions', error);
+    //   }
+    // );
   }
 
   // deleteQuestion(questionId: string) {

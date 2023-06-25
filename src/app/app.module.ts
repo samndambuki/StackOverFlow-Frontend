@@ -30,10 +30,9 @@ import { questionReducer } from 'src/ngrx/askquestion/question.reducer';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ auth: authReducer }),
-    EffectsModule.forRoot([AuthEffects]),
-    StoreModule.forRoot({ question: questionReducer }),
-    EffectsModule.forRoot([QuestionEffects])
+    StoreModule.forRoot({ auth: authReducer,question:questionReducer }),
+    EffectsModule.forRoot([AuthEffects,QuestionEffects]),
+
   ],
   providers: [QuestionService,UsersService,AuthenticateService,AuthGuardService],
   bootstrap: [AppComponent]
