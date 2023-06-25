@@ -5,7 +5,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { QuestionService } from 'src/services/questions/question.service';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
-import { Question } from 'src/interfaces/question/question.interface';
+import { Question } from 'src/interfaces/ask question/question.interface';
 
 @Component({
   selector: 'app-admin-view-all-questions',

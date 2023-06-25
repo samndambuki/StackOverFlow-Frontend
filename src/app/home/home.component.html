@@ -94,17 +94,16 @@
           <p>0 Answers</p>
           <p>3 Views</p>
           <div class="userName">
-            <!-- <p>{{question.userName}}</p> -->
+            <p>{{question.userName}}</p>
           </div>
         </div>
 
         <div class="linkToQuestion">
-          <h2 routerLink="/singlequestion" routerLinkActive="active">
+          <h2 routerLink="/singlequestion" >
            {{question.title}}
           </h2>
           <div class="tags">
-            <p *ngFor="let tag of question.tags" >#{{tag}}</p>
-            <p *ngFor="let tag of question.tags" >#{{tag}}</p>
+            <p>#{{question.tags}}</p>
            
           </div>
         </div>

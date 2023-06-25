@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
 import { askQuestion, askQuestionFailure, askQuestionSuccess } from './question.actions';
-import { QuestionState } from 'src/interfaces/question/questionState';
+import { QuestionState } from 'src/interfaces/ask question/questionState';
 
 const initialState: QuestionState = {
   question: null,

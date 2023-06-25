@@ -4,13 +4,18 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router, RouterModule } from '@angular/router';
 import { AppState } from 'src/ngrx/app-state';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { AuthState } from 'src/interfaces/authenticate/AuthState';
-import { Observable } from 'rxjs';
+import { Observable} from 'rxjs';
 import { logout } from 'src/ngrx/auth/auth.actions';
-import { Question } from 'src/interfaces/question/question.interface';
 import { QuestionService } from 'src/services/questions/question.service';
-import { getQuestions } from 'src/ngrx/getQuestions/question.actions';
+import { GetQuestionsResponse } from 'src/interfaces/getquestions/getQuestionsResponse';
+import { selectGetQuestions, selectGetQuestionsError, selectGetQuestionsLoading } from 'src/ngrx/getQuestions/get-questions.selectors';
+import { loadGetQuestions } from 'src/ngrx/getQuestions/get-questions.actions';
+
+
+
+
 
 @Component({
   selector: 'app-home',
@@ -23,7 +28,8 @@ export class HomeComponent implements OnInit {
   //delclared search icon imported form font awesome
   searchicon  = faSearch
   authUser$!:Observable<AuthState>
-  questions$!: Observable<Question[]>;
+  questions$!: Observable<GetQuestionsResponse[]>;
+  loading$!: Observable<boolean>;
   error$!: Observable<string | null>;
 
   //inject router to handle navigation 
@@ -32,13 +38,21 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.authUser$ = this.store.select("auth") 
-    this.questions$ = this.store.select((state) => state.question.questions);
-    this.error$ = this.store.select((state) => state.question.error);
-    this.store.dispatch(getQuestions());
-  
+    this.authUser$ = this.store.select("auth");
+
+    this.questions$ = this.store.pipe(select(selectGetQuestions));
+
+    this.store.pipe(select(selectGetQuestions)).subscribe(response=>{console.log(response)})
+
+    this.loading$ = this.store.select(selectGetQuestionsLoading);
+    this.error$ = this.store.select(selectGetQuestionsError);
+
+    const token = this.questionService.getToken();
+    this.store.dispatch(loadGetQuestions());
+
   }
 
+  
   logout(): void {
     // Dispatch the logout action
     this.store.dispatch(logout());

@@ -1,8 +1,9 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, map, of, throwError } from 'rxjs';
-import { Question } from 'src/interfaces/question/question.interface';
-import { QuestionResponse } from 'src/interfaces/question/questionResponse';
+import { Observable, catchError, map, of, tap, throwError } from 'rxjs';
+import { Question } from 'src/interfaces/ask question/question.interface';
+import { QuestionResponse } from 'src/interfaces/ask question/questionResponse';
+import { GetQuestions } from 'src/interfaces/getquestions/getQuestions.iterface';
 
 //it can be injected as a dependency
 @Injectable({
@@ -31,17 +32,21 @@ export class QuestionService {
   }
 
 
-  getQuestions(): Observable<Question[]> {
+  getQuestions(): Observable<GetQuestions[]> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       token: this.getToken() || '',
     });
 
-    return this.http.get<Question[]>(this.questionsURL, { headers }).pipe(
-      catchError((error) => {
-        // Handle error if needed
-        return throwError(error);
-      })
-    );
+     return this.http.get<GetQuestions[]>(this.questionsURL, { headers }).pipe(
+    tap((response) => {
+      // console.log(response); // Log the response data
+    }),
+    catchError((error) => {
+      // Handle error if needed
+      return throwError(error);
+    })
+  );
 }
+
 }

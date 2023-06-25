@@ -1,4 +1,4 @@
-interface GetQuestionsResponse {
+export interface GetQuestions {
     questionId: string;
     userId: string;
     title: string;

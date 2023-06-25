@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Router, RouterModule } from '@angular/router';
 import { AppState } from 'src/ngrx/app-state';
 import { Store } from '@ngrx/store';
-import { Question } from 'src/interfaces/question/question.interface';
+import { Question } from 'src/interfaces/ask question/question.interface';
 import { askQuestion } from 'src/ngrx/askquestion/question.actions';
 
 @Component({
@@ -60,6 +60,8 @@ export class AskquestionComponent {
         details: this.questionForm.controls['details'].value,
         tried: this.questionForm.controls['try'].value,
         tags: this.questionForm.controls['tags'].value,
+        message:'',
+        userName:''
       };
       const token = this.questionService.getToken(); 
 

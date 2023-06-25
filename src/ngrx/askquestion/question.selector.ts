@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
-import { QuestionState } from 'src/interfaces/question/questionState';
+import { QuestionState } from 'src/interfaces/ask question/questionState';
 
 const getQuestionState = createFeatureSelector<QuestionState>('question');
 
