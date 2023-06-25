@@ -76,10 +76,10 @@
       <!-- DIFFERENT TAGS -->
 
       <div class="differentTags">
-        <div (click)="onSpecificTagClicked()" class="tag1">
-          <p>JavaScript</p>
+        <div *ngFor="let tag of tags$ | async" (click)="onSpecificTagClicked(tag.tagId)" class="tag1">
+          <p>{{ tag.tagName }}</p>
         </div>
-
+<!-- 
         <div (click)="onSpecificTagClicked()" class="tag2">
           <p>Java</p>
         </div>
@@ -98,7 +98,7 @@
 
         <div (click)="onSpecificTagClicked()" class="tag6">
           <p>Unanswered</p>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>

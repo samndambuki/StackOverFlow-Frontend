@@ -4,6 +4,7 @@ import { QuestionState } from "src/interfaces/ask question/questionState";
 import { MyQuestionsState } from "./myquestions/myquestions.reducer";
 import { AdminViewAllUsersState } from "./adminviewallusers/adminviewalllusers.reducer";
 import { AdminViewAllQuestionsState } from "./adminviewallquestions/adminviewallquestions.reducer";
+import { TagsState } from "./tags/tags.reducer";
 
 export interface AppState {
   auth: AuthState;
@@ -12,4 +13,5 @@ export interface AppState {
   myQuestions: MyQuestionsState;
   adminViewAllUsers: AdminViewAllUsersState;
   adminViewAllQuestions: AdminViewAllQuestionsState;
+  tags: TagsState;
 }

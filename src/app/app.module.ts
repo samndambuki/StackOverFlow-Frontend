@@ -26,6 +26,8 @@ import { AdminViewAllUsersService } from 'src/services/adminviewallusers/adminvi
 import { AdminViewAllQuestionsService } from 'src/services/adminviewallquestions/adminviewallquestions';
 import { adminViewAllQuestionsReducer } from 'src/ngrx/adminviewallquestions/adminviewallquestions.reducer';
 import { AdminViewAllQuestionsEffects } from 'src/ngrx/adminviewallquestions/adminviewallquestions.effects';
+import { TagsService } from 'src/services/tags/tags.service';
+
 
 
 
@@ -43,7 +45,7 @@ import { AdminViewAllQuestionsEffects } from 'src/ngrx/adminviewallquestions/adm
     EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects,AdminViewAllQuestionsEffects]),
 
   ],
-  providers: [QuestionService,AuthenticateService,AuthGuardService,AdminViewAllUsersService,AdminViewAllQuestionsService],
+  providers: [QuestionService,AuthenticateService,AuthGuardService,AdminViewAllUsersService,AdminViewAllQuestionsService,TagsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
