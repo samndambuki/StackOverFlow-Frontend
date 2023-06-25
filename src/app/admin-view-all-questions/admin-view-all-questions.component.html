@@ -83,7 +83,7 @@
     
           <div class="pagination">
             <!-- generate pagination buttons based on the number of pages -->
-            <button *ngFor="let page of getTotalPages()" (click)="goToPage(page)" [class.active]="page === currentPage"  class="paginationButton1">{{page}}</button>
+            <button class="paginationButton1">1</button>
             <button class="paginationButton2">2</button>
             <button class="paginationButton3">3</button>
           </div>
@@ -91,33 +91,45 @@
       </div>
 
       <!-- FIRST QUESTION -->
-
-      <!-- <div *ngFor="let question of questions" class="question1">
+      <div *ngFor="let question of questions$ | async" class="question1">
         <div class="question1Content">
-          <p>{{question.votes}} Votes</p>
-          <p>{{question.answers}} Answers</p>
-          <p>{{question.views}} Views</p>
-        </div> -->
+          <p> Votes</p>
+          <p> Answers</p>
+          <p> Views</p>
+        </div>
 
-        <!-- <div class="linkToQuestion"> -->
+
+        <div class="linkToQuestion">
           <!-- display questions title -->
-          <!-- <p class="linkToQuestionButton">QUESTION TITLE: {{question.title}}</p> -->
+          <p class="linkToQuestionButton">QUESTION TITLE: {{question.title}}</p>
 
           <!-- display each questions tags and username -->
           <div class="tags">
-            <!-- <p>TAGS: {{question.tags}} #JavaScript</p> -->
+            <p>TAGS: {{question.tags}}</p>
           </div>
 
           <div class="userName">
-            <!-- <p>USER: {{question.user}} Samuel Ndambuki</p> -->
+            <p>USER: {{question.userName}}</p>
           </div>
 
           <div class="crudButtons">
-            <!-- <button class="deleteButton" (click)="deleteQuestion(question.id)">Delete</button>  -->
+            <button class="deleteButton" (click)="deleteQuestion(question.questionId)">Delete</button> 
           </div>
 
         </div>
+
+
       </div>
+
+      </div>
+      </div>
+      </div>
+      
+
+      
+      
+
+      
 
 
       <!-- SECOND QUESTION -->
@@ -177,6 +189,6 @@
 
         </div>
       </div> -->
-    </div>
+    <!-- </div> -->
   <!-- </div>
 </div> -->

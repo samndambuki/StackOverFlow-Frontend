@@ -23,6 +23,9 @@ import { myQuestionsReducer } from 'src/ngrx/myquestions/myquestions.reducer';
 import { adminViewAllUsersReducer } from 'src/ngrx/adminviewallusers/adminviewalllusers.reducer';
 import { AdminViewAllUsersEffects } from 'src/ngrx/adminviewallusers/adminviewallusers.effects';
 import { AdminViewAllUsersService } from 'src/services/adminviewallusers/adminviewallusers';
+import { AdminViewAllQuestionsService } from 'src/services/adminviewallquestions/adminviewallquestions';
+import { adminViewAllQuestionsReducer } from 'src/ngrx/adminviewallquestions/adminviewallquestions.reducer';
+import { AdminViewAllQuestionsEffects } from 'src/ngrx/adminviewallquestions/adminviewallquestions.effects';
 
 
 
@@ -36,11 +39,11 @@ import { AdminViewAllUsersService } from 'src/services/adminviewallusers/adminvi
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer,adminViewAllUsers:adminViewAllUsersReducer }),
-    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects]),
+    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer,adminViewAllUsers:adminViewAllUsersReducer,adminViewAllQuestions:adminViewAllQuestionsReducer }),
+    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects,AdminViewAllQuestionsEffects]),
 
   ],
-  providers: [QuestionService,AuthenticateService,AuthGuardService,AdminViewAllUsersService],
+  providers: [QuestionService,AuthenticateService,AuthGuardService,AdminViewAllUsersService,AdminViewAllQuestionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
