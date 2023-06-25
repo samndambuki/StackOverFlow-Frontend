@@ -80,13 +80,15 @@
         <tr>
           <th>User</th>
           <th>Email</th>
-          <th>CRUD OPERATIONS</th>
+          <th>Admin</th>
+          <th>Delete User</th>
         </tr>
 
-        <tr *ngFor="let user of users">
-          <td>{{user.name}}</td>
+        <tr *ngFor="let user of (users$ | async)">
+          <td>{{user.userName}}</td>
           <td>{{user.email}}</td>
-          <td><button (click)="deleteUser(user.id)" class="deleteButton">Delete</button></td>
+          <td>{{user.isAdmin}}</td>
+          <td><button (click)="deleteUser(user.userId)" class="deleteButton">Delete</button></td>
         </tr>
 
         <!-- <tr>

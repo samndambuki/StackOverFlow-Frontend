@@ -9,8 +9,6 @@ import { DecodedToken } from 'src/interfaces/myquestion/DecodedToken';
 import { AppState } from 'src/ngrx/app-state';
 import jwt_decode from 'jwt-decode';
 
-import { loadMyQuestionsFailure, loadMyQuestionsSuccess } from 'src/ngrx/myquestions/myquestions.actions';
-
 //it can be injected as a dependency
 @Injectable({
   providedIn: 'root',

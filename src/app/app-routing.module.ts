@@ -14,7 +14,6 @@ import { AdminSeesAllUsersComponent } from './admin-sees-all-users/admin-sees-al
 import { AdminViewAllQuestionsComponent } from './admin-view-all-questions/admin-view-all-questions.component';
 import { TagsComponent } from './tags/tags.component';
 import { SpecificTagsComponent } from './specific-tags/specific-tags.component';
-import { AllUsersComponent } from './all-users/all-users.component';
 import { AuthGuardService } from 'src/services/guards/AuthGuard.service';
 
 
@@ -33,7 +32,6 @@ const routes: Routes = [
   {path:'adminviewallquestions',component:AdminViewAllQuestionsComponent, canActivate: [AuthGuardService] },
   {path:'tags',component:TagsComponent, canActivate: [AuthGuardService] },
   {path:'specifictags',component:SpecificTagsComponent, canActivate: [AuthGuardService] },
-  {path:'allusers',component:AllUsersComponent, canActivate: [AuthGuardService] },
   //wild card route to match any route that doesnt match any of the defined routes
   {path:'**',component:LandingpageComponent}
 ];

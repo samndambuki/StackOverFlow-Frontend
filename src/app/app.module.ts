@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HttpClientModule } from '@angular/common/http';
 import { QuestionService } from 'src/services/questions/question.service';
-import { UsersService } from 'src/services/users/users.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthenticateService } from 'src/services/authenticate/authenticate.service';
 import { AuthGuardService } from 'src/services/guards/AuthGuard.service';
@@ -21,6 +20,9 @@ import { getQuestionsReducer } from 'src/ngrx/getQuestions/get-questions.reducer
 import { GetQuestionsEffects } from 'src/ngrx/getQuestions/get-questions.effects';
 import { MyQuestionsEffects } from 'src/ngrx/myquestions/myquestions.effects';
 import { myQuestionsReducer } from 'src/ngrx/myquestions/myquestions.reducer';
+import { adminViewAllUsersReducer } from 'src/ngrx/adminviewallusers/adminviewalllusers.reducer';
+import { AdminViewAllUsersEffects } from 'src/ngrx/adminviewallusers/adminviewallusers.effects';
+import { AdminViewAllUsersService } from 'src/services/adminviewallusers/adminviewallusers';
 
 
 
@@ -34,11 +36,11 @@ import { myQuestionsReducer } from 'src/ngrx/myquestions/myquestions.reducer';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer }),
-    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects]),
+    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer,adminViewAllUsers:adminViewAllUsersReducer }),
+    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects]),
 
   ],
-  providers: [QuestionService,UsersService,AuthenticateService,AuthGuardService],
+  providers: [QuestionService,AuthenticateService,AuthGuardService,AdminViewAllUsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
