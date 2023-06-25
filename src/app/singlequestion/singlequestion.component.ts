@@ -59,4 +59,6 @@ export class SinglequestionComponent {
   onLogoutButtonClicked(){
     this.router.navigate(['landing'])
   }
+
+
 }

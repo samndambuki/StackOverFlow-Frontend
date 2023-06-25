@@ -30,13 +30,30 @@
 
   <!-- LEFT MENU BAR -->
   <div class="leftMenuBar">
-   
     <div class="innerBar">
-      <button class="innerBarButton" (click)="onHomeButtonClicked()">Home</button>
-      <button class="innerBarButton" (click)="onTagsButtonClicked()">Tags</button>
-      <button class="innerBarButton" (click)="onMyQuestionsButtonClicked()">My Questions</button>
+      <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
+        Home
+      </h2>
+      <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
+        Tags
+      </h2>
+      <h2
+        class="innerBarButton"
+        routerLink="/myquestions"
+        routerLinkActive="active"
+      >
+        My Questions
+      </h2>
+      <h2
+        class="innerBarButton"
+        routerLink="/userprofile"
+        routerLinkActive="active"
+      >
+        My Profile
+      </h2>
     </div>
   </div>
+
 
 
   <!-- SINGLE QUESTION CONTENT -->
