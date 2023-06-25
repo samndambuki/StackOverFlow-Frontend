@@ -19,6 +19,8 @@ import { QuestionEffects } from 'src/ngrx/askquestion/question.effects';
 import { questionReducer } from 'src/ngrx/askquestion/question.reducer';
 import { getQuestionsReducer } from 'src/ngrx/getQuestions/get-questions.reducer';
 import { GetQuestionsEffects } from 'src/ngrx/getQuestions/get-questions.effects';
+import { MyQuestionsEffects } from 'src/ngrx/myquestions/myquestions.effects';
+import { myQuestionsReducer } from 'src/ngrx/myquestions/myquestions.reducer';
 
 
 
@@ -32,8 +34,8 @@ import { GetQuestionsEffects } from 'src/ngrx/getQuestions/get-questions.effects
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer }),
-    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects]),
+    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer }),
+    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects]),
 
   ],
   providers: [QuestionService,UsersService,AuthenticateService,AuthGuardService],

@@ -58,13 +58,7 @@
             >
               My Profile
             </h2>
-            <h2
-              class="innerBarButton"
-              routerLink="/admin"
-              routerLinkActive="active"
-            >
-              Admin
-            </h2>
+
           </div>
         </div>
 
@@ -85,35 +79,38 @@
       </div>
 
       <!-- FIRST QUESTION -->
-      <div class="question1">
-        <div class="question1Content">
-          <p>0 Votes</p>
-          <p>0 Answers</p>
-          <p>3 Views</p>
-          <div class="userName">
-            <p>Samuel Ndambuki</p>
+      <ng-container *ngIf="questions$ | async as questions">
+
+        <div *ngFor="let question of questions" class="question1">
+          <div class="question1Content">
+            <p>0 Votes</p>
+            <p>0 Answers</p>
+            <p>3 Views</p>
+            <div class="userName">
+              <p>{{ question.userName }}</p>
+            </div>
+          </div>
+  
+          <div class="linkToQuestion">
+            <h2 [routerLink]="'/singlequestion/' + question.questionId" routerLinkActive="active">
+              {{ question.title }}
+            </h2>
+            <div class="tags">
+              <p>#{{question.tags}}</p>
+            </div>
+          </div>
+          <div class="crudButtons">
+            <button class="updateButton" routerLink="/updatequestion" routerLinkActive="active">Update</button>
+            <button class="deleteButton">Delete</button>
           </div>
         </div>
 
-        <div class="linkToQuestion">
-          <h2 routerLink="/singlequestion" routerLinkActive="active">
-            Extending custom types with functions in typescript
-          </h2>
-          <div class="tags">
-            <p>#JavaScript</p>
-            <p>#reactJs</p>
-          </div>
-        </div>
-        <div class="crudButtons">
-          <button class="updateButton" routerLink="/updatequestion" routerLinkActive="active">Update</button>
-          <button class="deleteButton">Delete</button>
-        </div>
-      </div>
-
+      </ng-container>
+    
     
 
       <!-- SECOND QUESTION -->
-
+<!-- 
       <div class="question2">
         <div class="question2Content">
           <p>0 Votes</p>
@@ -139,12 +136,12 @@
           <button class="updateButton" routerLink="/updatequestion" routerLinkActive="active">Update</button>
           <button class="deleteButton">Delete</button>
         </div>
-      </div>
+      </div> -->
 
       
 
       <!-- THIRD QUESTION -->
-      <div class="question3">
+      <!-- <div class="question3">
         <div class="question3Content">
           <p>0 Votes</p>
           <p>0 Answers</p>
@@ -168,7 +165,7 @@
           <button class="updateButton" routerLink="" routerLinkActive="active">Update</button>
           <button class="deleteButton" routerLink="" routerLinkActive="active">Delete</button>
         </div>
-      </div>
+      </div> -->
 
       <div class="pagination">
         <button class="paginationButton1">1</button>
