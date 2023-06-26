@@ -31,7 +31,7 @@ const routes: Routes = [
   {path:'adminseesallusers',component:AdminSeesAllUsersComponent, canActivate: [AuthGuardService] },
   {path:'adminviewallquestions',component:AdminViewAllQuestionsComponent, canActivate: [AuthGuardService] },
   {path:'tags',component:TagsComponent, canActivate: [AuthGuardService] },
-  {path:'specifictags',component:SpecificTagsComponent, canActivate: [AuthGuardService] },
+  {path:'specifictags/:tagId',component:SpecificTagsComponent, canActivate: [AuthGuardService] },
   //wild card route to match any route that doesnt match any of the defined routes
   {path:'**',component:LandingpageComponent}
 ];

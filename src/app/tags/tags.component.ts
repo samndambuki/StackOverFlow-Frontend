@@ -8,7 +8,11 @@ import { Tag } from 'src/interfaces/tags/tags.interface';
 import { AppState } from 'src/ngrx/app-state';
 import { Store } from '@ngrx/store';
 import { addTag, loadTags } from 'src/ngrx/tags/tags.actions';
-import { selectTags, selectTagsError, selectTagsLoading } from 'src/ngrx/tags/tags.selectors';
+import { selectError, selectLoading, selectTags } from 'src/ngrx/tags/tags.selectors';
+import { Question } from 'src/interfaces/ask question/question.interface';
+import { QuestionService } from 'src/services/questions/question.service';
+import { TagsService } from 'src/services/tags/tags.service';
+
 
 @Component({
   selector: 'app-tags',
@@ -21,11 +25,13 @@ export class TagsComponent implements OnInit {
   //serach icon imported from font awesome icons
   searchicon = faSearch
 
-  tags$!: Observable<Tag[]>;
+  tags:Tag[]=[];
   loading$!: Observable<boolean>;
   error$!: Observable<any>;
 
-  constructor(private router:Router,private store: Store<AppState>){}
+  selectedQuestion: Question[]=[]
+
+  constructor(private router:Router,private store: Store<AppState>,private tagsService:TagsService){}
 
   //method to handle home button click event
   onHomeButtonClicked(){
@@ -39,8 +45,19 @@ export class TagsComponent implements OnInit {
 
   //method to handle specific tags clicked
   onSpecificTagClicked(tagId: string){
-    this.router.navigate(['specifictags'])
+    this.router.navigate(['specifictags',tagId])
     console.log('Clicked on tag with ID:', tagId);
+
+    this.tagsService.getQuestionsByTag(tagId).subscribe(
+      (questions) => {
+        console.log(questions);
+        
+        this.selectedQuestion = questions;
+      },
+      (error) => {
+        console.error('Error getting question details:', error);
+      }
+    );
   }
 
   //method to handle my profile click event
@@ -49,16 +66,20 @@ export class TagsComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.store.dispatch(loadTags());
-    this.tags$ = this.store.select(selectTags);
-    this.loading$ = this.store.select(selectTagsLoading);
-    this.error$ = this.store.select(selectTagsError);
+    this.store.dispatch(loadTags());
+    // this.tags$ = this.store.select(selectTags);
+    this.store.select(selectTags).subscribe(response=>{
+      // console.log(response)
+      this.tags=response
+    })
+    
+    this.loading$ = this.store.select(selectLoading);
+    this.error$ = this.store.select(selectError);
   }
 
-  // addTag(tagName: string) {
-  //   this.store.dispatch(addTag({ tagName: tagName }));
-  // }
-
+  addTag(tagName: string) {
+    this.store.dispatch(addTag({ tagName: tagName }));
+  }
 
 
 

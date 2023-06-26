@@ -75,10 +75,14 @@
 
       <!-- DIFFERENT TAGS -->
 
-      <div class="differentTags">
-        <div *ngFor="let tag of tags$ | async" (click)="onSpecificTagClicked(tag.tagId)" class="tag1">
+      <div *ngIf="tags.length" class="differentTags">
+        <div *ngFor="let tag of tags"  (click)="onSpecificTagClicked(tag.tagId)" class="tag1">
           <p>{{ tag.tagName }}</p>
         </div>
+       
+      </div>
+
+
 <!-- 
         <div (click)="onSpecificTagClicked()" class="tag2">
           <p>Java</p>
@@ -102,4 +106,3 @@
       </div>
     </div>
   </div>
-</div>
