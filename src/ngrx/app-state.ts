@@ -6,6 +6,7 @@ import { AdminViewAllUsersState } from "./adminviewallusers/adminviewalllusers.r
 import { AdminViewAllQuestionsState } from "./adminviewallquestions/adminviewallquestions.reducer";
 import { TagsState } from "./tags/tags.reducer";
 import { singleQuestionState } from "./singleQuestion/singleQuestion.reducer";
+import { UserProfileState } from "./userprofile/userprofile.reducer";
 
 export interface AppState {
   auth: AuthState;
@@ -16,4 +17,5 @@ export interface AppState {
   adminViewAllQuestions: AdminViewAllQuestionsState;
   tags: TagsState;
   singleQuestion:singleQuestionState;
+  userProfile: UserProfileState;
 }

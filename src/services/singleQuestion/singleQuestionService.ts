@@ -21,12 +21,6 @@ export class singleQuestionService {
     return localStorage.getItem('token');
   }
 
-  getQuestionById(questionId: string): Observable<singleQuestion> {
-    const token = this.getToken();
-    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<singleQuestion>(`${this.apiUrl}/questions/${questionId}`, { headers });
-  }
-
   postAnswer(questionId: string, answer: singleQuestionNewAnswer): Observable<postAnswerResponse> {
     const token = this.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
@@ -45,9 +39,9 @@ export class singleQuestionService {
     return this.http.post<downVoteAnswerResponse>(`${this.apiUrl}/votes/downvote/${answerId}`, null, { headers });
   }
 
-  getAnswerById(answerId: string): Observable<singleQuestionAnswer> {
+  getAllAnswers(): Observable<singleQuestionAnswer[]> {
     const token = this.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<singleQuestionAnswer>(`${this.apiUrl}/answers/${answerId}`, { headers });
+    return this.http.get<singleQuestionAnswer[]>(`${this.apiUrl}/answers`, { headers });
   }
 }

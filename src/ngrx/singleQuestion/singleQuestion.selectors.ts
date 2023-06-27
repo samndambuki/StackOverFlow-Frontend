@@ -43,14 +43,10 @@ export const selectQuestionById = (questionId: string) =>
     }
   );
 
-  // Select the answer by ID
-export const selectAnswerById = (answerId: string) =>
-createSelector(
+  // Select all answers
+export const selectAllAnswers = createSelector(
   selectSingleQuestionState,
-  (state: singleQuestionState) => {
-    if (state.answer && state.answer.answerId === answerId) {
-      return { ...state.answer };
-    }
-    return null;
-  }
+  (state: singleQuestionState) => state.answers
 );
+
+

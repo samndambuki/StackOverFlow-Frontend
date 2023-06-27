@@ -1,16 +1,14 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { faArrowUp, faCaretDown, faCaretUp, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faCaretDown, faCaretUp, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { singleQuestionAnswer } from 'src/interfaces/singlequestion/singleQuestionAnswer';
-import { Observable } from 'rxjs';
+
 import { AppState } from 'src/ngrx/app-state';
 import { Store } from '@ngrx/store';
-import * as singleQuestionSelectors from 'src/ngrx/singleQuestion/singleQuestion.selectors';
-import * as singleQuestionActions from 'src/ngrx/singleQuestion/singleQuestion.actions';
-import { singleQuestion } from 'src/interfaces/singlequestion/singleQuestion';
+import { addAnswer } from 'src/ngrx/singleQuestion/singleQuestion.actions';
+;
 
 @Component({
   selector: 'app-singlequestion',
@@ -26,27 +24,17 @@ export class SinglequestionComponent {
   downIcon = faCaretDown
   answerForm!: FormGroup;
 
-  questionId!: string;
-  question$!: Observable<singleQuestion[]>;
-  loading$!: Observable<boolean>;
-  error$!: Observable<any>;
+
+
 
   constructor(private router:Router,private formBuilder: FormBuilder, private store: Store<AppState>){
-    // this.question$ = this.store.select(singleQuestionSelectors.selectQuestionById(this.questionId));
-
-    this.store.select(singleQuestionSelectors.selectQuestionById(this.questionId)).subscribe(response=>{
-      console.log(response);
-      
-    })
-    this.loading$ = this.store.select(singleQuestionSelectors.selectLoading);
-    this.error$ = this.store.select(singleQuestionSelectors.selectError);
+    
   }
 
   ngOnInit() {
     this.answerForm = this.formBuilder.group({
       answerInputField: ['', [Validators.required, Validators.minLength(10)]]
     });
-    this.store.dispatch(singleQuestionActions.getAnswerById({ answerId: this.questionId }));
     
   }
 
@@ -59,8 +47,8 @@ export class SinglequestionComponent {
       const answer = this.answerForm.value.answerInputField;
       console.log('Submitted Answer:', answer);
       this.answerForm.reset();
-      this.store.dispatch(singleQuestionActions.addAnswer({ questionId: this.questionId, answer }));
     }
+   
   }
 
   //method to handle home button click event

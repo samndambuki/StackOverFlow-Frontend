@@ -22,6 +22,6 @@ export const downvoteAnswer = createAction('[Single Question] Downvote Answer', 
 export const downvoteAnswerSuccess = createAction('[Single Question] Downvote Answer Success', props<{ response: downVoteAnswerResponse }>());
 export const downvoteAnswerFailure = createAction('[Single Question] Downvote Answer Failure', props<{ error: any }>());
 
-export const getAnswerById = createAction('[Single Question] Get Answer By ID', props<{ answerId: string }>());
-export const getAnswerByIdSuccess = createAction('[Single Question] Get Answer By ID Success', props<{ answer: singleQuestionAnswer }>());
-export const getAnswerByIdFailure = createAction('[Single Question] Get Answer By ID Failure', props<{ error: any }>());
+export const getAllAnswers = createAction('[Single Question] Get All Answers');
+export const getAllAnswersSuccess = createAction('[Single Question] Get All Answers Success', props<{ answers: singleQuestionAnswer[] }>());
+export const getAllAnswersFailure = createAction('[Single Question] Get All Answers Failure', props<{ error: any }>());

@@ -7,6 +7,7 @@ import { singleQuestionService } from 'src/services/singleQuestion/singleQuestio
 import { postAnswerResponse } from 'src/interfaces/singlequestion/postAnswerResponse';
 import { upVoteAnswerResponse } from 'src/interfaces/singlequestion/upVoteAnswerResponse';
 import { downVoteAnswerResponse } from 'src/interfaces/singlequestion/downVoteAnswerResponse';
+import { singleQuestionAnswer } from 'src/interfaces/singlequestion/singleQuestionAnswer';
 
 @Injectable()
 export class SingleQuestionEffects {
@@ -14,18 +15,6 @@ export class SingleQuestionEffects {
         private actions$: Actions,
         private singlequestionService: singleQuestionService
       ) {}
-
-  loadQuestion$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(singleQuestionActions.loadQuestion),
-      mergeMap(({ questionId }) =>
-        this.singlequestionService.getQuestionById(questionId).pipe(
-          map((question) => singleQuestionActions.loadQuestionSuccess({ question })),
-          catchError((error) => of(singleQuestionActions.loadQuestionFailure({ error })))
-        )
-      )
-    )
-  );
 
   addAnswer$ = createEffect(() =>
     this.actions$.pipe(
@@ -63,17 +52,16 @@ export class SingleQuestionEffects {
     )
   );
 
-  getAnswerById$ = createEffect(() =>
+  getAllAnswers$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(singleQuestionActions.getAnswerById),
-      mergeMap(({ answerId }) =>
-        this.singlequestionService.getAnswerById(answerId).pipe(
-          map((answer) => singleQuestionActions.getAnswerByIdSuccess({ answer })),
-          catchError((error) => of(singleQuestionActions.getAnswerByIdFailure({ error })))
+      ofType(singleQuestionActions.getAllAnswers),
+      mergeMap(() =>
+        this.singlequestionService.getAllAnswers().pipe(
+          map((answers: singleQuestionAnswer[]) => singleQuestionActions.getAllAnswersSuccess({ answers })),
+          catchError((error) => of(singleQuestionActions.getAllAnswersFailure({ error })))
         )
       )
     )
   );
-
 
 }

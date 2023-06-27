@@ -3,7 +3,7 @@ export interface User{
     userName: string;
     email: string;
     password: string;
-    createdAt: Date;
+    createdAt?: Date;
     updatedAt: Date | null;
     emailSent: number;
     isDeleted: number;

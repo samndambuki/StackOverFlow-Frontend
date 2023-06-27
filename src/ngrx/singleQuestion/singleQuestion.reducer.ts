@@ -8,13 +8,15 @@ export interface singleQuestionState {
   answer: singleQuestionAnswer | null;
   loading: boolean;
   error: any;
+  answers: singleQuestionAnswer[] | null; 
 }
 
 const initialState: singleQuestionState = {
   question: null,
   answer: null,
   loading: false,
-  error: null
+  error: null,
+  answers: []
 };
 
 export const singleQuestionReducer = createReducer(
@@ -35,9 +37,10 @@ export const singleQuestionReducer = createReducer(
   on(singleQuestionActions.downvoteAnswerSuccess, state => ({ ...state, loading: false })),
   on(singleQuestionActions.downvoteAnswerFailure, (state, { error }) => ({ ...state, loading: false, error })),
 
-  on(singleQuestionActions.getAnswerById, state => ({ ...state, loading: true, error: null })),
-  on(singleQuestionActions.getAnswerByIdSuccess, (state, { answer }) => ({ ...state, answer, loading: false })),
-  on(singleQuestionActions.getAnswerByIdFailure, (state, { error }) => ({ ...state, loading: false, error })),
+  on(singleQuestionActions.getAllAnswers, state => ({ ...state, loading: true, error: null })),
+  on(singleQuestionActions.getAllAnswersSuccess, (state, { answers }) => ({ ...state, answers, loading: false })),
+  on(singleQuestionActions.getAllAnswersFailure, (state, { error }) => ({ ...state, loading: false, error })),
+
 );
 
 export function reducer(state: singleQuestionState | undefined, action: Action): singleQuestionState {
