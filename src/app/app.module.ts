@@ -29,6 +29,9 @@ import { AdminViewAllQuestionsEffects } from 'src/ngrx/adminviewallquestions/adm
 import { TagsService } from 'src/services/tags/tags.service';
 import { tagsReducer } from 'src/ngrx/tags/tags.reducer';
 import { TagsEffects } from 'src/ngrx/tags/tag.effects';
+import { singleQuestionService } from 'src/services/singleQuestion/singleQuestionService';
+import { singleQuestionReducer } from 'src/ngrx/singleQuestion/singleQuestion.reducer';
+import { SingleQuestionEffects } from 'src/ngrx/singleQuestion/singleQuestion.effects';
 
 
 
@@ -43,11 +46,11 @@ import { TagsEffects } from 'src/ngrx/tags/tag.effects';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer,adminViewAllUsers:adminViewAllUsersReducer,adminViewAllQuestions:adminViewAllQuestionsReducer,tags:tagsReducer }),
-    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects,AdminViewAllQuestionsEffects,TagsEffects]),
+    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer,adminViewAllUsers:adminViewAllUsersReducer,adminViewAllQuestions:adminViewAllQuestionsReducer,tags:tagsReducer,singlequestionReducer:singleQuestionReducer }),
+    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects,AdminViewAllQuestionsEffects,TagsEffects,SingleQuestionEffects]),
 
   ],
-  providers: [QuestionService,AuthenticateService,AuthGuardService,AdminViewAllUsersService,AdminViewAllQuestionsService,TagsService],
+  providers: [QuestionService,AuthenticateService,AuthGuardService,AdminViewAllUsersService,AdminViewAllQuestionsService,TagsService,singleQuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
