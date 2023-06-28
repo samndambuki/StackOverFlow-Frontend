@@ -32,6 +32,7 @@ import { singleQuestionReducer } from 'src/ngrx/singleQuestion/singleQuestion.re
 import { SingleQuestionEffects } from 'src/ngrx/singleQuestion/singleQuestion.effects';
 import { UserProfileService } from 'src/services/userprofile/userprofile.service';
 import { userProfileReducer } from 'src/ngrx/userprofile/userprofile.reducer';
+import { SearchPipe } from 'src/pipes/search.pipe';
 
 
 
@@ -42,6 +43,7 @@ import { userProfileReducer } from 'src/ngrx/userprofile/userprofile.reducer';
     AppComponent
   ],
   imports: [
+    SearchPipe,
     BrowserModule,
     AppRoutingModule,
     FontAwesomeModule,
@@ -51,6 +53,7 @@ import { userProfileReducer } from 'src/ngrx/userprofile/userprofile.reducer';
     EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects,AdminViewAllQuestionsEffects,TagsEffects,SingleQuestionEffects]),
 
   ],
+
   providers: [QuestionService,AuthenticateService,AuthGuardService,AdminViewAllUsersService,AdminViewAllQuestionsService,TagsService,singleQuestionService,UserProfileService],
   bootstrap: [AppComponent]
 })

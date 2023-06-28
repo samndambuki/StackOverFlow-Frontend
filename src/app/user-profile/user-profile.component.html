@@ -62,8 +62,8 @@
   <div class="profileSection">
     <div class="profileinfo">
         <div class="moreinfo">
-            <p>samndambuki</p>
-            <p>sam.ndambuki08@gmail.com</p>
+          <p>{{ (user$ | async)?.userName }}</p>
+          <p>{{ (user$ | async)?.email }}</p>
         </div>
     </div>  
 

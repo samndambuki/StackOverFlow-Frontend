@@ -12,6 +12,9 @@ import { QuestionService } from 'src/services/questions/question.service';
 import { GetQuestionsResponse } from 'src/interfaces/getquestions/getQuestionsResponse';
 import { selectGetQuestions, selectGetQuestionsError, selectGetQuestionsLoading } from 'src/ngrx/getQuestions/get-questions.selectors';
 import { loadGetQuestions } from 'src/ngrx/getQuestions/get-questions.actions';
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from 'src/pipes/search.pipe';
+
 
 
 
@@ -20,7 +23,7 @@ import { loadGetQuestions } from 'src/ngrx/getQuestions/get-questions.actions';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule,FontAwesomeModule,RouterModule],
+  imports: [CommonModule,FontAwesomeModule,RouterModule,FormsModule,SearchPipe],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
@@ -31,6 +34,8 @@ export class HomeComponent implements OnInit {
   questions$!: Observable<GetQuestionsResponse[]>;
   loading$!: Observable<boolean>;
   error$!: Observable<string | null>;
+
+  searchTerm: string = '';
 
   //inject router to handle navigation 
   constructor(private router:Router,private store:Store<AppState>, private questionService: QuestionService){

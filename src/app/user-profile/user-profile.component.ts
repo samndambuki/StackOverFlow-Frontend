@@ -5,9 +5,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { Router, RouterModule } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserProfileService } from 'src/services/userprofile/userprofile.service';
-import { Store } from '@ngrx/store';
+import { Store, select } from '@ngrx/store';
 import { User } from 'src/interfaces/adminviewallusers/user.interface';
 import { updateUserProfile } from 'src/ngrx/userprofile/userprofile.actions';
+import { Observable } from 'rxjs';
+import { AppState } from 'src/ngrx/app-state';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,14 +18,23 @@ import { updateUserProfile } from 'src/ngrx/userprofile/userprofile.actions';
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.css']
 })
-export class UserProfileComponent{
+export class UserProfileComponent implements OnInit{
   //declared serach icon imported from font awesome module
   searchicon = faSearch
 
   profileForm!:FormGroup;
 
-  constructor(private router:Router,private formBuilder:FormBuilder, private store: Store,
-    private userProfileService: UserProfileService){}
+  user$!: Observable<User | null>;
+
+  constructor(private router:Router,private formBuilder:FormBuilder, private store: Store<AppState>,
+    private userProfileService: UserProfileService){
+      this.user$ = store.pipe(select((state:AppState) => state.userProfile.user));
+      store.pipe(select((state:AppState) => state.userProfile.user)).subscribe(response=>{
+        console.log(response);
+        
+      })
+
+    }
 
   ngOnInit(): void {
     this.profileForm = this.formBuilder.group({

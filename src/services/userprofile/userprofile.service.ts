@@ -1,57 +1,57 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
-import jwt_decode from 'jwt-decode';
-import { updateUserProfile } from 'src/ngrx/userprofile/userprofile.actions';
+import { Injectable } from '@angular/core';
+import { Observable, catchError, tap, throwError } from 'rxjs';
 import { User } from 'src/interfaces/adminviewallusers/user.interface';
+import { Store } from '@ngrx/store';
+import { deleteUserFailure, deleteUserSuccess, loadUsers } from 'src/ngrx/adminviewallusers/adminviewallusers.actions';
 import { AppState } from 'src/ngrx/app-state';
+import jwt_decode from 'jwt-decode';
 
-
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class UserProfileService {
-  private  API_URL = 'http://localhost:4000'; 
-  private  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${this.getToken()}`
-    })
-  };
+  private usersURL = 'http://localhost:4000/users';
 
-  constructor(
-    private http: HttpClient,
-    private store: Store<AppState>
-  ) {}
+  constructor(private http: HttpClient, private store: Store<AppState>) {}
 
-  getToken(): string {
-    const token = localStorage.getItem('token'); 
-    return token || '';
+  getToken(): string | null {
+    return localStorage.getItem('token');
   }
 
-  getUserIdFromToken(): string {
+  getUserProfile(): Observable<User> {
     const token = this.getToken();
-    const decodedToken: any = jwt_decode(token);
-    return decodedToken?.userId || '';
-  }
+    const userId = token ? this.extractUserIdFromToken(token) : '';
 
-  getLoggedInUser(): Observable<User> {
-    const userId = this.getUserIdFromToken();
-    return this.http.get<User>(`${this.API_URL}/users/${userId}`, this.httpOptions);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      token: token || '',
+    });
+
+    return this.http.get<User>(`${this.usersURL}/${userId}`, { headers });
   }
 
   updateProfile(user: User): Observable<User> {
-    const userId = this.getUserIdFromToken();
-    console.log('userId:', userId);
-    console.log('user:', user);
-    console.log('httpOptions:', this.httpOptions);
+    const token = this.getToken();
+    const userId = token ? this.extractUserIdFromToken(token) : '';
 
-    return this.http.put<User>(`${this.API_URL}/users/${userId}`, user, this.httpOptions)
-      .pipe(
-        tap((updatedUser: User) => {
-        
-          this.store.dispatch(updateUserProfile({ user: updatedUser }));
-        })
-      );
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      token: token || '',
+    });
+
+    return this.http.put<User>(`${this.usersURL}/${userId}`, user, { headers }).pipe(
+      tap(() => {
+        this.store.dispatch(loadUsers());
+      }),
+      catchError((error) => {
+        return throwError(error);
+      })
+    );
+  }
+
+  private extractUserIdFromToken(token: string): string {
+    const decodedToken: any = jwt_decode(token);
+    return decodedToken.userId;
   }
 }

@@ -1,39 +1,58 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LandingpageComponent } from './landingpage/landingpage.component';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { AskquestionComponent } from './askquestion/askquestion.component';
-import { SinglequestionComponent } from './singlequestion/singlequestion.component';
-import { UserProfileComponent } from './user-profile/user-profile.component';
-import { MyQuestionsComponent } from './my-questions/my-questions.component';
-import { UpdateQuestionComponent } from './update-question/update-question.component';
-import { AdminComponent } from './admin/admin.component';
-import { AdminSeesAllUsersComponent } from './admin-sees-all-users/admin-sees-all-users.component';
-import { AdminViewAllQuestionsComponent } from './admin-view-all-questions/admin-view-all-questions.component';
-import { TagsComponent } from './tags/tags.component';
-import { SpecificTagsComponent } from './specific-tags/specific-tags.component';
+// import { LandingpageComponent } from './landingpage/landingpage.component';
+// import { SignupComponent } from './signup/signup.component';
+// import { LoginComponent } from './login/login.component';
+// import { HomeComponent } from './home/home.component';
+// import { AskquestionComponent } from './askquestion/askquestion.component';
+// import { SinglequestionComponent } from './singlequestion/singlequestion.component';
+// import { UserProfileComponent } from './user-profile/user-profile.component';
+// import { MyQuestionsComponent } from './my-questions/my-questions.component';
+// import { UpdateQuestionComponent } from './update-question/update-question.component';
+// import { AdminComponent } from './admin/admin.component';
+// import { AdminSeesAllUsersComponent } from './admin-sees-all-users/admin-sees-all-users.component';
+// import { AdminViewAllQuestionsComponent } from './admin-view-all-questions/admin-view-all-questions.component';
+// import { TagsComponent } from './tags/tags.component';
+// import { SpecificTagsComponent } from './specific-tags/specific-tags.component';
 import { AuthGuardService } from 'src/services/guards/AuthGuard.service';
 
 
 const routes: Routes = [
-  {path:'',component:LandingpageComponent},
-  {path:'signup',component:SignupComponent},
-  {path:'login',component:LoginComponent},
-  {path:'home',component:HomeComponent,canActivate: [AuthGuardService]},
-  {path:'askquestion',component:AskquestionComponent, canActivate: [AuthGuardService] },
-  {path:'singlequestion',component:SinglequestionComponent, canActivate: [AuthGuardService] },
-  {path:'userprofile',component:UserProfileComponent, canActivate: [AuthGuardService] },
-  {path:'myquestions',component:MyQuestionsComponent, canActivate: [AuthGuardService] },
-  {path:'updatequestion',component:UpdateQuestionComponent, canActivate: [AuthGuardService] },
-  {path:'admin',component:AdminComponent, canActivate: [AuthGuardService] },
-  {path:'adminseesallusers',component:AdminSeesAllUsersComponent, canActivate: [AuthGuardService] },
-  {path:'adminviewallquestions',component:AdminViewAllQuestionsComponent, canActivate: [AuthGuardService] },
-  {path:'tags',component:TagsComponent, canActivate: [AuthGuardService] },
-  {path:'specifictags/:tagId',component:SpecificTagsComponent, canActivate: [AuthGuardService] },
+  { path: '', loadComponent: () => import('./landingpage/landingpage.component').then(m => m.LandingpageComponent ) },
+
+  {path:'signup',loadComponent: () => import('./signup/signup.component').then(m => m. SignupComponent )},
+
+  {path:'login',loadComponent: () => import('./login/login.component').then(m => m. LoginComponent  )},
+
+  {path:'home',loadComponent: () => import('./home/home.component').then(m => m. HomeComponent),canActivate: [AuthGuardService]},
+
+  {path:'askquestion',loadComponent: () => import('./askquestion/askquestion.component').then(m => m. AskquestionComponent),canActivate: [AuthGuardService] },
+
+  {path:'singlequestion',loadComponent: () => import('./singlequestion/singlequestion.component').then(m => m. SinglequestionComponent),canActivate: [AuthGuardService]},
+
+  {path:'userprofile',loadComponent: () => import('./user-profile/user-profile.component').then(m => m.UserProfileComponent),canActivate: [AuthGuardService] },
+
+
+  {path:'myquestions',loadComponent: () => import('./my-questions/my-questions.component').then(m => m.MyQuestionsComponent),canActivate: [AuthGuardService] },
+
+  {path:'updatequestion',loadComponent: () => import('./update-question/update-question.component').then(m => m.UpdateQuestionComponent),canActivate: [AuthGuardService] },
+
+  {path:'admin',loadComponent: () => import('./admin/admin.component').then(m => m.AdminComponent),canActivate: [AuthGuardService]  },
+
+
+  {path:'adminseesallusers',loadComponent: () => import('./admin-sees-all-users/admin-sees-all-users.component').then(m => m.AdminSeesAllUsersComponent),canActivate: [AuthGuardService] },
+
+  {path:'adminviewallquestions',loadComponent: () => import('./admin-view-all-questions/admin-view-all-questions.component').then(m => m.AdminViewAllQuestionsComponent ),canActivate: [AuthGuardService] },
+
+
+  {path:'tags',loadComponent: () => import('./tags/tags.component').then(m => m. TagsComponent ),canActivate: [AuthGuardService] },
+
+
+  {path:'specifictags/:tagId',loadComponent: () => import('./specific-tags/specific-tags.component').then(m => m.SpecificTagsComponent ),canActivate: [AuthGuardService] },
+
+
   //wild card route to match any route that doesnt match any of the defined routes
-  {path:'**',component:LandingpageComponent}
+  {path:'**',loadComponent: () => import('./landingpage/landingpage.component').then(m => m.LandingpageComponent ) }
 ];
 
 @NgModule({

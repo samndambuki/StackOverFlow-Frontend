@@ -11,7 +11,7 @@
       <div class="search-bar">
         <!-- SEARCH BAR ICON -->
         <fa-icon [icon]="searchicon"></fa-icon>
-        <input type="text" placeholder="Search..." />
+        <input type="text" placeholder="Search..." [(ngModel)]="searchTerm"/>
       </div>
     </div>
 
@@ -88,7 +88,7 @@
       <!-- FIRST QUESTION -->
       <ng-container *ngIf="(questions$ | async) as questions">
 
-      <div *ngFor="let question of questions"  class="question1">
+      <div *ngFor="let question of questions | search: searchTerm"  class="question1">
         <div class="question1Content">
           <p>0 Votes</p>
           <p>0 Answers</p>
