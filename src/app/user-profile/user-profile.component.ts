@@ -7,9 +7,11 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { UserProfileService } from 'src/services/userprofile/userprofile.service';
 import { Store, select } from '@ngrx/store';
 import { User } from 'src/interfaces/adminviewallusers/user.interface';
-import { updateUserProfile } from 'src/ngrx/userprofile/userprofile.actions';
 import { Observable } from 'rxjs';
 import { AppState } from 'src/ngrx/app-state';
+import { selectUserProfile, selectUserProfileError, selectUserProfileLoading } from 'src/ngrx/userprofile/userprofile.selectors';
+import { userProfileResponse } from 'src/interfaces/userProfile/userProfileResponse';
+import { loadUserProfile } from 'src/ngrx/userprofile/userprofile.actions';
 
 @Component({
   selector: 'app-user-profile',
@@ -21,18 +23,15 @@ import { AppState } from 'src/ngrx/app-state';
 export class UserProfileComponent implements OnInit{
   //declared serach icon imported from font awesome module
   searchicon = faSearch
-
   profileForm!:FormGroup;
 
-  user$!: Observable<User | null>;
+  userProfile$!: Observable<userProfileResponse | undefined>;
+
+
 
   constructor(private router:Router,private formBuilder:FormBuilder, private store: Store<AppState>,
     private userProfileService: UserProfileService){
-      this.user$ = store.pipe(select((state:AppState) => state.userProfile.user));
-      store.pipe(select((state:AppState) => state.userProfile.user)).subscribe(response=>{
-        console.log(response);
-        
-      })
+  
 
     }
 
@@ -44,6 +43,27 @@ export class UserProfileComponent implements OnInit{
       // title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(50)]],
       // about: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(200)]]
     });
+
+    // this.userProfileService.getUserProfile().subscribe(
+    //   (userProfile: User) => {
+    //     this.userProfile = userProfile;
+    //     console.log(userProfile); 
+    //   },
+    //   (error: any) => {
+    //     console.error('Failed to retrieve user profile:', error);
+    //   }
+    // );
+
+    this.store.dispatch(loadUserProfile());
+
+    this.userProfile$ = this.store.select(selectUserProfile);
+    this.userProfile$.subscribe((userProfile: userProfileResponse | undefined) => {
+      console.log(userProfile);
+    });
+
+
+
+
   }
 
   //method to handle save profile button click event
@@ -64,19 +84,7 @@ export class UserProfileComponent implements OnInit{
         emailSent: 0,
         isDeleted: 0,
         isAdmin: 0
-      };
-
-      this.store.dispatch(updateUserProfile({ user }));
-
-      this.userProfileService.updateProfile(user).subscribe(
-        (response) => {
-          console.log('User profile updated successfully');
-          this.profileForm.reset();
-        },
-        (error) => {
-          console.log('Error updating user profile:', error);
-        }
-      );
+      }
 
       
       

@@ -31,24 +31,7 @@ export class UserProfileService {
     return this.http.get<User>(`${this.usersURL}/${userId}`, { headers });
   }
 
-  updateProfile(user: User): Observable<User> {
-    const token = this.getToken();
-    const userId = token ? this.extractUserIdFromToken(token) : '';
 
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      token: token || '',
-    });
-
-    return this.http.put<User>(`${this.usersURL}/${userId}`, user, { headers }).pipe(
-      tap(() => {
-        this.store.dispatch(loadUsers());
-      }),
-      catchError((error) => {
-        return throwError(error);
-      })
-    );
-  }
 
   private extractUserIdFromToken(token: string): string {
     const decodedToken: any = jwt_decode(token);

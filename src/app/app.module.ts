@@ -33,6 +33,7 @@ import { SingleQuestionEffects } from 'src/ngrx/singleQuestion/singleQuestion.ef
 import { UserProfileService } from 'src/services/userprofile/userprofile.service';
 import { userProfileReducer } from 'src/ngrx/userprofile/userprofile.reducer';
 import { SearchPipe } from 'src/pipes/search.pipe';
+import { UserProfileEffects } from 'src/ngrx/userprofile/userProfile.effects';
 
 
 
@@ -49,8 +50,8 @@ import { SearchPipe } from 'src/pipes/search.pipe';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer,adminViewAllUsers:adminViewAllUsersReducer,adminViewAllQuestions:adminViewAllQuestionsReducer,tags:tagsReducer,singlequestionReducer:singleQuestionReducer,userProfile:userProfileReducer }),
-    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects,AdminViewAllQuestionsEffects,TagsEffects,SingleQuestionEffects]),
+    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer,adminViewAllUsers:adminViewAllUsersReducer,adminViewAllQuestions:adminViewAllQuestionsReducer,tags:tagsReducer,singlequestionReducer:singleQuestionReducer,userProfile:userProfileReducer,questions:questionReducer }),
+    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects,AdminViewAllQuestionsEffects,TagsEffects,SingleQuestionEffects,QuestionEffects,UserProfileEffects]),
 
   ],
 

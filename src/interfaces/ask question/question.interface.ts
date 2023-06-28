@@ -1,7 +1,7 @@
 export interface Question{
 
   questionId?:string
-  message:string
+  message?:string
   title: string;
   details: string;
   tried: string;

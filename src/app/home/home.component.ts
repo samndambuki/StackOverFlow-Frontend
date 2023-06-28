@@ -16,10 +16,6 @@ import { FormsModule } from '@angular/forms';
 import { SearchPipe } from 'src/pipes/search.pipe';
 
 
-
-
-
-
 @Component({
   selector: 'app-home',
   standalone: true,

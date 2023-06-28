@@ -71,6 +71,22 @@ getQuestionsByUser(): Observable<GetQuestions[]> {
   );
 }
 
+updateQuestion(questionId: string, updatedQuestion: Question): Observable<QuestionResponse> {
+  const headers = new HttpHeaders({
+    'Content-Type': 'application/json',
+    token: this.getToken() || ''
+  });
+
+  const url = `${this.questionsURL}/${questionId}`;
+
+  return this.http.put<QuestionResponse>(url, updatedQuestion, { headers });
+}
+
+getQuestionById(questionId: string): Observable<Question> {
+  return this.http.get<Question>(`${this.questionsURL}/questions/${questionId}`);
+}
+
+
 private extractUserIdFromToken(token: string): string {
   const decodedToken: DecodedToken = jwt_decode(token) as DecodedToken;
   return decodedToken.userId;

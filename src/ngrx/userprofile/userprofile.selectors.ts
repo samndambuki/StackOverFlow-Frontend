@@ -1,25 +1,19 @@
-import { createSelector } from '@ngrx/store';
-import { AppState } from '../app-state';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { UserProfileState } from './userprofile.reducer';
 
+export const selectUserProfileState = createFeatureSelector<UserProfileState>('userProfile');
 
-// Selector to get the user profile state
-export const selectUserProfile = (state: AppState) => state.userProfile;
-
-// Selector to get the user profile
-export const selectUser = createSelector(
-  selectUserProfile,
-  (state: UserProfileState) => state.user
+export const selectUserProfile = createSelector(
+  selectUserProfileState,
+  (state: UserProfileState) => state.userProfile
 );
 
-// Selector to check if user profile is loading
-export const selectLoading = createSelector(
-  selectUserProfile,
+export const selectUserProfileLoading = createSelector(
+  selectUserProfileState,
   (state: UserProfileState) => state.loading
 );
 
-// Selector to get the error in user profile
-export const selectError = createSelector(
-  selectUserProfile,
+export const selectUserProfileError = createSelector(
+  selectUserProfileState,
   (state: UserProfileState) => state.error
 );
