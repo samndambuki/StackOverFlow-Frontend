@@ -5,8 +5,8 @@ import { MyQuestionsState } from "./myquestions/myquestions.reducer";
 import { AdminViewAllUsersState } from "./adminviewallusers/adminviewalllusers.reducer";
 import { AdminViewAllQuestionsState } from "./adminviewallquestions/adminviewallquestions.reducer";
 import { TagsState } from "./tags/tags.reducer";
-import { singleQuestionState } from "./singleQuestion/singleQuestion.reducer";
 import { UserProfileState } from "./userprofile/userprofile.reducer";
+import { SingleQuestionState } from "./singleQuestion/singleQuestion.reducer";
 
 export interface AppState {
   auth: AuthState;
@@ -16,7 +16,7 @@ export interface AppState {
   adminViewAllUsers: AdminViewAllUsersState;
   adminViewAllQuestions: AdminViewAllQuestionsState;
   tags: TagsState;
-  singleQuestion:singleQuestionState;
   userProfile: UserProfileState;
+  singleQuestion:SingleQuestionState;
 }
 

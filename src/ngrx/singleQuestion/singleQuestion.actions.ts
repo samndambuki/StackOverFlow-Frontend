@@ -1,27 +1,59 @@
 import { createAction, props } from '@ngrx/store';
-import { singleQuestion } from 'src/interfaces/singlequestion/singleQuestion';
-import { singleQuestionNewAnswer } from 'src/interfaces/singlequestion/NewAnswer';
-import { singleQuestionAnswer } from 'src/interfaces/singlequestion/singleQuestionAnswer';
+import { getAnswerByQuestionId } from 'src/interfaces/singlequestion/getAnswerByQuestionIdResponse';
+import { postAnswerRequest } from 'src/interfaces/singlequestion/postAnswer';
 import { postAnswerResponse } from 'src/interfaces/singlequestion/postAnswerResponse';
-import { upVoteAnswerResponse } from 'src/interfaces/singlequestion/upVoteAnswerResponse';
-import { downVoteAnswerResponse } from 'src/interfaces/singlequestion/downVoteAnswerResponse';
 
-export const loadQuestion = createAction('[Single Question] Load Question', props<{ questionId: string }>());
-export const loadQuestionSuccess = createAction('[Single Question] Load Question Success', props<{ question: singleQuestion }>());
-export const loadQuestionFailure = createAction('[Single Question] Load Question Failure', props<{ error: any }>());
+// Load answers by question ID
+export const loadAnswersByQuestionId = createAction(
+  '[SingleQuestion] Load Answers By Question ID',
+  props<{ questionId: string }>()
+);
 
-export const addAnswer = createAction('[Single Question] Add Answer', props<{ questionId: string, answer: singleQuestionNewAnswer }>());
-export const addAnswerSuccess = createAction('[Single Question] Add Answer Success', props<{ response: postAnswerResponse }>());
-export const addAnswerFailure = createAction('[Single Question] Add Answer Failure', props<{ error: any }>());
+export const loadAnswersByQuestionIdSuccess = createAction(
+  '[SingleQuestion] Load Answers By Question ID Success',
+  props<{ answers: getAnswerByQuestionId[] }>()
+);
 
-export const upvoteAnswer = createAction('[Single Question] Upvote Answer', props<{ answerId: string }>());
-export const upvoteAnswerSuccess = createAction('[Single Question] Upvote Answer Success', props<{ response: upVoteAnswerResponse }>());
-export const upvoteAnswerFailure = createAction('[Single Question] Upvote Answer Failure', props<{ error: any }>());
+export const loadAnswersByQuestionIdFailure = createAction(
+  '[SingleQuestion] Load Answers By Question ID Failure',
+  props<{ error: string }>()
+);
 
-export const downvoteAnswer = createAction('[Single Question] Downvote Answer', props<{ answerId: string }>());
-export const downvoteAnswerSuccess = createAction('[Single Question] Downvote Answer Success', props<{ response: downVoteAnswerResponse }>());
-export const downvoteAnswerFailure = createAction('[Single Question] Downvote Answer Failure', props<{ error: any }>());
+// Post an answer
+export const postAnswer = createAction(
+  '[SingleQuestion] Post Answer',
+  props<{ questionId: string; answer: postAnswerRequest }>()
+);
 
-export const getAllAnswers = createAction('[Single Question] Get All Answers');
-export const getAllAnswersSuccess = createAction('[Single Question] Get All Answers Success', props<{ answers: singleQuestionAnswer[] }>());
-export const getAllAnswersFailure = createAction('[Single Question] Get All Answers Failure', props<{ error: any }>());
+export const postAnswerSuccess = createAction(
+  '[SingleQuestion] Post Answer Success',
+  props<{ response: postAnswerResponse }>()
+);
+
+export const postAnswerFailure = createAction(
+  '[SingleQuestion] Post Answer Failure',
+  props<{ error: string }>()
+);
+
+
+export const getAnswersByQuestionId = createAction(
+  '[SingleQuestion] Get Answers By Question ID',
+  props<{ questionId: string,answers: getAnswerByQuestionId[] }>()
+);
+
+export const getAnswersByQuestionIdSuccess = createAction(
+  '[SingleQuestion] Get Answers By Question ID Success',
+  props<{ answers: getAnswerByQuestionId[] }>()
+);
+
+export const getAnswersByQuestionIdFailure = createAction(
+  '[SingleQuestion] Get Answers By Question ID Failure',
+  props<{ error: string }>()
+);
+
+
+
+
+
+
+

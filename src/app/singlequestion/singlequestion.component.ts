@@ -2,12 +2,15 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { faCaretDown, faCaretUp, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-
 import { AppState } from 'src/ngrx/app-state';
 import { Store } from '@ngrx/store';
-import { addAnswer } from 'src/ngrx/singleQuestion/singleQuestion.actions';
+import { Observable } from 'rxjs';
+import { getAnswerByQuestionId } from 'src/interfaces/singlequestion/getAnswerByQuestionIdResponse';
+import { SingleQuestionService } from 'src/services/singleQuestion/singleQuestionService';
+import { postAnswerRequest } from 'src/interfaces/singlequestion/postAnswer';
+import { getAnswersByQuestionId } from 'src/ngrx/singleQuestion/singleQuestion.actions';
 ;
 
 @Component({
@@ -22,20 +25,27 @@ export class SinglequestionComponent {
   searchicon = faSearch;
   upIcon = faCaretUp
   downIcon = faCaretDown
+  questionId!:string
   answerForm!: FormGroup;
+  answers$!: Observable<getAnswerByQuestionId[]>;
+  loadedanswers!:getAnswerByQuestionId[]
 
+  constructor(private router:Router,private formBuilder: FormBuilder, private store: Store<AppState>, private route:ActivatedRoute, private singleQuestionService: SingleQuestionService){
 
+    this.answers$ = this.store.select(state => state.singleQuestion.answers);
 
-
-  constructor(private router:Router,private formBuilder: FormBuilder, private store: Store<AppState>){
-    
   }
 
   ngOnInit() {
     this.answerForm = this.formBuilder.group({
       answerInputField: ['', [Validators.required, Validators.minLength(10)]]
     });
-    
+
+    this.route.params.subscribe((param:Params) => {
+      this.questionId = param['id']
+      this.loadAnswersByQuestionId();
+    })
+    console.log(this.questionId);
   }
 
   get answerInputField() {
@@ -43,12 +53,44 @@ export class SinglequestionComponent {
   }
 
   submitAnswer() {
+    // if (this.answerForm.valid) {
+    //   const answer = this.answerForm.value.answerInputField;
+    //   console.log('Submitted Answer:', answer);
+    //   this.answerForm.reset();
+    // }
+
+    let token = localStorage.getItem('token')!
+
     if (this.answerForm.valid) {
-      const answer = this.answerForm.value.answerInputField;
-      console.log('Submitted Answer:', answer);
-      this.answerForm.reset();
+      const answer: postAnswerRequest = {
+        body: this.answerForm.value.answerInputField,
+      };
+      // Call the service to post the answer
+      this.singleQuestionService.postAnswer(this.questionId, answer,token).subscribe(() => {
+        console.log('Answer submitted successfully',answer);
+        this.answerForm.reset();
+        this.loadAnswersByQuestionId();
+      });
     }
-   
+  }
+
+
+  loadAnswersByQuestionId() {
+    let token = localStorage.getItem('token')!
+    console.log('Loading answers for question ID:', this.questionId);
+    // Call the service to get the answers
+    this.singleQuestionService.getAnswersByQuestionId(this.questionId,token).subscribe((res) => {
+      if(res) { 
+        this.loadedanswers = res
+        console.log(this.loadedanswers);
+        
+      }
+      
+      // Dispatch the action with the retrieved answers
+    //this.store.dispatch(getAnswersByQuestionId({ questionId:this.questionId,answers }));
+    },error => {console.log(error);
+    }
+    );
   }
 
   //method to handle home button click event

@@ -1,67 +1,47 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { catchError, map, switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
-import { catchError, map, mergeMap } from 'rxjs/operators';
-import * as singleQuestionActions from './singleQuestion.actions';
-import { singleQuestionService } from 'src/services/singleQuestion/singleQuestionService';
-import { postAnswerResponse } from 'src/interfaces/singlequestion/postAnswerResponse';
-import { upVoteAnswerResponse } from 'src/interfaces/singlequestion/upVoteAnswerResponse';
-import { downVoteAnswerResponse } from 'src/interfaces/singlequestion/downVoteAnswerResponse';
-import { singleQuestionAnswer } from 'src/interfaces/singlequestion/singleQuestionAnswer';
+import * as SingleQuestionActions from './singleQuestion.actions';
+import { SingleQuestionService } from 'src/services/singleQuestion/singleQuestionService';
 
 @Injectable()
 export class SingleQuestionEffects {
-    constructor(
-        private actions$: Actions,
-        private singlequestionService: singleQuestionService
-      ) {}
 
-  addAnswer$ = createEffect(() =>
+  token = localStorage.getItem('token')!
+
+  loadAnswersByQuestionId$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(singleQuestionActions.addAnswer),
-      mergeMap(({ questionId, answer }) =>
-        this.singlequestionService.postAnswer(questionId, answer).pipe(
-          map((response: postAnswerResponse) => singleQuestionActions.addAnswerSuccess({response})),
-          catchError((error) => of(singleQuestionActions.addAnswerFailure({ error })))
+      ofType(SingleQuestionActions.loadAnswersByQuestionId),
+      switchMap(({ questionId }) =>
+        this.singleQuestionService.getAnswersByQuestionId(questionId,this.token).pipe(
+          map((answers) =>
+            SingleQuestionActions.loadAnswersByQuestionIdSuccess({ answers })
+          ),
+          catchError((error) =>
+            of(SingleQuestionActions.loadAnswersByQuestionIdFailure({ error: error.message }))
+          )
         )
       )
     )
   );
 
-  upvoteAnswer$ = createEffect(() =>
+  postAnswer$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(singleQuestionActions.upvoteAnswer),
-      mergeMap(({ answerId }) =>
-        this.singlequestionService.upvoteAnswer(answerId).pipe(
-          map((response:upVoteAnswerResponse) => singleQuestionActions.upvoteAnswerSuccess({response})),
-          catchError((error) => of(singleQuestionActions.upvoteAnswerFailure({ error })))
+      ofType(SingleQuestionActions.postAnswer),
+      switchMap(({ questionId, answer }) =>
+        this.singleQuestionService.postAnswer(questionId, answer,this.token).pipe(
+          map((response) => SingleQuestionActions.postAnswerSuccess({ response })),
+          catchError((error) =>
+            of(SingleQuestionActions.postAnswerFailure({ error: error.message }))
+          )
         )
       )
     )
   );
 
-  downvoteAnswer$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(singleQuestionActions.downvoteAnswer),
-      mergeMap(({ answerId }) =>
-        this.singlequestionService.downvoteAnswer(answerId).pipe(
-          map((response:downVoteAnswerResponse) => singleQuestionActions.downvoteAnswerSuccess({response})),
-          catchError((error) => of(singleQuestionActions.downvoteAnswerFailure({ error })))
-        )
-      )
-    )
-  );
-
-  getAllAnswers$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(singleQuestionActions.getAllAnswers),
-      mergeMap(() =>
-        this.singlequestionService.getAllAnswers().pipe(
-          map((answers: singleQuestionAnswer[]) => singleQuestionActions.getAllAnswersSuccess({ answers })),
-          catchError((error) => of(singleQuestionActions.getAllAnswersFailure({ error })))
-        )
-      )
-    )
-  );
-
+  constructor(
+    private actions$: Actions,
+    private singleQuestionService: SingleQuestionService
+  ) {}
 }

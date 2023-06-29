@@ -52,9 +52,6 @@ export class UserProfileService {
     );
   }
 
-  
-
-
 
   private extractUserIdFromToken(token: string): string {
     const decodedToken: any = jwt_decode(token);

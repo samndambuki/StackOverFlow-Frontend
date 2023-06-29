@@ -70,16 +70,16 @@
     </div>
 
     <div class="noOfAnswers">
-      <p>1 Answer</p>
+      <p>{{ (answers$ | async)?.length }} Answer{{ (answers$ | async)?.length !== 1 ? 's' : '' }}</p>
     </div>
 
-    <div class="answer">
+    <div class="answer" *ngFor="let answer of loadedanswers ">
       <div class="voteIcons">
         <fa-icon [icon] ="upIcon"></fa-icon>
         <p>0</p>
         <fa-icon [icon] ="downIcon"></fa-icon>
       </div>
-      <p>If you want to append text, this is what you do.</p>
+      <p>{{answer.body}}</p>
     </div>
 
     <div class="yourAnswer">
@@ -87,7 +87,7 @@
     </div>
 
     <div class="answerInput">
-      <form [formGroup]="answerForm" (ngSubmit)="submitAnswer()">
+      <form [formGroup]="answerForm">
         <input type="text" placeholder="Enter your answer" formControlName="answerInputField" [class.invalid]="answerInputField?.invalid && (answerInputField?.dirty || answerInputField?.touched)" />
         <div class="error-message" *ngIf="answerInputField?.invalid && (answerInputField?.dirty || answerInputField?.touched)">
           <div *ngIf="answerInputField?.errors?.['required']">

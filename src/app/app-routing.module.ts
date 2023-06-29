@@ -28,7 +28,7 @@ const routes: Routes = [
 
   {path:'askquestion',loadComponent: () => import('./askquestion/askquestion.component').then(m => m. AskquestionComponent),canActivate: [AuthGuardService] },
 
-  {path:'singlequestion',loadComponent: () => import('./singlequestion/singlequestion.component').then(m => m. SinglequestionComponent),canActivate: [AuthGuardService]},
+  {path:'singlequestion/:id',loadComponent: () => import('./singlequestion/singlequestion.component').then(m => m. SinglequestionComponent),canActivate: [AuthGuardService]},
 
   {path:'userprofile',loadComponent: () => import('./user-profile/user-profile.component').then(m => m.UserProfileComponent),canActivate: [AuthGuardService] },
 

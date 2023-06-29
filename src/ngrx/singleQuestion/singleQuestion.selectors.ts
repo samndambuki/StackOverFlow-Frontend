@@ -1,52 +1,24 @@
 import { createSelector } from '@ngrx/store';
+import { SingleQuestionState } from './singleQuestion.reducer';
 import { AppState } from '../app-state';
-import { singleQuestionState } from './singleQuestion.reducer';
-import { singleQuestion } from 'src/interfaces/singlequestion/singleQuestion';
-import { singleQuestionAnswer } from 'src/interfaces/singlequestion/singleQuestionAnswer';
 
-// Select the single question feature state
-export const selectSingleQuestionState = (state: AppState) => state.singleQuestion;
+// Select the single question state
+export const selectSingleQuestion = (state: AppState) => state.singleQuestion;
 
-// Select the question
-export const selectQuestion = createSelector(
-  selectSingleQuestionState,
-  (state: singleQuestionState) => state.question
+// Select the answers
+export const selectAnswers = createSelector(
+  selectSingleQuestion,
+  (state: SingleQuestionState) => state.answers
 );
 
-// Select the loading status
+// Select the loading state
 export const selectLoading = createSelector(
-  selectSingleQuestionState,
-  (state: singleQuestionState) => state.loading
+  selectSingleQuestion,
+  (state: SingleQuestionState) => state.loading
 );
 
-// Select the error status
+// Select the error message
 export const selectError = createSelector(
-  selectSingleQuestionState,
-  (state: singleQuestionState) => state.error
+  selectSingleQuestion,
+  (state: SingleQuestionState) => state.error
 );
-
-// Select the answer
-export const selectAnswer = createSelector(
-  selectSingleQuestionState,
-  (state: singleQuestionState) => state.answer
-);
-
-// Select the question by ID
-export const selectQuestionById = (questionId: string) =>
-  createSelector(
-    selectSingleQuestionState,
-    (state: singleQuestionState) => {
-      if (state.question && state.question.questionId === questionId) {
-        return { ...state.question };
-      }
-      return null;
-    }
-  );
-
-  // Select all answers
-export const selectAllAnswers = createSelector(
-  selectSingleQuestionState,
-  (state: singleQuestionState) => state.answers
-);
-
-

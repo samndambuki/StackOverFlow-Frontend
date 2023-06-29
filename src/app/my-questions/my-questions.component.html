@@ -92,7 +92,7 @@
           </div>
   
           <div class="linkToQuestion">
-            <h2 [routerLink]="'/singlequestion/' + question.questionId" routerLinkActive="active">
+            <h2 routerLink="/singlequestion"  routerLinkActive="active">
               {{ question.title }}
             </h2>
             <div class="tags">
@@ -100,7 +100,7 @@
             </div>
           </div>
           <div class="crudButtons">
-            <button class="updateButton" (click)="onUpdateButtonClick()">Update</button>
+            <button class="updateButton" routerLink="/updatequestion">Update</button>
             <button class="deleteButton">Delete</button>
           </div>
         </div>

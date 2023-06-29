@@ -1,48 +1,50 @@
-import { Action, createReducer, on } from '@ngrx/store';
-import * as singleQuestionActions from './singleQuestion.actions';
-import { singleQuestion } from 'src/interfaces/singlequestion/singleQuestion';
-import { singleQuestionAnswer } from 'src/interfaces/singlequestion/singleQuestionAnswer';
+import { createReducer, on } from '@ngrx/store';
+import * as SingleQuestionActions from './singleQuestion.actions';
+import { getAnswerByQuestionId } from 'src/interfaces/singlequestion/getAnswerByQuestionIdResponse';
 
-export interface singleQuestionState {
-  question: singleQuestion | null;
-  answer: singleQuestionAnswer | null;
+export interface SingleQuestionState {
+  answers: getAnswerByQuestionId[];
   loading: boolean;
-  error: any;
-  answers: singleQuestionAnswer[] | null; 
+  error: string;
 }
 
-const initialState: singleQuestionState = {
-  question: null,
-  answer: null,
+export const initialSingleQuestionState: SingleQuestionState = {
+  answers: [],
   loading: false,
-  error: null,
-  answers: []
+  error: '',
 };
 
 export const singleQuestionReducer = createReducer(
-  initialState,
-  on(singleQuestionActions.loadQuestion, state => ({ ...state, loading: true, error: null })),
-  on(singleQuestionActions.loadQuestionSuccess, (state, { question }) => ({ ...state, question, loading: false })),
-  on(singleQuestionActions.loadQuestionFailure, (state, { error }) => ({ ...state, loading: false, error })),
-
-  on(singleQuestionActions.addAnswer, state => ({ ...state, loading: true, error: null })),
-  on(singleQuestionActions.addAnswerSuccess, state => ({ ...state, loading: false })),
-  on(singleQuestionActions.addAnswerFailure, (state, { error }) => ({ ...state, loading: false, error })),
-
-  on(singleQuestionActions.upvoteAnswer, state => ({ ...state, loading: true, error: null })),
-  on(singleQuestionActions.upvoteAnswerSuccess, state => ({ ...state, loading: false })),
-  on(singleQuestionActions.upvoteAnswerFailure, (state, { error }) => ({ ...state, loading: false, error })),
-
-  on(singleQuestionActions.downvoteAnswer, state => ({ ...state, loading: true, error: null })),
-  on(singleQuestionActions.downvoteAnswerSuccess, state => ({ ...state, loading: false })),
-  on(singleQuestionActions.downvoteAnswerFailure, (state, { error }) => ({ ...state, loading: false, error })),
-
-  on(singleQuestionActions.getAllAnswers, state => ({ ...state, loading: true, error: null })),
-  on(singleQuestionActions.getAllAnswersSuccess, (state, { answers }) => ({ ...state, answers, loading: false })),
-  on(singleQuestionActions.getAllAnswersFailure, (state, { error }) => ({ ...state, loading: false, error })),
-
+  initialSingleQuestionState,
+  on(SingleQuestionActions.loadAnswersByQuestionId, (state) => ({
+    ...state,
+    loading: true,
+    error: '',
+  })),
+  on(SingleQuestionActions.loadAnswersByQuestionIdSuccess, (state, { answers }) => ({
+    ...state,
+    answers,
+    loading: false,
+    error: '',
+  })),
+  on(SingleQuestionActions.loadAnswersByQuestionIdFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error,
+  })),
+  on(SingleQuestionActions.postAnswer, (state) => ({
+    ...state,
+    loading: true,
+    error: '',
+  })),
+  on(SingleQuestionActions.postAnswerSuccess, (state) => ({
+    ...state,
+    loading: false,
+    error: '',
+  })),
+  on(SingleQuestionActions.postAnswerFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error,
+  }))
 );
-
-export function reducer(state: singleQuestionState | undefined, action: Action): singleQuestionState {
-  return singleQuestionReducer(state, action);
-}

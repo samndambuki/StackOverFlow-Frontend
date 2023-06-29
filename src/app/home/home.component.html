@@ -99,7 +99,7 @@
         </div>
 
         <div class="linkToQuestion">
-          <h2 routerLink="/singlequestion" >
+          <h2 [routerLink]="['/singlequestion', question.questionId] ">
            {{question.title}}
           </h2>
           <div class="tags">

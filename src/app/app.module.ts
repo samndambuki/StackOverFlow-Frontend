@@ -27,17 +27,13 @@ import { AdminViewAllQuestionsEffects } from 'src/ngrx/adminviewallquestions/adm
 import { TagsService } from 'src/services/tags/tags.service';
 import { tagsReducer } from 'src/ngrx/tags/tags.reducer';
 import { TagsEffects } from 'src/ngrx/tags/tag.effects';
-import { singleQuestionService } from 'src/services/singleQuestion/singleQuestionService';
-import { singleQuestionReducer } from 'src/ngrx/singleQuestion/singleQuestion.reducer';
-import { SingleQuestionEffects } from 'src/ngrx/singleQuestion/singleQuestion.effects';
 import { UserProfileService } from 'src/services/userprofile/userprofile.service';
 import { userProfileReducer } from 'src/ngrx/userprofile/userprofile.reducer';
 import { SearchPipe } from 'src/pipes/search.pipe';
 import { UserProfileEffects } from 'src/ngrx/userprofile/userProfile.effects';
-
-
-
-
+import { SingleQuestionService } from 'src/services/singleQuestion/singleQuestionService';
+import { singleQuestionReducer } from 'src/ngrx/singleQuestion/singleQuestion.reducer';
+import { SingleQuestionEffects } from 'src/ngrx/singleQuestion/singleQuestion.effects';
 
 @NgModule({
   declarations: [
@@ -50,12 +46,12 @@ import { UserProfileEffects } from 'src/ngrx/userprofile/userProfile.effects';
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer,adminViewAllUsers:adminViewAllUsersReducer,adminViewAllQuestions:adminViewAllQuestionsReducer,tags:tagsReducer,singlequestionReducer:singleQuestionReducer,userProfile:userProfileReducer,questions:questionReducer }),
-    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects,AdminViewAllQuestionsEffects,TagsEffects,SingleQuestionEffects,QuestionEffects,UserProfileEffects]),
+    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer,adminViewAllUsers:adminViewAllUsersReducer,adminViewAllQuestions:adminViewAllQuestionsReducer,tags:tagsReducer,userProfile:userProfileReducer,questions:questionReducer,singleQuestion:singleQuestionReducer }),
+    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects,AdminViewAllQuestionsEffects,TagsEffects,QuestionEffects,UserProfileEffects,SingleQuestionEffects]),
 
   ],
 
-  providers: [QuestionService,AuthenticateService,AuthGuardService,AdminViewAllUsersService,AdminViewAllQuestionsService,TagsService,singleQuestionService,UserProfileService],
+  providers: [QuestionService,AuthenticateService,AuthGuardService,AdminViewAllUsersService,AdminViewAllQuestionsService,TagsService,UserProfileService,SingleQuestionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
