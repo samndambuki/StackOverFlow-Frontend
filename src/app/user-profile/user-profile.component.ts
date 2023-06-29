@@ -11,7 +11,8 @@ import { Observable } from 'rxjs';
 import { AppState } from 'src/ngrx/app-state';
 import { selectUserProfile, selectUserProfileError, selectUserProfileLoading } from 'src/ngrx/userprofile/userprofile.selectors';
 import { userProfileResponse } from 'src/interfaces/userProfile/userProfileResponse';
-import { loadUserProfile } from 'src/ngrx/userprofile/userprofile.actions';
+import { loadUserProfile, updateUserProfile } from 'src/ngrx/userprofile/userprofile.actions';
+import { updatedProfileResponse } from 'src/interfaces/userProfile/updatedProfileResponse';
 
 @Component({
   selector: 'app-user-profile',
@@ -30,10 +31,7 @@ export class UserProfileComponent implements OnInit{
 
 
   constructor(private router:Router,private formBuilder:FormBuilder, private store: Store<AppState>,
-    private userProfileService: UserProfileService){
-  
-
-    }
+    private userProfileService: UserProfileService){}
 
   ngOnInit(): void {
     this.profileForm = this.formBuilder.group({
@@ -59,48 +57,78 @@ export class UserProfileComponent implements OnInit{
     this.userProfile$ = this.store.select(selectUserProfile);
     this.userProfile$.subscribe((userProfile: userProfileResponse | undefined) => {
       console.log(userProfile);
-    });
-
-
-
-
-  }
-
-  //method to handle save profile button click event
-  saveProfile(): void {
-    if (this.profileForm.valid) {
-      // Form is valid, perform save operation
-      // console.log('Form submitted!');
-      // console.log('Form details:', this.profileForm.value);
-      const user: User = {
-        userName: this.profileForm.value.userName,
-        email: this.profileForm.value.email
-        // Set other properties of the user if needed
-        ,
-        userId: '',
-        password: '',
-        createdAt: undefined,
-        updatedAt: null,
-        emailSent: 0,
-        isDeleted: 0,
-        isAdmin: 0
+      if (userProfile) {
+        this.profileForm.patchValue({
+          userName: userProfile.userName,
+          email: userProfile.email
+        });
       }
-
-      
-      
-      // this.profileForm.reset();
-    } else {
-      // Form is invalid, display error messages
-      console.log('Invalid form. Please fill in all required fields.');
-      this.profileForm.markAllAsTouched();
-    }
+    });
   }
+
 
   //method to handle cancel button click event
 
   cancelEdit(): void {
     this.profileForm.reset();
   }
+
+  // saveProfile(): void {
+  //   if (this.profileForm.valid) {
+  //     const updatedProfile: userProfileResponse = {
+  //       userId: '',
+  //       userName: this.profileForm.value.userName,
+  //       email: this.profileForm.value.email,
+  //       password: this.profileForm.value.password,
+  //       createdAt: undefined,
+  //       updatedAt: null,
+  //       emailSent: 0,
+  //       isDeleted: 0,
+  //       isAdmin: 0,
+  //     };
+
+  //     this.store.dispatch(updateUserProfile({ updatedProfile }));
+  //   } else {
+  //     console.log('Invalid form. Please fill in all required fields.');
+  //     this.profileForm.markAllAsTouched();
+  //   }
+  // }
+
+  saveProfile(): void {
+    const userNameControl = this.profileForm.get('userName');
+    const emailControl = this.profileForm.get('email');
+  
+    if (userNameControl?.valid && emailControl?.valid) {
+      const updatedProfile: userProfileResponse = {
+        userId: '',
+        userName: userNameControl?.value,
+        email: emailControl?.value,
+        password: '',
+        updatedAt: null,
+        emailSent: 0,
+        isDeleted: 0,
+        isAdmin: 0,
+      };
+
+      console.log('Updated Profile:', updatedProfile);
+
+  
+      this.userProfileService.updateUserProfile(updatedProfile).subscribe(
+        (response) => {
+          console.log('Update successful:', response);
+        },
+        (error) => {
+          console.log('Update failed:', error);
+        }
+      );
+      
+    } else {
+      console.log('Invalid form. Please fill in all required fields.');
+      this.profileForm.markAllAsTouched();
+    }
+  }
+  
+
 
 
   //method to handle home button click event

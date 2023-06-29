@@ -6,6 +6,8 @@ import { Store } from '@ngrx/store';
 import { deleteUserFailure, deleteUserSuccess, loadUsers } from 'src/ngrx/adminviewallusers/adminviewallusers.actions';
 import { AppState } from 'src/ngrx/app-state';
 import jwt_decode from 'jwt-decode';
+import { updatedProfileResponse } from 'src/interfaces/userProfile/updatedProfileResponse';
+import { updateUserProfileSuccess } from 'src/ngrx/userprofile/userprofile.actions';
 
 @Injectable({
   providedIn: 'root'
@@ -30,6 +32,27 @@ export class UserProfileService {
 
     return this.http.get<User>(`${this.usersURL}/${userId}`, { headers });
   }
+
+  updateUserProfile(updatedProfile: updatedProfileResponse): Observable<updatedProfileResponse> {
+    const token = this.getToken();
+    const userId = token ? this.extractUserIdFromToken(token) : '';
+  
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      token: token || '',
+    });
+    console.log('Updating user profile:', updatedProfile);
+  
+    return this.http.put<updatedProfileResponse>(`${this.usersURL}/${userId}`, updatedProfile, { headers })
+    .pipe(
+      tap((updatedProfile) => {
+        this.store.dispatch(updateUserProfileSuccess({ updatedProfile }));
+        console.log(updatedProfile)
+      })
+    );
+  }
+
+  
 
 
 

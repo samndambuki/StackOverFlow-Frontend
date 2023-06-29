@@ -63,14 +63,15 @@
     <div class="profileinfo">
         <div class="moreinfo">
         <p>{{ (userProfile$ | async)?.userName }}</p>
-      <p>{{ (userProfile$ | async)?.email }}</p>
+       <p>{{ (userProfile$ | async)?.email }}</p>
+       
         </div>
     </div>  
 
     <form [formGroup]="profileForm" class="editProfile">
              
         <label>User Name</label>
-        <input type="text" placeholder="User Name...."  formControlName="userName" >
+        <input type="text" placeholder="User Name...."  formControlName="userName" [(ngModel)]="profileForm.value.userName">
         <!-- DISPLAY NAME VALIDATIONS -->
         <div *ngIf="profileForm.get('userName')?.invalid && (profileForm.get('userName')?.dirty || profileForm.get('userName')?.touched)" class="error-message">
           <div *ngIf="profileForm.get('userName')?.hasError('required')">User Name is required.</div>
@@ -81,7 +82,7 @@
         
 
         <label>Email</label>
-        <input type="text" placeholder="Email..." formControlName="email">
+        <input type="text" placeholder="Email..." formControlName="email" [(ngModel)]="profileForm.value.email">
 
         <!-- EMAIL VALIDATIONS -->
         <div *ngIf="profileForm.get('email')?.invalid && (profileForm.get('email')?.dirty || profileForm.get('email')?.touched)" class="error-message">
@@ -90,8 +91,6 @@
           <div *ngIf="profileForm.get('email')?.hasError('maxlength')">Email should have a maximum length of 50 characters.</div>
         </div>
 
-        <label>Password</label>
-        <input type="text" placeholder="Email..." formControlName="password">
        
         <!-- <label>Title</label>
         <input type="text" placeholder="Title..." formControlName="title"> -->
@@ -113,7 +112,7 @@
           <div *ngIf="profileForm.get('about')?.hasError('maxlength')">About Me should have a maximum length of 200 characters.</div>
         </div> -->
        
-        <button class="saveProfileButton"  (click)="saveProfile()">Save Profile</button>
+        <button class="updateProfileButton" (click)="saveProfile()">Update Profile</button>
         <button class="cancelButton" (click)="cancelEdit()">Cancel</button>
         
     </form>

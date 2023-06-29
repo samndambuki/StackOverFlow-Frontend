@@ -182,7 +182,7 @@
     gap: .5rem;
 }
 
-.saveProfileButton{
+.updateProfileButton{
     color: rgb(225,236,244);
     background-color:  rgb(15,148,253);
     padding: .3rem;
