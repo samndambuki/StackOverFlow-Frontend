@@ -2,7 +2,6 @@ import { createAction, props } from '@ngrx/store';
 import { updatedProfileResponse } from 'src/interfaces/userProfile/updatedProfileResponse';
 import { userProfileResponse } from 'src/interfaces/userProfile/userProfileResponse';
 
-
 export const loadUserProfile = createAction('[User Profile] Load User Profile');
 export const loadUserProfileSuccess = createAction(
   '[User Profile] Load User Profile Success',
@@ -12,7 +11,6 @@ export const loadUserProfileFailure = createAction(
   '[User Profile] Load User Profile Failure',
   props<{ error: any }>()
 );
-
 
 //actions to update user profile
 export const updateUserProfile = createAction(

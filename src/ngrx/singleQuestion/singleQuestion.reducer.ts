@@ -21,17 +21,23 @@ export const singleQuestionReducer = createReducer(
     loading: true,
     error: '',
   })),
-  on(SingleQuestionActions.loadAnswersByQuestionIdSuccess, (state, { answers }) => ({
-    ...state,
-    answers,
-    loading: false,
-    error: '',
-  })),
-  on(SingleQuestionActions.loadAnswersByQuestionIdFailure, (state, { error }) => ({
-    ...state,
-    loading: false,
-    error,
-  })),
+  on(
+    SingleQuestionActions.loadAnswersByQuestionIdSuccess,
+    (state, { answers }) => ({
+      ...state,
+      answers,
+      loading: false,
+      error: '',
+    })
+  ),
+  on(
+    SingleQuestionActions.loadAnswersByQuestionIdFailure,
+    (state, { error }) => ({
+      ...state,
+      loading: false,
+      error,
+    })
+  ),
   on(SingleQuestionActions.postAnswer, (state) => ({
     ...state,
     loading: true,

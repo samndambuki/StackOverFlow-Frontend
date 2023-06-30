@@ -20,24 +20,26 @@ export class TagsService {
   addTag(tagName: string): Observable<{ message: string; tagId: string }> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'token': this.getToken() || ''
+      token: this.getToken() || '',
     });
 
     const body: { tagName: string } = {
       tagName: tagName,
     };
 
-    return this.http.post<{ message: string; tagId: string }>(this.apiUrl, body, { headers }).pipe(
-      catchError((error) => {
-        return throwError(error);
-      })
-    );
+    return this.http
+      .post<{ message: string; tagId: string }>(this.apiUrl, body, { headers })
+      .pipe(
+        catchError((error) => {
+          return throwError(error);
+        })
+      );
   }
 
   getTags(): Observable<Tag[]> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'token': this.getToken() || ''
+      token: this.getToken() || '',
     });
 
     return this.http.get<Tag[]>(this.apiUrl, { headers }).pipe(
@@ -50,7 +52,7 @@ export class TagsService {
   getQuestionsByTag(tagId: string): Observable<Question[]> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      'token': this.getToken() || ''
+      token: this.getToken() || '',
     });
 
     const url = `${this.apiUrl}/${tagId}/questions`;
@@ -60,5 +62,5 @@ export class TagsService {
         return throwError(error);
       })
     );
-}
+  }
 }

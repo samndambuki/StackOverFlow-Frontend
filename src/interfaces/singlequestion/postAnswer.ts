@@ -1,4 +1,4 @@
-export interface postAnswerRequest{
-    body:string;
-    isPrefferred?:number
+export interface postAnswerRequest {
+  body: string;
+  isPrefferred?: number;
 }

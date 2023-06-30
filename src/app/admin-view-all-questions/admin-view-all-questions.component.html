@@ -1,34 +1,34 @@
 <div class="container">
   <!-- NAVIGATION MENU -->
-    <div class="navigation-menu">
-      <!-- STACK OVERFLOW IMAGE -->
-      <div class="stackoverflow">
-        <div routerLink="/home" class="stacklogo">
-          <img src="../../assets/stackoverflowlogo.png" />
-          <p>Stack<span>Overflow</span></p>
-        </div>
-  
-        <div class="search-bar">
-          <!-- SEARCH BAR ICON -->
-          <fa-icon [icon]="searchicon"></fa-icon>
-          <input type="text" placeholder="Search..." />
-        </div>
+  <div class="navigation-menu">
+    <!-- STACK OVERFLOW IMAGE -->
+    <div class="stackoverflow">
+      <div routerLink="/home" class="stacklogo">
+        <img src="../../assets/stackoverflowlogo.png" />
+        <p>Stack<span>Overflow</span></p>
       </div>
-  
-      <!-- NAVIGATION LINKS -->
-  
-      <div class="navlinks">
-        <div class="logOut">
-          <button
-            class="logOutButton"
-            routerLink="/landing"
-            routerLinkActive="active"
-          >
-            Log Out
-          </button>
-        </div>
+
+      <div class="search-bar">
+        <!-- SEARCH BAR ICON -->
+        <fa-icon [icon]="searchicon"></fa-icon>
+        <input type="text" placeholder="Search..." />
       </div>
     </div>
+
+    <!-- NAVIGATION LINKS -->
+
+    <div class="navlinks">
+      <div class="logOut">
+        <button
+          class="logOutButton"
+          routerLink="/landing"
+          routerLinkActive="active"
+        >
+          Log Out
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- CONTENT AT THE CENTER -->
 
@@ -64,12 +64,12 @@
           Users
         </h2>
         <h2
-        class="innerBarButton"
-        routerLink="/adminviewallquestions"
-        routerLinkActive="active"
-      >
-        Questions
-      </h2>
+          class="innerBarButton"
+          routerLink="/adminviewallquestions"
+          routerLinkActive="active"
+        >
+          Questions
+        </h2>
       </div>
     </div>
     <!-- DISPLAY ALL QUESTIONS -->
@@ -80,9 +80,8 @@
         <p>All Questions</p>
 
         <div class="askQuestion">
-    
           <div class="pagination">
-            <!-- generate pagination buttons based on the number of pages -->
+            <!-- pagination buttons based on the number of pages -->
             <button class="paginationButton1">1</button>
             <button class="paginationButton2">2</button>
             <button class="paginationButton3">3</button>
@@ -90,105 +89,39 @@
         </div>
       </div>
 
-      <!-- FIRST QUESTION -->
+      <!-- LIST OF QUESTIONS -->
       <div *ngFor="let question of questions$ | async" class="question1">
         <div class="question1Content">
-          <p> Votes</p>
-          <p> Answers</p>
-          <p> Views</p>
+          <p>Votes</p>
+          <p>Answers</p>
+          <p>Views</p>
         </div>
-
 
         <div class="linkToQuestion">
           <!-- display questions title -->
-          <p class="linkToQuestionButton">QUESTION TITLE: {{question.title}}</p>
+          <p class="linkToQuestionButton">
+            QUESTION TITLE: {{ question.title }}
+          </p>
 
           <!-- display each questions tags and username -->
           <div class="tags">
-            <p>TAGS: {{question.tags}}</p>
+            <p>TAGS: {{ question.tags }}</p>
           </div>
 
           <div class="userName">
-            <p>USER: {{question.userName}}</p>
+            <p>USER: {{ question.userName }}</p>
           </div>
 
           <div class="crudButtons">
-            <button class="deleteButton" (click)="deleteQuestion(question.questionId)">Delete</button> 
+            <button
+              class="deleteButton"
+              (click)="deleteQuestion(question.questionId)"
+            >
+              Delete
+            </button>
           </div>
-
         </div>
-
-
       </div>
-
-      </div>
-      </div>
-      </div>
-      
-
-      
-      
-
-      
-
-
-      <!-- SECOND QUESTION -->
-<!-- 
-      <div class="question2">
-        <div class="question2Content">
-          <p>0 Votes</p>
-          <p>0 Answers</p>
-          <p>3 Views</p>
-        </div>
-
-        <div class="linkToQuestion">
-          <button class="linkToQuestionButton">Extending custom types with functions in typescript</button>
-
-          <div class="tags">
-            <p>JavaScript</p>
-            <p>reactJs</p>
-          </div>
-
-          <div class="userName">
-            <p>Samuel Ndambuki</p>
-          </div>
-
-          <div class="crudButtons">
-
-            <button class="deleteButton">Delete</button> 
-          </div>
-
-        </div>
-      </div> -->
-
-      <!-- THIRD QUESTION -->
-
-      <!-- <div class="question3">
-        <div class="question3Content">
-          <p>0 Votes</p>
-          <p>0 Answers</p>
-          <p>3 Views</p>
-        </div>
-
-        <div class="linkToQuestion">
-          <button class="linkToQuestionButton">Extending custom types with functions in typescript</button>
-
-          <div class="tags">
-            <p>JavaScript</p>
-            <p>reactJs</p>
-          </div>
-
-          <div class="userName">
-            <p>Samuel Ndambuki</p>
-          </div>
-
-          <div class="crudButtons">
-
-            <button class="deleteButton">Delete</button> 
-          </div>
-
-        </div>
-      </div> -->
-    <!-- </div> -->
-  <!-- </div>
-</div> -->
+    </div>
+  </div>
+</div>

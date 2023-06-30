@@ -13,8 +13,7 @@ export const initialState: QuestionState = {
 export const questionReducer = createReducer(
   initialState,
   on(updateQuestion, (state, { questionId, updatedQuestion }) => {
-    
-    const updatedQuestions = state.questions.map(question => {
+    const updatedQuestions = state.questions.map((question) => {
       if (question.questionId === questionId) {
         return { ...question, ...updatedQuestion };
       }

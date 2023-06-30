@@ -4,13 +4,13 @@ import { GetQuestionsResponse } from 'src/interfaces/getquestions/getQuestionsRe
 @Injectable()
 @Pipe({
   name: 'search',
-  standalone:true
+  standalone: true,
 })
-
 export class SearchPipe implements PipeTransform {
-
-  transform(questions: GetQuestionsResponse[], searchTerm: string): GetQuestionsResponse[] {
-
+  transform(
+    questions: GetQuestionsResponse[],
+    searchTerm: string
+  ): GetQuestionsResponse[] {
     if (!searchTerm || searchTerm.trim() === '') {
       return questions;
     }
@@ -18,9 +18,7 @@ export class SearchPipe implements PipeTransform {
     searchTerm = searchTerm.toLowerCase();
 
     return questions.filter((question: GetQuestionsResponse) => {
-      return (
-        question.title.toLowerCase().includes(searchTerm)
-      );
+      return question.title.toLowerCase().includes(searchTerm);
     });
   }
 }

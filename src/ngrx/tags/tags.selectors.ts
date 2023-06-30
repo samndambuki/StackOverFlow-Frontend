@@ -5,9 +5,10 @@ import { TagsState } from './tags.reducer';
 export const selectTagsState = createFeatureSelector<TagsState>('tags');
 
 //  tags array
-export const selectTags = createSelector(selectTagsState, state=> state.tags);
-
-
+export const selectTags = createSelector(
+  selectTagsState,
+  (state) => state.tags
+);
 
 // loading state
 export const selectLoading = createSelector(

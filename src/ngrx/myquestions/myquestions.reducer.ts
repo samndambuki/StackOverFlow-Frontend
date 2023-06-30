@@ -1,6 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
 import { GetQuestions } from 'src/interfaces/getquestions/getQuestions.iterface';
-import { loadMyQuestions, loadMyQuestionsFailure, loadMyQuestionsSuccess, loadQuestionById, loadQuestionByIdFailure, loadQuestionByIdSuccess } from './myquestions.actions';
+import {
+  loadMyQuestions,
+  loadMyQuestionsFailure,
+  loadMyQuestionsSuccess,
+  loadQuestionById,
+  loadQuestionByIdFailure,
+  loadQuestionByIdSuccess,
+} from './myquestions.actions';
 import { Question } from 'src/interfaces/ask question/question.interface';
 
 export interface MyQuestionsState {
@@ -20,8 +27,17 @@ export const initialMyQuestionsState: MyQuestionsState = {
 export const myQuestionsReducer = createReducer(
   initialMyQuestionsState,
   on(loadMyQuestions, (state) => ({ ...state, loading: true, error: null })),
-  on(loadMyQuestionsSuccess, (state, { questions }) => ({ ...state, questions, loading: false, error: null })),
-  on(loadMyQuestionsFailure, (state, { error }) => ({ ...state, loading: false, error })),
+  on(loadMyQuestionsSuccess, (state, { questions }) => ({
+    ...state,
+    questions,
+    loading: false,
+    error: null,
+  })),
+  on(loadMyQuestionsFailure, (state, { error }) => ({
+    ...state,
+    loading: false,
+    error,
+  })),
   on(loadQuestionById, (state) => ({
     ...state,
     loading: true,

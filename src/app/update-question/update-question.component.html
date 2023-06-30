@@ -1,33 +1,32 @@
 <div class="container">
   <div class="container">
     <!-- NAVIGATION MENU -->
-         <!-- NAVIGATION MENU -->
-         <div class="navigation-menu">
-          <!-- STACK OVERFLOW IMAGE -->
-          <div class="stackoverflow">
-              <div (click)="onHomeButtonClicked()" class="stacklogo">
-                  <img src='../../assets/stackoverflowlogo.png'>
-                  <p>Stack<span>Overflow</span></p>
-              </div>
-             
-          <div class="search-bar">
-              <!-- SEARCH BAR ICON -->
-              <fa-icon [icon]="searchicon"></fa-icon>
-              <input type="text" placeholder="Search...">
-          </div>
-          </div>
-  
-          <!-- NAVIGATION LINKS -->
-  
-          <div class="navlinks">
-  
-          <!-- LOGOUT -->
-          <div class="logout">
-              <button (click)="onLogoutButtonClicked()" class="logOutButton">Logout</button>
-          </div>
-  
-          </div>
+    <div class="navigation-menu">
+      <!-- STACK OVERFLOW IMAGE -->
+      <div class="stackoverflow">
+        <div routerLink="/home" routerLinkActive="active" class="stacklogo">
+          <img src="../../assets/stackoverflowlogo.png" />
+          <p>Stack<span>Overflow</span></p>
+        </div>
+
+        <div class="search-bar">
+          <!-- SEARCH BAR ICON -->
+          <fa-icon [icon]="searchicon"></fa-icon>
+          <input type="text" placeholder="Search..." />
+        </div>
       </div>
+
+      <!-- NAVIGATION LINKS -->
+
+      <div class="navlinks">
+        <!-- LOGOUT -->
+        <div class="logout">
+          <button (click)="onLogoutButtonClicked()" class="logOutButton">
+            Logout
+          </button>
+        </div>
+      </div>
+    </div>
 
     <div class="publicQuestion">
       <p>Update Question</p>
@@ -162,7 +161,7 @@
       </div>
 
       <div class="submitDiscardButtons" *ngIf="currentStep >= 4">
-        <button  class="submitButton" (click)="onSubmit()">Submit</button>
+        <button class="submitButton" (click)="onSubmit()">Submit</button>
         <button class="discardButton" (click)="discardQuestion()">
           Discard
         </button>

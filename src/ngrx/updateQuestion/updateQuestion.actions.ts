@@ -3,7 +3,7 @@ import { Question } from 'src/interfaces/ask question/question.interface';
 
 export const updateQuestion = createAction(
   '[Question] Update Question',
-  props<{ questionId: string, question: Question }>()
+  props<{ questionId: string; question: Question }>()
 );
 
 export const updateQuestionSuccess = createAction(
@@ -14,4 +14,3 @@ export const updateQuestionFailure = createAction(
   '[Question] Update Question Failure',
   props<{ error: any }>()
 );
-

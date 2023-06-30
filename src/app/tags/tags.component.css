@@ -7,10 +7,6 @@
   padding: 1rem;
   justify-content: space-between;
 
-  /* removed style */
-  /* border-radius: 10px; */
-
-  /* added style */
   border-bottom: 1px solid #d9d9d9;
   padding-right: 3rem;
   padding-left: 3rem;
@@ -26,12 +22,11 @@
   align-items: center;
   gap: 5px;
   width: 80%;
-  /* modified styles */
+
   padding-right: 5rem;
 }
 
 .stacklogo p {
-  /* modified style */
   font-size: 1.5rem;
 }
 
@@ -40,7 +35,6 @@
 }
 
 .stackoverflow img {
-  /* modified styles */
   max-width: 25px;
   background-color: red;
 }
@@ -55,9 +49,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  /* removed styles */
-  /* border: 1px solid black; */
-  /* additional styles */
+
   border-radius: 20px;
   padding: 0.5rem;
   background-color: #d9d9d9;
@@ -67,7 +59,7 @@
   border: none;
   width: 700px;
   padding: 0.1rem;
-  /* additional styles */
+
   font-size: 13px;
   background-color: transparent;
   outline: none;
@@ -78,8 +70,6 @@
 }
 
 .logOutButton {
-  /* additional styles */
-
   border: 1px solid #0f94fd;
   color: black;
   background-color: white;
@@ -118,12 +108,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  /* border: 1px solid black; */
   border-radius: 5px;
   margin-top: 0.5rem;
   width: 15%;
   background-color: #d9d9d9;
-  /* padding: 2rem; */
   height: 80vh;
 }
 
@@ -132,12 +120,10 @@
   flex-direction: column;
   justify-content: space-evenly;
   margin-left: 2rem;
-  /* gap: 2rem; */
   margin-top: 2rem;
 }
 
 .innerBarButton {
-  /* background-color: #0f94fd; */
   color: black;
   border: none;
   border-radius: 5px;
@@ -180,20 +166,16 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  /* removed styles */
-  /* border: 1px solid black; */
-  /* additional styles */
+
   border-radius: 20px;
   padding: 0.5rem;
   background-color: #d9d9d9;
 }
 
 .filterBar input {
-
   border: none;
   width: 700px;
   padding: 0.1rem;
-  /* additional styles */
   font-size: 13px;
   background-color: transparent;
   outline: none;
@@ -228,7 +210,6 @@
   margin-bottom: 10px;
   cursor: pointer;
 }
-
 
 /* MEDIA QUERIES */
 
@@ -269,7 +250,7 @@
     width: 100%;
   }
 
-  .content{
+  .content {
     display: flex;
     flex-direction: column;
   }
@@ -308,11 +289,10 @@
     font-size: 1.5rem;
   }
 
-  .stackoverflow{
+  .stackoverflow {
     display: flex;
     flex-direction: column;
   }
-
 
   .stackoverflow img {
     width: 20%;

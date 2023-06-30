@@ -3,7 +3,7 @@
   <div class="navigation-menu">
     <!-- STACK OVERFLOW IMAGE -->
     <div class="stackoverflow">
-      <div (click)="onHomeButtonClicked()" class="stacklogo">
+      <div class="stacklogo" routerLink="/home">
         <img src="../../assets/stackoverflowlogo.png" />
         <p>Stack<span>Overflow</span></p>
       </div>
@@ -20,87 +20,102 @@
     <div class="navlinks">
       <!-- LOGOUT -->
       <div class="logout">
-        <button (click)="onLogoutButtonClicked()" class="logOutButton">Logout</button>
+        <button (click)="onLogoutButtonClicked()" class="logOutButton">
+          Logout
+        </button>
       </div>
     </div>
   </div>
 
   <div class="mainContent">
-
-
-  <!-- LEFT MENU BAR -->
-  <div class="leftMenuBar">
-    <div class="innerBar">
-      <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
-        Home
-      </h2>
-      <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
-        Tags
-      </h2>
-      <h2
-        class="innerBarButton"
-        routerLink="/myquestions"
-        routerLinkActive="active"
-      >
-        My Questions
-      </h2>
-      <h2
-        class="innerBarButton"
-        routerLink="/userprofile"
-        routerLinkActive="active"
-      >
-        My Profile
-      </h2>
-    </div>
-  </div>
-
-
-
-  <!-- SINGLE QUESTION CONTENT -->
-
-  <div class="singleQuestionContent">
-    <div class="singleQuestionTitle">
-      <p>
-        How to append text in selected option only in select box.
-      </p>
-    </div>
-
-    <div class="singleQuestion">
-        <p>Can anybody show me how to append text?</p>
-    </div>
-
-    <div class="noOfAnswers">
-      <p>{{ (answers$ | async)?.length }} Answer{{ (answers$ | async)?.length !== 1 ? 's' : '' }}</p>
-    </div>
-
-    <div class="answer" *ngFor="let answer of loadedanswers ">
-      <div class="voteIcons">
-        <fa-icon [icon] ="upIcon"></fa-icon>
-        <p>0</p>
-        <fa-icon [icon] ="downIcon"></fa-icon>
+    <!-- LEFT MENU BAR -->
+    <div class="leftMenuBar">
+      <div class="innerBar">
+        <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
+          Home
+        </h2>
+        <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
+          Tags
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/myquestions"
+          routerLinkActive="active"
+        >
+          My Questions
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/userprofile"
+          routerLinkActive="active"
+        >
+          My Profile
+        </h2>
       </div>
-      <p>{{answer.body}}</p>
     </div>
 
-    <div class="yourAnswer">
-      <p>Your answer</p>
-    </div>
+    <!-- SINGLE QUESTION CONTENT -->
 
-    <div class="answerInput">
-      <form [formGroup]="answerForm">
-        <input type="text" placeholder="Enter your answer" formControlName="answerInputField" [class.invalid]="answerInputField?.invalid && (answerInputField?.dirty || answerInputField?.touched)" />
-        <div class="error-message" *ngIf="answerInputField?.invalid && (answerInputField?.dirty || answerInputField?.touched)">
-          <div *ngIf="answerInputField?.errors?.['required']">
-            Answer is required.
-          </div>
-          <div *ngIf="answerInputField?.errors?.['minlength']">
-            Answer should have a minimum length of 10 characters.
-          </div>
-          <!-- Add more validation messages if needed -->
+    <div class="singleQuestionContent">
+      <div class="singleQuestionTitle">
+        <p>How to append text in selected option only in select box.</p>
+      </div>
+
+      <div class="singleQuestion">
+        <p>Can anybody show me how to append text?</p>
+      </div>
+
+      <div class="noOfAnswers">
+        <p>
+          {{ loadedanswers.length }} Answer{{
+            (answers$ | async)?.length !== 1 ? "s" : ""
+          }}
+        </p>
+      </div>
+
+      <div class="answer" *ngFor="let answer of loadedanswers">
+        <div class="voteIcons">
+          <fa-icon [icon]="upIcon"></fa-icon>
+          <p>0</p>
+          <fa-icon [icon]="downIcon"></fa-icon>
         </div>
-      </form>
-      <button type="submit" class="postAnswer" (click)="submitAnswer()">Post your answer</button>
+        <p>{{ answer.body }}</p>
+      </div>
+
+      <div class="yourAnswer">
+        <p>Your answer</p>
+      </div>
+
+      <div class="answerInput">
+        <form [formGroup]="answerForm">
+          <input
+            type="text"
+            placeholder="Enter your answer"
+            formControlName="answerInputField"
+            [class.invalid]="
+              answerInputField?.invalid &&
+              (answerInputField?.dirty || answerInputField?.touched)
+            "
+          />
+          <div
+            class="error-message"
+            *ngIf="
+              answerInputField?.invalid &&
+              (answerInputField?.dirty || answerInputField?.touched)
+            "
+          >
+            <div *ngIf="answerInputField?.errors?.['required']">
+              Answer is required.
+            </div>
+            <div *ngIf="answerInputField?.errors?.['minlength']">
+              Answer should have a minimum length of 10 characters.
+            </div>
+          </div>
+        </form>
+        <button type="submit" class="postAnswer" (click)="submitAnswer()">
+          Post your answer
+        </button>
+      </div>
     </div>
-  </div>
   </div>
 </div>

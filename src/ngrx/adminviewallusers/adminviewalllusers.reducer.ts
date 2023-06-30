@@ -33,8 +33,6 @@ export const adminViewAllUsersReducer = createReducer(
   })),
   on(AdminViewAllUsersActions.deleteUser, (state, { userId }) => ({
     ...state,
-    users: state.users.filter(user => user.userId !== userId)
+    users: state.users.filter((user) => user.userId !== userId),
   }))
 );
-
-

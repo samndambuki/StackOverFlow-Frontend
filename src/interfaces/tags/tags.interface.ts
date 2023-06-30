@@ -1,9 +1,8 @@
-import { Question } from "../ask question/question.interface";
+import { Question } from '../ask question/question.interface';
 
 export interface Tag {
-  question:Question;
-    tagId: string;
-    tagName: string;
-    isDeleted: number;
-  }
-  
+  question: Question;
+  tagId: string;
+  tagName: string;
+  isDeleted: number;
+}

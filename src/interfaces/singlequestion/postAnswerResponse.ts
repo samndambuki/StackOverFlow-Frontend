@@ -1,3 +1,3 @@
-export interface postAnswerResponse{
-    message:string
+export interface postAnswerResponse {
+  message: string;
 }

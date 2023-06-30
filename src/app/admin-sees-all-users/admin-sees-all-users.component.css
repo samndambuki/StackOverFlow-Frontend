@@ -6,11 +6,6 @@
   margin-top: 3px;
   padding: 1rem;
   justify-content: space-between;
-
-  /* removed style */
-  /* border-radius: 10px; */
-
-  /* added style */
   border-bottom: 1px solid #d9d9d9;
   padding-right: 3rem;
   padding-left: 3rem;
@@ -26,12 +21,10 @@
   align-items: center;
   gap: 5px;
   width: 80%;
-  /* modified styles */
   padding-right: 5rem;
 }
 
 .stacklogo p {
-  /* modified style */
   font-size: 1.5rem;
 }
 
@@ -40,7 +33,6 @@
 }
 
 .stackoverflow img {
-  /* modified styles */
   max-width: 25px;
   background-color: red;
 }
@@ -55,9 +47,6 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  /* removed styles */
-  /* border: 1px solid black; */
-  /* additional styles */
   border-radius: 20px;
   padding: 0.5rem;
   background-color: #d9d9d9;
@@ -67,7 +56,6 @@
   border: none;
   width: 700px;
   padding: 0.1rem;
-  /* additional styles */
   font-size: 13px;
   background-color: transparent;
   outline: none;
@@ -78,8 +66,6 @@
 }
 
 .logOutButton {
-  /* additional styles */
-
   border: 1px solid #0f94fd;
   color: black;
   background-color: white;
@@ -101,14 +87,13 @@
 
 /* STYLES FOR CONTENTS AT THE CENTER OF THE PAGE */
 
-.content{
-    margin-top: 5rem;
-    display: flex;
-    font-size: 1.1rem;
-    padding: 0.2rem;
-    justify-content: center;
-    margin-top: 1rem;
-
+.content {
+  margin-top: 5rem;
+  display: flex;
+  font-size: 1.1rem;
+  padding: 0.2rem;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .active {
@@ -120,12 +105,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  /* border: 1px solid black; */
   border-radius: 5px;
   margin-top: 0.5rem;
   width: 15%;
   background-color: #d9d9d9;
-  /* padding: 2rem; */
   height: 80vh;
 }
 
@@ -134,12 +117,10 @@
   flex-direction: column;
   justify-content: space-evenly;
   margin-left: 2rem;
-  /* gap: 2rem; */
   margin-top: 2rem;
 }
 
 .innerBarButton {
-  /* background-color: #0f94fd; */
   color: black;
   border: none;
   border-radius: 5px;
@@ -158,143 +139,141 @@
   outline: none;
 }
 
-
 /* TABLE STYLING */
 
-.tableUsers{
-    margin-top: 1rem;
-    margin-left: 2rem;
+.tableUsers {
+  margin-top: 1rem;
+  margin-left: 2rem;
 }
 
 table {
-    font-family: Arial, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  td, th {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #f2f2f2;
-  }
-  
-  th {
-    color: black;
-  }
+  font-family: Arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-.deleteButton{
-    color: white;
-    padding: .5rem;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    background-color: red;
-    margin-left: 1rem;
-    cursor: pointer;
+td,
+th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+th {
+  color: black;
+}
+
+.deleteButton {
+  color: white;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  background-color: red;
+  margin-left: 1rem;
+  cursor: pointer;
 }
 
 /* MEDIA QUERIES */
 
 /* Media query for screens with a width of 320px */
 @media only screen and (max-width: 320px) {
-    .container{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .navigation-menu {
-      background-color: white;
-      border: 1px solid black;
-      display: flex;
-      flex-direction: column;
-      margin-top: 3px;
-      padding: 1rem;
-      justify-content: space-between;
-      border-radius: 10px;
-      gap: 1rem;
-      justify-content: center;
-      align-items: center;
-    }
-
-  
-    .stacklogo p {
-      font-size: 1.5rem;
-    }
-  
-    .stackoverflow {
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .stackoverflow img {
-      width: 30%;
-      max-width: 150px;
-    }
-  
-    .search-bar input {
-      max-width: 200px;
-    }
-  
-    .logOutButton {
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-  
-  
-    .navlinks {
-      flex-direction: column;
-      align-items: center;
-      gap: 0.5rem;
-      margin-top: 1rem;
-    }
-  
-    .logout {
-      padding: 0.3rem;
-      height: 25px;
-      font-size: 0.8rem;
-    }
-  
-    /* CONTENTS */
-    .content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .leftMenuBar {
-      width: 60%;
-      margin-left: 0;
-    }
-    .innerBar {
-      gap: 0.5rem;
-    }
-  
-    /* TABLE STYLING */
-    .tableUsers {
-      margin-top: 1rem;
-      margin-left: 1rem;
-      font-size: 0.9rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    table {
-      font-size: 0.7rem;
-      margin-right: 0.8rem;
-    }
-  
-    .deleteButton {
-      padding: 0.3rem;
-      font-size: 0.8rem;
-    }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .navigation-menu {
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3px;
+    padding: 1rem;
+    justify-content: space-between;
+    border-radius: 10px;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
   }
 
-  /* Media Query for 375px width */
+  .stacklogo p {
+    font-size: 1.5rem;
+  }
+
+  .stackoverflow {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stackoverflow img {
+    width: 30%;
+    max-width: 150px;
+  }
+
+  .search-bar input {
+    max-width: 200px;
+  }
+
+  .logOutButton {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .navlinks {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .logout {
+    padding: 0.3rem;
+    height: 25px;
+    font-size: 0.8rem;
+  }
+
+  /* CONTENTS */
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leftMenuBar {
+    width: 60%;
+    margin-left: 0;
+  }
+  .innerBar {
+    gap: 0.5rem;
+  }
+
+  /* TABLE STYLING */
+  .tableUsers {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  table {
+    font-size: 0.7rem;
+    margin-right: 0.8rem;
+  }
+
+  .deleteButton {
+    padding: 0.3rem;
+    font-size: 0.8rem;
+  }
+}
+
+/* Media Query for 375px width */
 @media (max-width: 375px) {
   .navigation-menu {
     flex-direction: column;
@@ -344,15 +323,13 @@ table {
     gap: 1rem;
   }
 
-
-  .tableUsers{
+  .tableUsers {
     display: flex;
     margin-right: 1rem;
   }
 
-  .tableUsers table{
-    font-size: .7rem;
-
+  .tableUsers table {
+    font-size: 0.7rem;
   }
 
   .profileSection {
@@ -363,6 +340,4 @@ table {
   .error-message {
     font-size: 12px;
   }
-
-
 }

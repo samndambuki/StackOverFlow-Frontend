@@ -1,7 +1,8 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { GetQuestionsState } from 'src/interfaces/getquestions/get-questions.state.';
 
-export const selectGetQuestionsState = createFeatureSelector<GetQuestionsState>('getQuestions');
+export const selectGetQuestionsState =
+  createFeatureSelector<GetQuestionsState>('getQuestions');
 
 export const selectGetQuestions = createSelector(
   selectGetQuestionsState,

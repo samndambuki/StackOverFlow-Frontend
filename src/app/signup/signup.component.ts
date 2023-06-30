@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { Router, RouterModule } from '@angular/router';
-//for validation purposes
 import {
   AbstractControl,
   FormBuilder,
@@ -19,7 +18,7 @@ import { AppState } from 'src/ngrx/app-state';
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, ReactiveFormsModule,RouterModule],
+  imports: [CommonModule, FontAwesomeModule, ReactiveFormsModule, RouterModule],
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
@@ -31,25 +30,29 @@ export class SignupComponent {
   signUpForm: FormGroup;
 
   //injected router into this constructor to handle navigation
-  //injected form builder for creating and managin forms in angular
-  constructor(private router: Router, private formBuilder: FormBuilder,private store:Store<AppState>) {
+  //injected form builder for creating and managing forms in angular
+  constructor(
+    private router: Router,
+    private formBuilder: FormBuilder,
+    private store: Store<AppState>
+  ) {
     // Custom validator function
     function passwordValidator(
       control: AbstractControl
     ): ValidationErrors | null {
       const password = control.value;
       // Check if the password contains at least one letter
-      const hasLetter = /[a-zA-Z]/.test(password); 
+      const hasLetter = /[a-zA-Z]/.test(password);
       // Check if the password contains at least one number
-      const hasNumber = /\d/.test(password); 
+      const hasNumber = /\d/.test(password);
 
       if (password && password.length >= 8 && hasLetter && hasNumber) {
-        return null; // Password is valid
+        return null;
       }
 
-      return { invalidPassword: true }; // Password is invalid
+      return { invalidPassword: true };
     }
-    
+
     this.signUpForm = this.formBuilder.group({
       userName: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
@@ -72,23 +75,16 @@ export class SignupComponent {
 
   onSignUpClicked() {
     if (this.signUpForm.invalid) {
-      // Mark form controls as touched to display validation errors
+      //displays validation errors
       this.markFormGroupTouched(this.signUpForm);
       return;
     }
 
-    const{userName,email,password}  =this.signUpForm.value;
-    this.store.dispatch(signUp({userName,email,password}))
+    const { userName, email, password } = this.signUpForm.value;
+    this.store.dispatch(signUp({ userName, email, password }));
 
     this.router.navigate(['login']);
 
-    // this.router.navigate['login']
-
-    // // Form is valid, perform the submission logic here
-    // const formData = this.signUpForm.value;
-    // console.log(formData); // Replace with your desired logic
-
-    // Reset the form after successful submission
     this.signUpForm.reset();
   }
 

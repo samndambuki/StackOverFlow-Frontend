@@ -7,40 +7,39 @@ import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [CommonModule,FontAwesomeModule,RouterModule],
+  imports: [CommonModule, FontAwesomeModule, RouterModule],
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.css'],
 })
 export class AdminComponent {
   //imported search icon from font awesome module
   searchicon = faSearch;
 
   //injected router to help in navigation
-  constructor(private router:Router){}
+  constructor(private router: Router) {}
 
   //method to handle questions button click event
-  onQuestionButtonClicked(){
-    this.router.navigate(['adminviewallquestions'])
+  onQuestionButtonClicked() {
+    this.router.navigate(['adminviewallquestions']);
   }
 
   //method to handle users button click event
-  onUsersButtonClicked(){
-    this.router.navigate(['adminseesallusers'])
+  onUsersButtonClicked() {
+    this.router.navigate(['adminseesallusers']);
   }
 
   //method to handle home button click event
-  onHomeButtonClciked(){
-    this.router.navigate(['home'])
+  onHomeButtonClciked() {
+    this.router.navigate(['home']);
   }
 
   //method to handle tags button click event
-  onTagsButtonClicked(){
-    this.router.navigate(['tags'])
+  onTagsButtonClicked() {
+    this.router.navigate(['tags']);
   }
 
   //method to handle user profile click event
-  onUserProfileClicked(){
-    this.router.navigate(['userprofile'])
+  onUserProfileClicked() {
+    this.router.navigate(['userprofile']);
   }
-  
 }

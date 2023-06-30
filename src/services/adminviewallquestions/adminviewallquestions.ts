@@ -3,14 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AdminViewAllQuestions } from 'src/interfaces/adminviewallquestions/adminviewallquestions';
 
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AdminViewAllQuestionsService {
-  private questionsURL = 'http://localhost:4000/questions'; 
+  private questionsURL = 'http://localhost:4000/questions';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAllQuestions(): Observable<AdminViewAllQuestions[]> {
     const headers = new HttpHeaders({
@@ -18,7 +17,9 @@ export class AdminViewAllQuestionsService {
       token: this.getToken() || '',
     });
 
-    return this.http.get<AdminViewAllQuestions[]>(this.questionsURL, { headers });
+    return this.http.get<AdminViewAllQuestions[]>(this.questionsURL, {
+      headers,
+    });
   }
 
   deleteQuestion(questionId: string): Observable<any> {
@@ -35,6 +36,4 @@ export class AdminViewAllQuestionsService {
   private getToken(): string | null {
     return localStorage.getItem('token');
   }
-
-  
 }

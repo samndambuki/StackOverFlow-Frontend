@@ -10,54 +10,56 @@ import { TagsService } from 'src/services/tags/tags.service';
 @Component({
   selector: 'app-specific-tags',
   standalone: true,
-  imports: [CommonModule,FontAwesomeModule,RouterLink],
+  imports: [CommonModule, FontAwesomeModule, RouterLink],
   templateUrl: './specific-tags.component.html',
-  styleUrls: ['./specific-tags.component.css']
+  styleUrls: ['./specific-tags.component.css'],
 })
 export class SpecificTagsComponent implements OnInit {
   //imported search cion from font awesome module
-  searchicon = faSearch
+  searchicon = faSearch;
 
   selectedTagId!: string;
-   questions$!: Observable<Question[]>;
+  questions$!: Observable<Question[]>;
 
-
-  constructor(private router:Router,private route: ActivatedRoute,private tagsService: TagsService){}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private tagsService: TagsService
+  ) {}
 
   ngOnInit(): void {
     this.selectedTagId = this.route.snapshot.paramMap.get('tagId')!;
-    console.log(this.selectedTagId)
+    console.log(this.selectedTagId);
     this.questions$ = this.tagsService.getQuestionsByTag(this.selectedTagId);
-    this.tagsService.getQuestionsByTag(this.selectedTagId).subscribe(response=>{
-      console.log(response);
-      
-    })
+    this.tagsService
+      .getQuestionsByTag(this.selectedTagId)
+      .subscribe((response) => {
+        console.log(response);
+      });
   }
 
   //method to handle a specific question clicked
-  onSingleQuestionClicked(){
-    this.router.navigate(['singlequestion'])
+  onSingleQuestionClicked() {
+    this.router.navigate(['singlequestion']);
   }
 
-
-
   //method to handle ask question click event
-  onAskQuestionClicked(){
-    this.router.navigate(['askquestion'])
+  onAskQuestionClicked() {
+    this.router.navigate(['askquestion']);
   }
 
   //method to handle hoeme button click event
-  onHomeButtonClicked(){
-    this.router.navigate(['home'])
+  onHomeButtonClicked() {
+    this.router.navigate(['home']);
   }
 
   //method to handle tags button click event
-  onTagsButtonClicked(){
-    this.router.navigate(['tags'])
+  onTagsButtonClicked() {
+    this.router.navigate(['tags']);
   }
 
   //method to handle my questions button click event
-  onMyQuestionButtonClicked(){
-    this.router.navigate(['myquestions'])
+  onMyQuestionButtonClicked() {
+    this.router.navigate(['myquestions']);
   }
 }

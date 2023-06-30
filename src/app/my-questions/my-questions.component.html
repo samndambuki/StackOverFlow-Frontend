@@ -1,73 +1,69 @@
 <div class="container">
-    <!-- NAVIGATION MENU -->
-    <div class="navigation-menu">
-      <!-- STACK OVERFLOW IMAGE -->
-      <div class="stackoverflow">
-        <div routerLink="/home" class="stacklogo">
-          <img src="../../assets/stackoverflowlogo.png" />
-          <p>Stack<span>Overflow</span></p>
-        </div>
-  
-        <div class="search-bar">
-          <!-- SEARCH BAR ICON -->
-          <fa-icon [icon]="searchicon"></fa-icon>
-          <input type="text" placeholder="Search..." />
-        </div>
+  <!-- NAVIGATION MENU -->
+  <div class="navigation-menu">
+    <!-- STACK OVERFLOW IMAGE -->
+    <div class="stackoverflow">
+      <div routerLink="/home" class="stacklogo">
+        <img src="../../assets/stackoverflowlogo.png" />
+        <p>Stack<span>Overflow</span></p>
       </div>
-  
-      <!-- NAVIGATION LINKS -->
-  
-      <div class="navlinks">
-        <div class="logOut">
-          <button
-            class="logOutButton"
-            routerLink="/landing"
-            routerLinkActive="active"
-          >
-            Log Out
-          </button>
-        </div>
+
+      <div class="search-bar">
+        <!-- SEARCH BAR ICON -->
+        <fa-icon [icon]="searchicon"></fa-icon>
+        <input type="text" placeholder="Search..." />
       </div>
     </div>
-  
+
+    <!-- NAVIGATION LINKS -->
+
+    <div class="navlinks">
+      <div class="logOut">
+        <button
+          class="logOutButton"
+          routerLink="/landing"
+          routerLinkActive="active"
+        >
+          Log Out
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- CONTENT AT THE CENTER -->
 
   <div class="content">
     <!-- LEFT MENU BAR -->
-        <!-- LEFT MENU BAR -->
-        <div class="leftMenuBar">
-          <div class="innerBar">
-            <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
-              Home
-            </h2>
-            <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
-              Tags
-            </h2>
-            <h2
-              class="innerBarButton"
-              routerLink="/myquestions"
-              routerLinkActive="active"
-            >
-              My Questions
-            </h2>
-            <h2
-              class="innerBarButton"
-              routerLink="/userprofile"
-              routerLinkActive="active"
-            >
-              My Profile
-            </h2>
-
-          </div>
-        </div>
+    <div class="leftMenuBar">
+      <div class="innerBar">
+        <h2 class="innerBarButton" routerLink="/home" routerLinkActive="active">
+          Home
+        </h2>
+        <h2 class="innerBarButton" routerLink="/tags" routerLinkActive="active">
+          Tags
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/myquestions"
+          routerLinkActive="active"
+        >
+          My Questions
+        </h2>
+        <h2
+          class="innerBarButton"
+          routerLink="/userprofile"
+          routerLinkActive="active"
+        >
+          My Profile
+        </h2>
+      </div>
+    </div>
 
     <!-- DISPLAY ALL QUESTIONS -->
 
     <div class="allQuestions">
-      
-       <!-- TOP QUESTIONS -->
-       <div class="topQuestions">
+      <!-- TOP QUESTIONS -->
+      <div class="topQuestions">
         <p>Top Questions</p>
         <button
           class="askQuestionButton"
@@ -80,7 +76,6 @@
 
       <!-- FIRST QUESTION -->
       <ng-container *ngIf="questions$ | async as questions">
-
         <div *ngFor="let question of questions" class="question1">
           <div class="question1Content">
             <p>0 Votes</p>
@@ -90,89 +85,29 @@
               <p>{{ question.userName }}</p>
             </div>
           </div>
-  
+
           <div class="linkToQuestion">
-            <h2 routerLink="/singlequestion"  routerLinkActive="active">
+            <h2 routerLink="/singlequestion" routerLinkActive="active">
               {{ question.title }}
             </h2>
             <div class="tags">
-              <p>#{{question.tags}}</p>
+              <p>#{{ question.tags }}</p>
             </div>
           </div>
           <div class="crudButtons">
-            <button class="updateButton" routerLink="/updatequestion">Update</button>
+            <button class="updateButton" routerLink="/updatequestion">
+              Update
+            </button>
             <button class="deleteButton">Delete</button>
           </div>
         </div>
-
       </ng-container>
-    
-    
-
-      <!-- SECOND QUESTION -->
-<!-- 
-      <div class="question2">
-        <div class="question2Content">
-          <p>0 Votes</p>
-          <p>0 Answers</p>
-          <p>3 Views</p>
-
-          <div class="userName">
-            <p>Samuel Ndambuki</p>
-          </div>
-        </div>
-
-        <div class="linkToQuestion">
-          <h2 routerLink="/singlequestion" routerLinkActive="active">
-            Extending custom types with functions in typescript
-          </h2>
-
-          <div class="tags">
-            <p>#JavaScript</p>
-            <p>#reactJs</p>
-          </div>
-        </div>
-        <div class="crudButtons">
-          <button class="updateButton" routerLink="/updatequestion" routerLinkActive="active">Update</button>
-          <button class="deleteButton">Delete</button>
-        </div>
-      </div> -->
-
-      
-
-      <!-- THIRD QUESTION -->
-      <!-- <div class="question3">
-        <div class="question3Content">
-          <p>0 Votes</p>
-          <p>0 Answers</p>
-          <p>3 Views</p>
-          <div class="userName">
-            <p>Samuel Ndambuki</p>
-          </div>
-        </div>
-
-        <div class="linkToQuestion">
-          <h2 routerLink="/singlequestion" routerLinkActive="active">
-            Extending custom types with functions in typescript
-          </h2>
-
-          <div class="tags">
-            <p>#JavaScript</p>
-            <p>#reactJs</p>
-          </div>
-        </div>
-        <div class="crudButtons">
-          <button class="updateButton" routerLink="" routerLinkActive="active">Update</button>
-          <button class="deleteButton" routerLink="" routerLinkActive="active">Delete</button>
-        </div>
-      </div> -->
 
       <div class="pagination">
         <button class="paginationButton1">1</button>
         <button class="paginationButton2">2</button>
         <button class="paginationButton3">3</button>
       </div>
-     
     </div>
   </div>
 </div>

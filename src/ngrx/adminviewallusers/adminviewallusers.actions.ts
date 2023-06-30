@@ -1,7 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { User } from 'src/interfaces/adminviewallusers/user.interface';
 
-
 export const loadUsers = createAction('[Admin View All Users] Load Users');
 
 export const loadUsersSuccess = createAction(
@@ -28,4 +27,3 @@ export const deleteUserFailure = createAction(
   '[Admin View All Users] Delete User Failure',
   props<{ error: any }>()
 );
-

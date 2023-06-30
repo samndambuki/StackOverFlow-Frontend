@@ -6,11 +6,6 @@
   margin-top: 3px;
   padding: 1rem;
   justify-content: space-between;
-
-  /* removed style */
-  /* border-radius: 10px; */
-
-  /* added style */
   border-bottom: 1px solid #d9d9d9;
   padding-right: 3rem;
   padding-left: 3rem;
@@ -26,12 +21,10 @@
   align-items: center;
   gap: 5px;
   width: 80%;
-  /* modified styles */
   padding-right: 5rem;
 }
 
 .stacklogo p {
-  /* modified style */
   font-size: 1.5rem;
 }
 
@@ -40,7 +33,6 @@
 }
 
 .stackoverflow img {
-  /* modified styles */
   max-width: 25px;
   background-color: red;
 }
@@ -55,9 +47,6 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  /* removed styles */
-  /* border: 1px solid black; */
-  /* additional styles */
   border-radius: 20px;
   padding: 0.5rem;
   background-color: #d9d9d9;
@@ -67,7 +56,6 @@
   border: none;
   width: 700px;
   padding: 0.1rem;
-  /* additional styles */
   font-size: 13px;
   background-color: transparent;
   outline: none;
@@ -79,8 +67,6 @@
 
 .signUpButton,
 .loginButton {
-  /* additional styles */
-
   border: 1px solid #0f94fd;
   color: black;
   background-color: white;
@@ -91,8 +77,6 @@
   transition: background-color 0.3s ease;
   border-radius: 20px;
 }
-
-/* additional styles */
 .signUpButton {
   background-color: blue;
   color: white;
@@ -116,13 +100,10 @@
 }
 
 .content {
-  /* removed styles */
-  /* background-color: rgb(35,38,41); */
   color: black;
   height: 400px;
   margin-top: 1rem;
   border-radius: 10px;
-  /* additonal styles */
   padding: 8rem;
 }
 
@@ -135,26 +116,20 @@
 }
 
 .content1 {
-  /* removed styles */
-  /* border: 2px solid rgb(35,38,41); */
   background-color: rgb(253, 227, 205);
   font-size: 2rem;
   padding: 5rem;
   border-radius: 10px;
 
-  /* additional style */
   margin-right: 5rem;
   text-align: center;
 }
 .content2 {
-  /* removed style */
-  /* border: 2px solid rgb(35,38,41); */
   border-radius: 10px;
   background-color: rgb(205, 233, 254);
   font-size: 2rem;
   padding: 5rem;
 
-  /* additonal style */
   margin-left: 5rem;
   text-align: center;
 }
@@ -164,13 +139,10 @@
   justify-content: center;
   align-items: center;
   margin-top: 2rem;
-  /* modified color */
   color: black;
-  /* modified styles */
   font-size: 2rem;
 }
 
-/* modified styles */
 .content3 p {
   margin-top: 1.5rem;
 }
@@ -184,9 +156,6 @@
   background-color: rgb(35, 38, 41);
   margin-top: 0.2rem;
   color: white;
-  /* removed styles */
-  /* display: grid;
-    grid-template-columns: repeat(3,1fr); */
 
   display: flex;
   justify-content: center;
@@ -194,10 +163,6 @@
   height: 180px;
   padding: 1rem;
   color: rgb(248, 249, 249);
-  /* removed style */
-  /* border-radius: 10px; */
-
-  /* added styles */
   padding: 3rem;
 }
 
@@ -216,17 +181,6 @@
   margin-right: 4rem;
   margin-left: 4rem;
 }
-
-/* removed styles */
-/* .socialmedia{
-    display: flex;
-  
-    flex-direction: column;
-    color: #0b7ad6;
-    gap: 1rem;
-    margin-right: 2rem;
-
-} */
 
 /* MEDIA QUERIES */
 /* Media Query for screens with a width of 320px */

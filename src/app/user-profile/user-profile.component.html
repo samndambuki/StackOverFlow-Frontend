@@ -1,6 +1,5 @@
 <div class="container">
-      <!-- NAVIGATION MENU -->
-        <!-- NAVIGATION MENU -->
+  <!-- NAVIGATION MENU -->
   <div class="navigation-menu">
     <!-- STACK OVERFLOW IMAGE -->
     <div class="stackoverflow">
@@ -32,7 +31,6 @@
   </div>
 
   <div class="content">
-
     <!-- LEFT MENU BAR -->
     <div class="leftMenuBar">
       <div class="innerBar">
@@ -58,67 +56,76 @@
         </h2>
       </div>
     </div>
-  <!-- PROFILE SECTION -->
-  <div class="profileSection">
-    <div class="profileinfo">
+    <!-- PROFILE SECTION -->
+    <div class="profileSection">
+      <div class="profileinfo">
         <div class="moreinfo">
-        <p>{{ (userProfile$ | async)?.userName }}</p>
-       <p>{{ (userProfile$ | async)?.email }}</p>
-       
+          <p>{{ (userProfile$ | async)?.userName }}</p>
+          <p>{{ (userProfile$ | async)?.email }}</p>
         </div>
-    </div>  
+      </div>
 
-    <form [formGroup]="profileForm" class="editProfile">
-             
+      <form [formGroup]="profileForm" class="editProfile">
         <label>User Name</label>
-        <input type="text" placeholder="User Name...."  formControlName="userName" [(ngModel)]="profileForm.value.userName">
+        <input
+          type="text"
+          placeholder="User Name...."
+          formControlName="userName"
+          [(ngModel)]="profileForm.value.userName"
+        />
         <!-- DISPLAY NAME VALIDATIONS -->
-        <div *ngIf="profileForm.get('userName')?.invalid && (profileForm.get('userName')?.dirty || profileForm.get('userName')?.touched)" class="error-message">
-          <div *ngIf="profileForm.get('userName')?.hasError('required')">User Name is required.</div>
-          <div *ngIf="profileForm.get('userName')?.hasError('minlength')">User Name should have a minimum length of 3 characters.</div>
-          <div *ngIf="profileForm.get('userName')?.hasError('maxlength')">User Name should have a maximum length of 20 characters.</div>
+        <div
+          *ngIf="
+            profileForm.get('userName')?.invalid &&
+            (profileForm.get('userName')?.dirty ||
+              profileForm.get('userName')?.touched)
+          "
+          class="error-message"
+        >
+          <div *ngIf="profileForm.get('userName')?.hasError('required')">
+            User Name is required.
+          </div>
+          <div *ngIf="profileForm.get('userName')?.hasError('minlength')">
+            User Name should have a minimum length of 3 characters.
+          </div>
+          <div *ngIf="profileForm.get('userName')?.hasError('maxlength')">
+            User Name should have a maximum length of 20 characters.
+          </div>
         </div>
-
-        
 
         <label>Email</label>
-        <input type="text" placeholder="Email..." formControlName="email" [(ngModel)]="profileForm.value.email">
+        <input
+          type="text"
+          placeholder="Email..."
+          formControlName="email"
+          [(ngModel)]="profileForm.value.email"
+        />
 
         <!-- EMAIL VALIDATIONS -->
-        <div *ngIf="profileForm.get('email')?.invalid && (profileForm.get('email')?.dirty || profileForm.get('email')?.touched)" class="error-message">
-          <div *ngIf="profileForm.get('email')?.hasError('required')">Email is required.</div>
-          <div *ngIf="profileForm.get('email')?.hasError('minlength')">Email should have a minimum length of 5 characters.</div>
-          <div *ngIf="profileForm.get('email')?.hasError('maxlength')">Email should have a maximum length of 50 characters.</div>
+        <div
+          *ngIf="
+            profileForm.get('email')?.invalid &&
+            (profileForm.get('email')?.dirty ||
+              profileForm.get('email')?.touched)
+          "
+          class="error-message"
+        >
+          <div *ngIf="profileForm.get('email')?.hasError('required')">
+            Email is required.
+          </div>
+          <div *ngIf="profileForm.get('email')?.hasError('minlength')">
+            Email should have a minimum length of 5 characters.
+          </div>
+          <div *ngIf="profileForm.get('email')?.hasError('maxlength')">
+            Email should have a maximum length of 50 characters.
+          </div>
         </div>
 
-       
-        <!-- <label>Title</label>
-        <input type="text" placeholder="Title..." formControlName="title"> -->
-        <!-- TITLE VALIDATIONS -->
-        <!-- <div *ngIf="profileForm.get('title')?.invalid && (profileForm.get('title')?.dirty || profileForm.get('title')?.touched)" class="error-message">
-          <div *ngIf="profileForm.get('title')?.hasError('required')">Title is required.</div>
-          <div *ngIf="profileForm.get('title')?.hasError('minlength')">Title should have a minimum length of 5 characters.</div>
-          <div *ngIf="profileForm.get('title')?.hasError('maxlength')">Title should have a maximum length of 50 characters.</div>
-        </div> -->
-        
-
-        <!-- <label>About me</label>
-        <input type="text" placeholder="About me..." formControlName="about"> -->
-        
-        <!-- ABOUT ME VALIDATIONS -->
-        <!-- <div *ngIf="profileForm.get('about')?.invalid && (profileForm.get('about')?.dirty || profileForm.get('about')?.touched)" class="error-message">
-          <div *ngIf="profileForm.get('about')?.hasError('required')">About Me is required.</div>
-          <div *ngIf="profileForm.get('about')?.hasError('minlength')">About Me should have a minimum length of 10 characters.</div>
-          <div *ngIf="profileForm.get('about')?.hasError('maxlength')">About Me should have a maximum length of 200 characters.</div>
-        </div> -->
-       
-        <button class="updateProfileButton" (click)="saveProfile()">Update Profile</button>
+        <button class="updateProfileButton" (click)="saveProfile()">
+          Update Profile
+        </button>
         <button class="cancelButton" (click)="cancelEdit()">Cancel</button>
-        
-    </form>
-
+      </form>
+    </div>
   </div>
-  
-  </div>
-  
 </div>

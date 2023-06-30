@@ -1,4 +1,4 @@
-import { GetQuestions } from "./getQuestions.iterface";
+import { GetQuestions } from './getQuestions.iterface';
 
 export interface GetQuestionsState {
   questions: GetQuestions[] | null;

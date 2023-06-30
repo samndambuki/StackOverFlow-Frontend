@@ -35,10 +35,9 @@ export const postAnswerFailure = createAction(
   props<{ error: string }>()
 );
 
-
 export const getAnswersByQuestionId = createAction(
   '[SingleQuestion] Get Answers By Question ID',
-  props<{ questionId: string,answers: getAnswerByQuestionId[] }>()
+  props<{ questionId: string; answers: getAnswerByQuestionId[] }>()
 );
 
 export const getAnswersByQuestionIdSuccess = createAction(
@@ -50,10 +49,3 @@ export const getAnswersByQuestionIdFailure = createAction(
   '[SingleQuestion] Get Answers By Question ID Failure',
   props<{ error: string }>()
 );
-
-
-
-
-
-
-

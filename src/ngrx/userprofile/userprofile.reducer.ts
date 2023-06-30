@@ -36,11 +36,14 @@ export const userProfileReducer = createReducer(
     loading: true,
     error: null,
   })),
-  on(UserProfileActions.updateUserProfileSuccess, (state, { updatedProfile }) => ({
-    ...state,
-    userProfile: updatedProfile,
-    loading: false,
-  })),
+  on(
+    UserProfileActions.updateUserProfileSuccess,
+    (state, { updatedProfile }) => ({
+      ...state,
+      userProfile: updatedProfile,
+      loading: false,
+    })
+  ),
   on(UserProfileActions.updateUserProfileFailure, (state, { error }) => ({
     ...state,
     error,

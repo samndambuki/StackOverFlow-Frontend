@@ -6,11 +6,6 @@
   margin-top: 3px;
   padding: 1rem;
   justify-content: space-between;
-
-  /* removed style */
-  /* border-radius: 10px; */
-
-  /* added style */
   border-bottom: 1px solid #d9d9d9;
   padding-right: 3rem;
   padding-left: 3rem;
@@ -26,12 +21,10 @@
   align-items: center;
   gap: 5px;
   width: 80%;
-  /* modified styles */
   padding-right: 5rem;
 }
 
 .stacklogo p {
-  /* modified style */
   font-size: 1.5rem;
 }
 
@@ -40,7 +33,6 @@
 }
 
 .stackoverflow img {
-  /* modified styles */
   max-width: 25px;
   background-color: red;
 }
@@ -55,9 +47,6 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  /* removed styles */
-  /* border: 1px solid black; */
-  /* additional styles */
   border-radius: 20px;
   padding: 0.5rem;
   background-color: #d9d9d9;
@@ -67,7 +56,6 @@
   border: none;
   width: 700px;
   padding: 0.1rem;
-  /* additional styles */
   font-size: 13px;
   background-color: transparent;
   outline: none;
@@ -78,12 +66,9 @@
 }
 
 .logOutButton {
-  /* additional styles */
-
   border: 1px solid #0f94fd;
   color: black;
   background-color: white;
-
   border-radius: 5px;
   padding: 0.7rem;
   cursor: pointer;
@@ -117,12 +102,10 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  /* border: 1px solid black; */
   border-radius: 5px;
   margin-top: 0.5rem;
   width: 15%;
   background-color: #d9d9d9;
-  /* padding: 2rem; */
   height: 80vh;
 }
 
@@ -131,12 +114,10 @@
   flex-direction: column;
   justify-content: space-evenly;
   margin-left: 2rem;
-  /* gap: 2rem; */
   margin-top: 2rem;
 }
 
 .innerBarButton {
-  /* background-color: #0f94fd; */
   color: black;
   border: none;
   border-radius: 5px;
@@ -155,11 +136,6 @@
   outline: none;
 }
 
-
-
-
-
-/* pasted styles */
 .content {
   display: flex;
 }
@@ -177,7 +153,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* border: 1px solid black; */
   padding: 2rem;
   gap: 1rem;
   border-radius: 5px;
@@ -302,7 +277,6 @@
 
 .tags {
   display: flex;
-  /* gap: 1rem; */
 }
 .tags p {
   color: black;
@@ -333,32 +307,22 @@
   font-size: small;
 }
 
-
-
-
-
-
-/* end of pasted styles */
-
-.updateButton{
-    background-color: rgb(15, 148, 253);
-    color: white;
-    padding: 0.3rem;
-    border: 1px solid transparent;
-    border-radius: 5px;
+.updateButton {
+  background-color: rgb(15, 148, 253);
+  color: white;
+  padding: 0.3rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
 }
 
-.deleteButton{
-    padding: 0.3rem;
-    border: 1px solid transparent;
-    border-radius: 5px;
-    margin-left: .2rem;
-    background-color: red;
-    color: white;
+.deleteButton {
+  padding: 0.3rem;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  margin-left: 0.2rem;
+  background-color: red;
+  color: white;
 }
-
-
-
 
 /* MEDIA QUERIES */
 
@@ -428,8 +392,8 @@
     gap: 1rem;
   }
 
-  .paginationButton3{
-    margin-top: .5rem;
+  .paginationButton3 {
+    margin-top: 0.5rem;
   }
 
   .question1 {
@@ -453,19 +417,17 @@
   .navigation-menu {
     flex-direction: column;
     align-items: center;
-    gap: .5rem;
+    gap: 0.5rem;
   }
 
-  .stackoverflow{
+  .stackoverflow {
     display: flex;
     flex-direction: column;
   }
 
-
   .stackoverflow img {
     width: 30%;
   }
-
 
   .search-bar {
     display: flex;
@@ -477,46 +439,45 @@
     width: 100%;
   }
 
-  
   .logOutButton {
     padding: 0.5rem;
   }
-  
+
   /* STYLES FOR CONTENTS AT THE CENTER OF THE PAGE */
 
-  .content{
+  .content {
     display: flex;
     flex-direction: column;
     gap: 1rem;
   }
-  
+
   .leftMenuBar {
     width: 90%;
     padding: 1rem;
   }
-  
+
   .innerBar {
     gap: 1rem;
   }
-  
+
   .innerBarButton {
     padding: 0.5rem;
   }
-  
+
   .allQuestions {
     margin-left: 0;
     width: 100%;
   }
-  
+
   .topQuestions {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .askQuestion {
     margin-left: 0;
   }
-  
+
   .paginationButton1,
   .paginationButton2,
   .paginationButton3 {
@@ -524,28 +485,28 @@
     margin-left: 0.5rem;
   }
 
-  
   .linkToQuestion {
     margin-left: 0;
   }
 
-  .question1,.question2,.question3{
+  .question1,
+  .question2,
+  .question3 {
     gap: 1rem;
   }
 
   .question1 {
     border-radius: 5px;
   }
-  
-  
+
   .question2 {
     border-radius: 5px;
   }
-  
+
   .linkToQuestion {
     border: 1px solid black;
   }
-  
+
   .question3 {
     border-radius: 5px;
   }

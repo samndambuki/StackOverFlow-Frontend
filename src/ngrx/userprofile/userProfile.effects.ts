@@ -7,20 +7,24 @@ import { UserProfileService } from 'src/services/userprofile/userprofile.service
 
 @Injectable()
 export class UserProfileEffects {
+  constructor(
+    private actions$: Actions,
+    private userProfileService: UserProfileService
+  ) {}
+
   loadUserProfile$ = createEffect(() =>
     this.actions$.pipe(
       ofType(UserProfileActions.loadUserProfile),
       mergeMap(() =>
         this.userProfileService.getUserProfile().pipe(
-          map((userProfile) => UserProfileActions.loadUserProfileSuccess({ userProfile })),
-          catchError((error) => of(UserProfileActions.loadUserProfileFailure({ error })))
+          map((userProfile) =>
+            UserProfileActions.loadUserProfileSuccess({ userProfile })
+          ),
+          catchError((error) =>
+            of(UserProfileActions.loadUserProfileFailure({ error }))
+          )
         )
       )
     )
   );
-
-  constructor(
-    private actions$: Actions,
-    private userProfileService: UserProfileService
-  ) {}
 }

@@ -6,24 +6,23 @@ import { LoginResponse } from 'src/interfaces/authenticate/LoginResponse';
 import { UserAddedResponse } from 'src/interfaces/authenticate/userAddedResponse';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthenticateService {
-  private apiUrl = 'http://localhost:4000/users'; 
+  private apiUrl = 'http://localhost:4000/users';
 
   constructor(private http: HttpClient) {}
 
-
-    loginUser(userAuth: UserAuthentication): Observable<LoginResponse> {
-    //bad request,500 error, sucess, 404, 
-
+  loginUser(userAuth: UserAuthentication): Observable<LoginResponse> {
     const url = `${this.apiUrl}/login`;
     return this.http.post<LoginResponse>(url, userAuth);
   }
 
-  registerUser(userAuth: UserAuthentication): Observable<HttpResponse<UserAddedResponse>> {
+  registerUser(
+    userAuth: UserAuthentication
+  ): Observable<HttpResponse<UserAddedResponse>> {
     const url = `${this.apiUrl}`;
-    console.log(userAuth)
+    console.log(userAuth);
     return this.http.post<HttpResponse<UserAddedResponse>>(url, userAuth);
   }
 

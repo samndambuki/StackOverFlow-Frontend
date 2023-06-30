@@ -1,3 +1,3 @@
 export interface UserAddedResponse {
-    message: string;
-  }
+  message: string;
+}

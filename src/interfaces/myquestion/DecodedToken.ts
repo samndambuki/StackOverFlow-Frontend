@@ -1,3 +1,3 @@
 export interface DecodedToken {
-    userId: string;
-  }
+  userId: string;
+}

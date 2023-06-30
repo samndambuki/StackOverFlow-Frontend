@@ -6,11 +6,6 @@
   margin-top: 3px;
   padding: 1rem;
   justify-content: space-between;
-
-  /* removed style */
-  /* border-radius: 10px; */
-
-  /* added style */
   border-bottom: 1px solid #d9d9d9;
   padding-right: 3rem;
   padding-left: 3rem;
@@ -26,12 +21,10 @@
   align-items: center;
   gap: 5px;
   width: 80%;
-  /* modified styles */
   padding-right: 5rem;
 }
 
 .stacklogo p {
-  /* modified style */
   font-size: 1.5rem;
 }
 
@@ -40,7 +33,6 @@
 }
 
 .stackoverflow img {
-  /* modified styles */
   max-width: 25px;
   background-color: red;
 }
@@ -55,9 +47,6 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  /* removed styles */
-  /* border: 1px solid black; */
-  /* additional styles */
   border-radius: 20px;
   padding: 0.5rem;
   background-color: #d9d9d9;
@@ -67,7 +56,6 @@
   border: none;
   width: 700px;
   padding: 0.1rem;
-  /* additional styles */
   font-size: 13px;
   background-color: transparent;
   outline: none;
@@ -79,39 +67,34 @@
 
 /* LOG IN  CONTAINER STYLES */
 
-.logInContainer{
-  /* remove this style */
-    /* border: 2px solid grey; */
-
-    background-color: #d9d9d9;
-    border-radius: 5px;
-    width: 30%;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 33rem;
-
-    /* additional style */
-    padding: 10px;
-    gap: 2rem;
-    margin-top: 2rem;
+.logInContainer {
+  background-color: #d9d9d9;
+  border-radius: 5px;
+  width: 30%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 33rem;
+  padding: 10px;
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
-.email{
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
+.email {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
-.password{
-    display: flex;
-    flex-direction: column;
-    gap: .3rem;
+.password {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
-input{
+input {
   width: 26rem;
   padding-left: 10px;
   padding-top: 12px;
@@ -121,134 +104,123 @@ input{
   border: none;
 }
 
-
-
-.passwordContent{
-    color: grey;
+.passwordContent {
+  color: grey;
 }
 
-.logInButton{
-  background-color: rgb(0,115,204);
+.logInButton {
+  background-color: rgb(0, 115, 204);
   color: white;
-  /* additional styles */
   padding: 12px;
   width: 26rem;
-
-  
   border: 1px solid transparent;
   border-radius: 5px;
 }
 
 /* LOG IN FOOTER STYLES */
 
-.logInFooter{
-    margin-top: 1rem;
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
+.logInFooter {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
 }
 
-.signUpButton{
+.signUpButton {
   background-color: transparent;
   color: #0b7ad6;
   border: none;
   font-weight: 700;
   cursor: pointer;
-  /* padding: .4rem;
-  border: 1px solid transparent;
-  border-radius: 5px; */
 }
 
-/* ERROR MESSAGES */
 .error-message {
-    color: red;
-    margin-top: 4px;
-  }
-  
-  .error-text {
-    font-size: 14px;
-  }
+  color: red;
+  margin-top: 4px;
+}
+
+.error-text {
+  font-size: 14px;
+}
 
 /* MEDIA QUERIES */
 
 @media (max-width: 320px) {
-    .navigation-menu {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .stacklogo {
-      width: 100%;
-      justify-content: center;
-      text-align: center;
-      gap: 2px;
-    }
-
-    .stackoverflow{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-  
-    .stackoverflow img {
-      width: 30%;
-    }
-  
-    .search-bar {
-        display: flex;
-    }
-  
-    .search-bar input {
-      width: 100%;
-    }
-
-    .landingPageButton{
-        margin-top: .5rem;
-    }
-  
-    .logInContainer {
-      width: 85%;
-      margin-left: .4rem;
-    }
+  .navigation-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
+  .stacklogo {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    gap: 2px;
+  }
 
+  .stackoverflow {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .stackoverflow img {
+    width: 30%;
+  }
+
+  .search-bar {
+    display: flex;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .landingPageButton {
+    margin-top: 0.5rem;
+  }
+
+  .logInContainer {
+    width: 85%;
+    margin-left: 0.4rem;
+  }
+}
 
 @media (max-width: 375px) {
-    /* Adjustments for width up to 375px */
-    .navigation-menu {
-      flex-direction: column;
-      align-items: center;
-      gap: .5rem;
-    }
-  
-    .stackoverflow{
-      display: flex;
-      flex-direction: column;
-    }
-  
-    .stackoverflow img {
-      width: 30%;
-    }
-  
-    .search-bar {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-  
-    .search-bar input {
-      width: 100%;
-    }
-  
-    .logInContainer{
-      display: flex;
-      flex-direction: column;
-      width: 80%;
-      margin-left: 1rem;
-      gap: 1rem;
-    }
+  /* Adjustments for width up to 375px */
+  .navigation-menu {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
+
+  .stackoverflow {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stackoverflow img {
+    width: 30%;
+  }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .search-bar input {
+    width: 100%;
+  }
+
+  .logInContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin-left: 1rem;
+    gap: 1rem;
+  }
+}

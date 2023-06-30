@@ -2,7 +2,9 @@ import { createAction, props } from '@ngrx/store';
 import { GetQuestions } from 'src/interfaces/getquestions/getQuestions.iterface';
 
 // Load Get Questions
-export const loadGetQuestions = createAction('[Get Questions] Load Get Questions');
+export const loadGetQuestions = createAction(
+  '[Get Questions] Load Get Questions'
+);
 
 // Load Get Questions Success
 export const loadGetQuestionsSuccess = createAction(

@@ -1,7 +1,9 @@
 import { createAction, props } from '@ngrx/store';
 import { AdminViewAllQuestions } from 'src/interfaces/adminviewallquestions/adminviewallquestions';
 
-export const loadQuestions = createAction('[Admin View All Questions] Load Questions');
+export const loadQuestions = createAction(
+  '[Admin View All Questions] Load Questions'
+);
 
 export const loadQuestionsSuccess = createAction(
   '[Admin View All Questions] Load Questions Success',

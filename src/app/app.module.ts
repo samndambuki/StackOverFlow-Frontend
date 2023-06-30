@@ -36,9 +36,7 @@ import { singleQuestionReducer } from 'src/ngrx/singleQuestion/singleQuestion.re
 import { SingleQuestionEffects } from 'src/ngrx/singleQuestion/singleQuestion.effects';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     SearchPipe,
     BrowserModule,
@@ -46,12 +44,42 @@ import { SingleQuestionEffects } from 'src/ngrx/singleQuestion/singleQuestion.ef
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({ auth: authReducer,question:questionReducer, getQuestions: getQuestionsReducer, myQuestions:myQuestionsReducer,adminViewAllUsers:adminViewAllUsersReducer,adminViewAllQuestions:adminViewAllQuestionsReducer,tags:tagsReducer,userProfile:userProfileReducer,questions:questionReducer,singleQuestion:singleQuestionReducer }),
-    EffectsModule.forRoot([AuthEffects,QuestionEffects,GetQuestionsEffects,MyQuestionsEffects,AdminViewAllUsersEffects,AdminViewAllQuestionsEffects,TagsEffects,QuestionEffects,UserProfileEffects,SingleQuestionEffects]),
-
+    StoreModule.forRoot({
+      auth: authReducer,
+      question: questionReducer,
+      getQuestions: getQuestionsReducer,
+      myQuestions: myQuestionsReducer,
+      adminViewAllUsers: adminViewAllUsersReducer,
+      adminViewAllQuestions: adminViewAllQuestionsReducer,
+      tags: tagsReducer,
+      userProfile: userProfileReducer,
+      questions: questionReducer,
+      singleQuestion: singleQuestionReducer,
+    }),
+    EffectsModule.forRoot([
+      AuthEffects,
+      QuestionEffects,
+      GetQuestionsEffects,
+      MyQuestionsEffects,
+      AdminViewAllUsersEffects,
+      AdminViewAllQuestionsEffects,
+      TagsEffects,
+      QuestionEffects,
+      UserProfileEffects,
+      SingleQuestionEffects,
+    ]),
   ],
 
-  providers: [QuestionService,AuthenticateService,AuthGuardService,AdminViewAllUsersService,AdminViewAllQuestionsService,TagsService,UserProfileService,SingleQuestionService],
-  bootstrap: [AppComponent]
+  providers: [
+    QuestionService,
+    AuthenticateService,
+    AuthGuardService,
+    AdminViewAllUsersService,
+    AdminViewAllQuestionsService,
+    TagsService,
+    UserProfileService,
+    SingleQuestionService,
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

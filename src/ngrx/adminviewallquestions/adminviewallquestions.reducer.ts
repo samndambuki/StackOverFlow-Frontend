@@ -21,11 +21,14 @@ export const adminViewAllQuestionsReducer = createReducer(
     loading: true,
     error: null,
   })),
-  on(AdminViewAllQuestionsActions.loadQuestionsSuccess, (state, { questions }) => ({
-    ...state,
-    questions,
-    loading: false,
-  })),
+  on(
+    AdminViewAllQuestionsActions.loadQuestionsSuccess,
+    (state, { questions }) => ({
+      ...state,
+      questions,
+      loading: false,
+    })
+  ),
   on(AdminViewAllQuestionsActions.loadQuestionsFailure, (state, { error }) => ({
     ...state,
     error,
@@ -36,14 +39,22 @@ export const adminViewAllQuestionsReducer = createReducer(
     loading: true,
     error: null,
   })),
-  on(AdminViewAllQuestionsActions.deleteQuestionSuccess, (state, { questionId }) => ({
-    ...state,
-    questions: state.questions.filter((question) => question.questionId !== questionId),
-    loading: false,
-  })),
-  on(AdminViewAllQuestionsActions.deleteQuestionFailure, (state, { error }) => ({
-    ...state,
-    error,
-    loading: false,
-  }))
+  on(
+    AdminViewAllQuestionsActions.deleteQuestionSuccess,
+    (state, { questionId }) => ({
+      ...state,
+      questions: state.questions.filter(
+        (question) => question.questionId !== questionId
+      ),
+      loading: false,
+    })
+  ),
+  on(
+    AdminViewAllQuestionsActions.deleteQuestionFailure,
+    (state, { error }) => ({
+      ...state,
+      error,
+      loading: false,
+    })
+  )
 );
