@@ -3,12 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-<<<<<<< HEAD
     "start": "ng serve --port $PORT --host 0.0.0.0",
-=======
-    "start": "npm run ng-build && ng serve --port $PORT --host 0.0.0.0",
-    "build": "ng build",
->>>>>>> 4598e25e1500f3fdc90f9b1fc23640d2c08a3d2b
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
