@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "watch": "ng build --watch --configuration development",
+    "heroku-postbuild": "ng build --prod",
     "test": "ng test"
   },
   "private": true,
